@@ -1,0 +1,6 @@
+framework module Pods_InsiderNotificationContent {
+  umbrella header "Pods-InsiderNotificationContent-umbrella.h"
+
+  export *
+  module * { export * }
+}

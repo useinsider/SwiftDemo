@@ -1,0 +1,25 @@
+PODS:
+  - InsiderGeofence (1.2.0):
+    - InsiderMobile (>= 13.3.2)
+  - InsiderMobile (13.9.0)
+  - InsiderMobileAdvancedNotification (2.1.0)
+
+DEPENDENCIES:
+  - InsiderGeofence
+  - InsiderMobile
+  - InsiderMobileAdvancedNotification
+
+SPEC REPOS:
+  trunk:
+    - InsiderGeofence
+    - InsiderMobile
+    - InsiderMobileAdvancedNotification
+
+SPEC CHECKSUMS:
+  InsiderGeofence: 659a75238a1319126ce9f8af4e9f3f5a1489266c
+  InsiderMobile: 0cc222b017249bcdda1ecbb0172eb04f6c02b889
+  InsiderMobileAdvancedNotification: af961ae6284c5c423402f3393c0b317a1f369ce3
+
+PODFILE CHECKSUM: 3237efb4b32a7585331fafef273c1dbf6dc8290d
+
+COCOAPODS: 1.16.2

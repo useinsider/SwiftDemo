@@ -1,0 +1,14 @@
+//
+//  module.modulemap
+//  InsiderMobileAdvancedNotification
+//
+//  Created by Ercument Erol Olcer on 4.06.2024.
+//  Copyright © 2024 Evren Baykan. All rights reserved.
+//
+
+framework module InsiderMobileAdvancedNotification {
+    umbrella header "InsiderPushNotification.h"
+    header "iCarousel.h"
+    export public
+    module * { export * }
+}
