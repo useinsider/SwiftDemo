@@ -5,8 +5,8 @@
 
   <table align="center">
     <tr>
-      <td><a href="https://useinsider.com/"> Insider </a></td>
-      <td><a href="https://academy.useinsider.com/docs/ios-integration"> InsiderAcademy </a></td>
+      <td><a href="https://useinsider.com/">Insider</a></td>
+      <td><a href="https://academy.useinsider.com/docs/ios-integration">InsiderAcademy</a></td>
     </tr>
   </table>
 </p>  
@@ -15,7 +15,7 @@
 
 This Demo contains simple methods that you can use with the Insider SDK.
 
-Note: You Can see the detailed usage of the methods used with the integration by examining the `AppDelegate.swift`, `ViewController.swift`, and `ViewController+UI` files.
+Note: You can see the detailed usage of the methods used with the integration by examining the `AppDelegate.swift`, `ViewController.swift`, and `ViewController+UI` files.
 
 ## Preview
 
@@ -29,11 +29,9 @@ Note: You Can see the detailed usage of the methods used with the integration by
 
 ## Installation
 
-`pod install` command in the home directory.
-
-Replace partner name and app group value in `AppDelegate.swift` with your info.
-Replace `insider` URL type in main target Info -> URL Types with your partner name. (This step is important to add test device with QR or Email in the panel.)
-Change App Groups for `InsiderNotificationService` and `InsiderNotificationContent` files on targets.
-Open the .xcworkspace file in Xcode.
-Select a valid simulator or connected device.
-Run the project.
+- Run `pod install` command under project's directory at where `Podfile` is located.
+- Double-click `SwiftDemo.xcworkspace`.
+- Update value `INSIDER_PARTNER_NAME` with desired partner name in file `AppDelegate.swift`. 
+- Update value `APP_GROUP` with desired app groups identifier in files `AppDelegate.swift` `NotificationService.swift.swift` and `NotificationViewController.swift`. 
+- You should also update app groups identifier to same value for all targets `SwiftDemo`, `InsiderNotificationService` and `InsiderNotificationContent` through `Signing & Capabilities` tab.
+- Go to `SwiftDemo` target's `Info` tab, expand `URL Types` section and, update the url scheme `insiderpartnername` to a valid value such as `insidermyapp`.
