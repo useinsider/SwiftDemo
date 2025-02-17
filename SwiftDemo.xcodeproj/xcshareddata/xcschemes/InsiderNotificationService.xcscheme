@@ -56,8 +56,12 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.insider.SwiftDemo"
+         RemotePath = "/var/containers/Bundle/Application/1E977323-D4BE-4B72-AC95-0AF2ED2D3E08/SwiftDemo.app">
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84923F1B2D592C3900AF1185"
@@ -65,7 +69,7 @@
             BlueprintName = "SwiftDemo"
             ReferencedContainer = "container:SwiftDemo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

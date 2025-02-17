@@ -11,7 +11,7 @@
 			<string>insider</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>insider_partnername</string>
+				<string>insiderpartnername</string>
 			</array>
 		</dict>
 	</array>
