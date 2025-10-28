@@ -11,7 +11,7 @@
 			<string>insider</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>insiderpartnername</string>
+				<string>insidersalesdemo</string>
 			</array>
 		</dict>
 	</array>
@@ -34,5 +34,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>location</string>
+		<string>processing</string>
+	</array>
 </dict>
 </plist>

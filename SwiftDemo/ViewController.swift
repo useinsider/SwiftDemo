@@ -129,8 +129,8 @@ extension ViewController {
     @objc private func loginTapped() {
         let identifiers = InsiderIdentifiers()
         identifiers
-            .addEmail()("sample@mail.com")?
-            .addPhoneNumber()("+1234567")?
+            .addEmail()("swiftdemo@useinsider.test.com")
+            .addPhoneNumber()("+901234567890")
             .addUserID()("CRM-ID")
         Insider.getCurrentUser().login(identifiers)
         print("\(UIStrings.UserIdentifiers.login) tapped")
@@ -153,7 +153,7 @@ extension ViewController {
     
     @objc private func triggerEventTapped(){
         Insider.tagEvent("eventname")?.build()
-        Insider.tagEvent("eventname")?.addParameterWithInt()("key", 10)?.build()
+        Insider.tagEvent("eventname")?.addParameterWithInt()("key", 10).build()
         let insiderexampleEvent = Insider.tagEvent("eventname")?.addParameterWithInt()("key", 10)
         insiderexampleEvent?.build()
         print("\(UIStrings.Events.trigger) tapped")
@@ -171,6 +171,7 @@ extension ViewController {
         insiderExampleProduct?.setSize()("size")
         insiderExampleProduct?.setSalePrice()(10.5)
         insiderExampleProduct?.setShippingCost()(10.5)
+        insiderExampleProduct?.setUnitPrice()(10.5)
         insiderExampleProduct?.setQuantity()(10)
         insiderExampleProduct?.setStock()(10)
         insiderExampleProduct?.setInStock()(true)
@@ -180,10 +181,10 @@ extension ViewController {
         let date = Date()
         insiderExampleProduct?.setCustomAttributeWithDate()("key", date)
         let arr = ["value1", "value2", "value3"]
-        insiderExampleProduct?.setCustomAttributeWithArray()("key", arr)
+        insiderExampleProduct?.setCustomAttributeWithStringArray()("key", arr)
         print("\(UIStrings.Product.createProduct) tapped")
     }
-    
+
     @objc private func addToCartTapped() {
         Insider.itemAddedToCart(with: insiderExampleProduct)
         print("\(UIStrings.CartEvents.addToCart) tapped")
@@ -342,5 +343,4 @@ extension ViewController {
         Insider.disableInAppMessages()
         print("\(UIStrings.BlockInApps.disableInAppMessages) tapped")
     }
-    
 }

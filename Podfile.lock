@@ -1,8 +1,8 @@
 PODS:
-  - InsiderGeofence (1.2.0):
-    - InsiderMobile (>= 13.3.2)
-  - InsiderMobile (13.9.0)
-  - InsiderMobileAdvancedNotification (2.1.0)
+  - InsiderGeofence (1.2.3):
+    - InsiderMobile (>= 13.12.3)
+  - InsiderMobile (14.0.5)
+  - InsiderMobileAdvancedNotification (2.3.1)
 
 DEPENDENCIES:
   - InsiderGeofence
@@ -16,9 +16,9 @@ SPEC REPOS:
     - InsiderMobileAdvancedNotification
 
 SPEC CHECKSUMS:
-  InsiderGeofence: 659a75238a1319126ce9f8af4e9f3f5a1489266c
-  InsiderMobile: 0cc222b017249bcdda1ecbb0172eb04f6c02b889
-  InsiderMobileAdvancedNotification: af961ae6284c5c423402f3393c0b317a1f369ce3
+  InsiderGeofence: 29fc9d88173029736a4d155612432d450f76addd
+  InsiderMobile: b92e93097680e0fcf2669903c2b5894513b42506
+  InsiderMobileAdvancedNotification: 1b013af7a39f222b00101828eb24eeb4a3d9ecfa
 
 PODFILE CHECKSUM: 17f84df887e552e5ac4db9939531922041437c35
 
