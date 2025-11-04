@@ -23,15 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // The URL scheme of URL Type whose identifier is 'insider' in Info.plist should match with your partner name.
     // For instance, url scheme is 'insideryourpartnername' where 'yourpartnername' is your partner name.
 
-    var insiderCallbackInfo: [String: AnyObject]?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = self
-        Insider.initWithLaunchOptions(launchOptions, partnerName: INSIDER_PARTNER_NAME, appGroup: APP_GROUP)
+
+        Insider.setGDPRConsent(true)
         Insider.setActiveForegroundPushView()
-        Insider.register(withQuietPermission: false)
         Insider.registerCallback(with: #selector(insiderCallbackHandler(info:)), sender: self)
+        Insider.initWithLaunchOptions(launchOptions, partnerName: INSIDER_PARTNER_NAME, appGroup: APP_GROUP, customEndpoint: "https://mob-8.mobile.insidethekube.com")
+        Insider.register(withQuietPermission: false)
         InsiderGeofence.startTracking()
+
         return true
     }
 
@@ -41,49 +42,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
     
-    private func showAlertAction(title: String, message: String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        window?.rootViewController?.present(alert, animated: true)
+    private func printMessage(title: String, message: String) {
+        print("\(title): \(message)")
     }
     
     @objc private func insiderCallbackHandler(info: [String: AnyObject]) {
         guard let typeValue = info["type"] as? Int else { return }
         guard let type = InsiderCallbackType(rawValue: typeValue) else { return }
         let callback = String(describing: info)
-
-        print("Insider callback received: \(callback)")
         switch type {
         case InsiderCallbackType.sessionStarted:
-            showAlertAction(title: "InsiderCallbackTypeSessionStarted", message: callback)
+            printMessage(title: "InsiderCallbackTypeSessionStarted", message: callback)
 
         case InsiderCallbackType.notificationOpen:
-            showAlertAction(title: "InsiderCallbackTypeNotificationOpen", message: callback)
+            printMessage(title: "InsiderCallbackTypeNotificationOpen", message: callback)
 
         case InsiderCallbackType.tempStoreAddedToCart:
-            showAlertAction(title: "InsiderCallbackTypeTempStoreAddedToCart", message: callback)
+            printMessage(title: "InsiderCallbackTypeTempStoreAddedToCart", message: callback)
 
         case InsiderCallbackType.tempStorePurchase:
-            showAlertAction(title: "InsiderCallbackTypeTempStorePurchase", message: callback)
+            printMessage(title: "InsiderCallbackTypeTempStorePurchase", message: callback)
 
         case InsiderCallbackType.tempStoreCustomAction:
-            showAlertAction(title: "InsiderCallbackTypeTempStoreCustomAction", message: callback)
+            printMessage(title: "InsiderCallbackTypeTempStoreCustomAction", message: callback)
 
         case InsiderCallbackType.inAppSeen:
-            showAlertAction(title: "InsiderCallbackTypeInAppSeen", message: callback)
+            printMessage(title: "InsiderCallbackTypeInAppSeen", message: callback)
 
         case InsiderCallbackType.inappButtonClick:
-            showAlertAction(title: "InsiderCallbackTypeInappButtonClick", message: callback)
+            printMessage(title: "InsiderCallbackTypeInappButtonClick", message: callback)
 
         default:
             return
         }
-    }
-
-    private var window: UIWindow? {
-        guard let sceneDelegate = UIApplication.shared.connectedScenes
-            .first(where: { $0.activationState == .foregroundActive })?
-            .delegate as? SceneDelegate else { return nil }
-        return sceneDelegate.window
     }
 }
