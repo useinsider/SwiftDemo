@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         Insider.setGDPRConsent(true)
         Insider.setActiveForegroundPushView()
         Insider.registerCallback(with: #selector(insiderCallbackHandler(info:)), sender: self)
-        Insider.initWithLaunchOptions(launchOptions, partnerName: INSIDER_PARTNER_NAME, appGroup: APP_GROUP, customEndpoint: "https://mob-8.mobile.insidethekube.com")
+        Insider.initWithLaunchOptions(launchOptions, partnerName: INSIDER_PARTNER_NAME, appGroup: APP_GROUP)
         Insider.register(withQuietPermission: false)
         InsiderGeofence.startTracking()
 
