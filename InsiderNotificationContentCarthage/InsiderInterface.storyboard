@@ -10,7 +10,7 @@
         <!--Notification View Controller-->
         <scene sceneID="TW4-3L-2Yf">
             <objects>
-                <viewController id="SiM-Vc-8wp" userLabel="Notification View Controller" customClass="NotificationViewController" customModule="InsiderNotificationContentSPM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SiM-Vc-8wp" userLabel="Notification View Controller" customClass="NotificationViewController" customModule="InsiderNotificationContentCarthage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zSd-Z8-3He"/>
                         <viewControllerLayoutGuide type="bottom" id="Pbd-nE-q3v"/>

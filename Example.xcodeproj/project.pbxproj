@@ -21,7 +21,6 @@
 		981B60062F6970F6000572AD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 981B555A2F681530000572AD /* UserNotifications.framework */; };
 		981B60072F6970F6000572AD /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 981B555C2F681531000572AD /* UserNotificationsUI.framework */; };
 		981B60112F6970F6000572AD /* InsiderNotificationContentCarthage.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 981B60052F6970F6000572AD /* InsiderNotificationContentCarthage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		981B601C2F69774B000572AD /* InsiderInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 981B601A2F6976CA000572AD /* InsiderInterface.storyboard */; };
 		981B601D2F6977D7000572AD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FEF2F696B1E000572AD /* NotificationService.swift */; };
 		981B601E2F6977D7000572AD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FEF2F696B1E000572AD /* NotificationService.swift */; };
 		981B60252F697826000572AD /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FF42F696B1E000572AD /* NotificationViewController.swift */; };
@@ -180,7 +179,6 @@
 		981B5FEF2F696B1E000572AD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		981B5FF42F696B1E000572AD /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		981B60052F6970F6000572AD /* InsiderNotificationContentCarthage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsiderNotificationContentCarthage.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		981B601A2F6976CA000572AD /* InsiderInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = InsiderInterface.storyboard; path = Carthage/Build/InsiderMobileAdvancedNotification.xcframework/InsiderInterface.storyboard; sourceTree = "<group>"; };
 		981B602A2F6979B1000572AD /* InsiderNotificationContentSPM.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsiderNotificationContentSPM.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		982907FF2ECCB1380042EBAB /* InsiderWebView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = InsiderWebView.xcframework; path = Carthage/Build/InsiderWebView.xcframework; sourceTree = "<group>"; };
 		985C7D702EBE24A100FF5A6B /* ExamplePods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplePods.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,15 +267,11 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		981B535B2F6809D4000572AD /* Resources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
 		981B54482F680D3C000572AD /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
@@ -513,7 +507,6 @@
 		C906A9F21AE26835A4867ADF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				981B601A2F6976CA000572AD /* InsiderInterface.storyboard */,
 				982907FF2ECCB1380042EBAB /* InsiderWebView.xcframework */,
 				98AFD8992EC711AE00EDDD32 /* InsiderGeofence.xcframework */,
 				985C7E8A2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework */,
@@ -826,7 +819,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				981B601C2F69774B000572AD /* InsiderInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,9 +905,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-InsiderNotificationServicePods/Pods-InsiderNotificationServicePods-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-InsiderNotificationServicePods/Pods-InsiderNotificationServicePods-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -952,9 +948,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-InsiderNotificationContentPods/Pods-InsiderNotificationContentPods-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-InsiderNotificationContentPods/Pods-InsiderNotificationContentPods-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -991,9 +991,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExamplePods/Pods-ExamplePods-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExamplePods/Pods-ExamplePods-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1008,9 +1012,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExamplePods/Pods-ExamplePods-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ExamplePods/Pods-ExamplePods-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

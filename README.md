@@ -266,6 +266,27 @@ The SDK requires two notification extensions for full push notification support:
 
 Both extensions must share the same **App Group** identifier as the main app target. Refer to the source files for the complete implementation.
 
+The Notification Content Extension's `Info.plist` must include the following entries:
+
+```xml
+<key>NSExtension</key>
+<dict>
+    <key>NSExtensionAttributes</key>
+    <dict>
+        <key>UNNotificationExtensionCategory</key>
+        <string>insider_int_push</string>
+        <key>UNNotificationExtensionDefaultContentHidden</key>
+        <false/>
+        <key>UNNotificationExtensionInitialContentSizeRatio</key>
+        <real>0.5</real>
+    </dict>
+    <key>NSExtensionMainStoryboard</key>
+    <string>InsiderInterface</string>
+    <key>NSExtensionPointIdentifier</key>
+    <string>com.apple.usernotifications.content-extension</string>
+</dict>
+```
+
 ### Notification Content Extension - Storyboard Setup
 
 #### CocoaPods
@@ -286,26 +307,11 @@ After running `pod install`, you need to configure it manually:
 
 > **Important:** Running `pod install` may reset the storyboard to its original state. You may need to re-apply this change after each `pod install`.
 
-The Notification Content Extension's `Info.plist` must include:
+#### Swift Package Manager & Carthage
 
-```xml
-<key>NSExtension</key>
-<dict>
-    <key>NSExtensionAttributes</key>
-    <dict>
-        <key>UNNotificationExtensionCategory</key>
-        <string>insider_int_push</string>
-        <key>UNNotificationExtensionDefaultContentHidden</key>
-        <false/>
-        <key>UNNotificationExtensionInitialContentSizeRatio</key>
-        <real>0.5</real>
-    </dict>
-    <key>NSExtensionMainStoryboard</key>
-    <string>InsiderInterface</string>
-    <key>NSExtensionPointIdentifier</key>
-    <string>com.apple.usernotifications.content-extension</string>
-</dict>
-```
+Unlike CocoaPods, SPM and Carthage do not automatically provide the `InsiderInterface.storyboard` file. You need to create it manually in your Notification Content Extension target.
+
+Copy the `InsiderInterface.storyboard` from this project (e.g. `InsiderNotificationContentSPM/InsiderInterface.storyboard`) into your Notification Content Extension target, then open it in Xcode and check the **Inherit Module From Target** box field in the **Identity Inspector** to match your target name.
 
 ## License
 
