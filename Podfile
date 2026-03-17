@@ -1,19 +1,19 @@
-platform :ios, '13.0'
+install! 'cocoapods',
+  warn_for_unused_master_specs_repo: false
 
+platform :ios, '13.0'
 use_frameworks!
 
-target 'SwiftDemo' do
-  inherit! :search_paths
+target 'ExamplePods' do
   pod 'InsiderMobile'
   pod 'InsiderGeofence'
+  pod 'InsiderWebView'
 end
 
-target 'InsiderNotificationContent' do
-  inherit! :search_paths
-  pod "InsiderMobileAdvancedNotification"
+target 'InsiderNotificationServicePods' do
+  pod 'InsiderMobileAdvancedNotification'
 end
 
-target 'InsiderNotificationService' do
-  inherit! :search_paths
-  pod "InsiderMobileAdvancedNotification"
+target 'InsiderNotificationContentPods' do
+  pod 'InsiderMobileAdvancedNotification'
 end

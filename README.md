@@ -1,37 +1,318 @@
-# Insider Swift Demo
+# Insider iOS SDK Example
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/960512c5-9bcc-43ae-8918-71fd9f63858f" width="300">
+  <img src="https://github.com/user-attachments/assets/47c3c8d8-9d33-40dd-938f-bc276ea7d560" width="400">
+</p>
 
-  <table align="center">
-    <tr>
-      <td><a href="https://useinsider.com/">Insider</a></td>
-      <td><a href="https://academy.useinsider.com/docs/ios-integration">InsiderAcademy</a></td>
-    </tr>
-  </table>
-</p>  
+<p align="center">
+  <a href="https://insiderone.com/">Insider</a> &bull;
+  <a href="https://academy.insiderone.com/docs/ios-integration">Documentation</a> &bull;
+  <a href="LICENSE">MIT License</a>
+</p>
 
-## Description
-
-This Demo contains simple methods that you can use with the Insider SDK.
-
-Note: You can see the detailed usage of the methods used with the integration by examining the `AppDelegate.swift`, `ViewController.swift`, and `ViewController+UI` files.
-
-## Preview
+This project demonstrates how to integrate the [Insider iOS SDK](https://academy.insiderone.com/docs/ios-integration) into a Swift application using **Swift Package Manager**, **CocoaPods**, or **Carthage**. It includes a fully working example with push notification extensions and all major SDK features.
 
 <table align="center">
   <tbody>
     <tr>
-      <td><img src="https://github.com/user-attachments/assets/65fc21b8-3ed7-4e15-96f1-6fdc750f9d95" width="400"></td>
+      <td><video src="https://github.com/user-attachments/assets/ae8e5eb4-084d-46e0-a27c-a1da4a05b376" width="400"></td>
     </tr>
   </tbody>
 </table>
 
-## Installation
+## Requirements
 
-- Run `pod install` command under project's directory at where `Podfile` is located.
-- Double-click `SwiftDemo.xcworkspace`.
-- Update value `INSIDER_PARTNER_NAME` with desired partner name in file `AppDelegate.swift`. 
-- Update value `APP_GROUP` with desired app groups identifier in files `AppDelegate.swift` `NotificationService.swift.swift` and `NotificationViewController.swift`. 
-- You should also update app groups identifier to same value for all targets `SwiftDemo`, `InsiderNotificationService` and `InsiderNotificationContent` through `Signing & Capabilities` tab.
-- Go to `SwiftDemo` target's `Info` tab, expand `URL Types` section and, update the url scheme `insiderpartnername` to a valid value such as `insidermyapp`.
+| Requirement | Minimum |
+|---|---|
+| iOS | 12.0 (SPM) / 13.0 (CocoaPods) |
+| Swift | 5.3+ |
+| Xcode | 14.0+ |
+
+## Project Structure
+
+The project contains three build schemes, one for each dependency manager. All schemes share the same source code located in the `Base/` directory.
+
+```
+Base/
+├── AppDelegate.swift                 # SDK initialization & callbacks
+├── SceneDelegate.swift               # Deep link handling
+├── NotificationService.swift         # Rich push (Service Extension)
+├── NotificationViewController.swift  # Interactive push (Content Extension)
+└── Sources/
+    ├── Actions/                      # SDK feature implementations
+    ├── ViewControllers/              # UI
+    └── ...
+```
+
+| Scheme | Dependency Manager | Workspace |
+|---|---|---|
+| `ExampleSPM` | Swift Package Manager | `Example.xcworkspace` |
+| `ExamplePods` | CocoaPods | `Example.xcworkspace` |
+| `ExampleCarthage` | Carthage | `Example.xcworkspace` |
+
+Each scheme has its own **Notification Service** and **Notification Content** extension targets.
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone git@github.com:useinsider/SwiftDemo.git
+cd SwiftDemo
+```
+
+### 2. Install Dependencies
+
+Choose one of the following methods:
+
+<details>
+<summary><strong>Swift Package Manager</strong></summary>
+
+No extra steps required. Open `Example.xcworkspace` and select the **ExampleSPM** scheme. Xcode resolves packages automatically.
+
+The `Package.swift` in the project root declares all SDK dependencies:
+
+```swift
+// Package.swift
+.binaryTarget(
+    name: "InsiderMobile",
+    url: "https://mobilesdk.useinsider.com/iOS/14.3.1/InsiderMobileIOSFramework.zip",
+    checksum: "419ddfea46ea91a2c670d437ab96e39fdb8a4661082f8193ea717b53eddaf93a"
+),
+.binaryTarget(
+    name: "InsiderGeofence",
+    url: "https://mobilesdk.useinsider.com/iOS/InsiderGeofence/1.2.4/InsiderGeofenceIOSFramework.zip",
+    checksum: "a18057c7b31d3da0280d944618be9971ce991eb33a4ee383dadaa30a36785614"
+),
+.binaryTarget(
+    name: "InsiderMobileAdvancedNotification",
+    url: "https://mobilesdk.useinsider.com/iOSNotification/2.3.1/InsiderMobileAdvancedNotification.zip",
+    checksum: "6f5c8ea5a91259b6722671cc9c84d0e159b900f0baa4297f31a6debf7c6f4feb"
+),
+.binaryTarget(
+    name: "InsiderWebView",
+    url: "https://mobilesdk.useinsider.com/iOSWebView/1.0.0/InsiderWebViewIOSFramework.zip",
+    checksum: "217f67bdef288f7b26e2a22c8ba34f33feb36062065186c0bd707a6f1f7bcfc2"
+)
+```
+
+</details>
+
+<details>
+<summary><strong>CocoaPods</strong></summary>
+
+```bash
+pod install
+```
+
+Open `Example.xcworkspace` and select the **ExamplePods** scheme.
+
+The `Podfile` includes:
+
+```ruby
+platform :ios, '13.0'
+use_frameworks!
+
+target 'ExamplePods' do
+  pod 'InsiderMobile'
+  pod 'InsiderGeofence'
+  pod 'InsiderWebView'
+end
+
+target 'InsiderNotificationServicePods' do
+  pod 'InsiderMobileAdvancedNotification'
+end
+
+target 'InsiderNotificationContentPods' do
+  pod 'InsiderMobileAdvancedNotification'
+end
+```
+
+</details>
+
+<details>
+<summary><strong>Carthage</strong></summary>
+
+```bash
+carthage update --use-xcframeworks
+```
+
+Open `Example.xcworkspace` and select the **ExampleCarthage** scheme.
+
+The `Cartfile` includes:
+
+```
+binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/14.3.1/InsiderMobile.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderGeofence/1.2.4/InsiderGeofence.json"
+binary "InsiderMobileAdvancedNotification.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderWebView/1.0.0/InsiderWebView.json"
+```
+
+After building, link the frameworks from `Carthage/Build/` in your target's **Frameworks, Libraries, and Embedded Content** section.
+
+</details>
+
+### 3. Configure Your App
+
+Before running, update the following values with your own:
+
+1. **Partner Name** in `Base/AppDelegate.swift`:
+
+```swift
+Insider.initWithLaunchOptions(
+    nil,
+    partnerName: "YOUR_PARTNER_NAME",
+    appGroup: "group.com.YOUR_APP_GROUP"
+)
+```
+
+2. **App Group** identifier in all three files:
+   - `Base/AppDelegate.swift`
+   - `Base/NotificationService.swift`
+   - `Base/NotificationViewController.swift`
+
+3. **Signing & Capabilities** for every target (app + both extensions):
+   - Set your development team
+   - Enable **Push Notifications**
+   - Add an **App Groups** capability with the same identifier used above
+   - Enable **Background Modes**: Remote notifications, Location updates, Background processing
+
+4. **URL Scheme**: In target's **Info** tab under **URL Types**, set the scheme to match your partner name (e.g., `insideryourpartnername`).
+
+## SDK Initialization
+
+The SDK is initialized in `AppDelegate.swift`:
+
+```swift
+import InsiderMobile
+import InsiderGeofence
+import InsiderWebView
+
+@main
+public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+
+    public func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+
+        // Register callback handler for SDK events
+        Insider.registerCallback(with: #selector(insiderCallback(_:)), sender: self)
+
+        // Initialize with your partner name and app group
+        Insider.initWithLaunchOptions(nil, partnerName: "YOUR_PARTNER_NAME", appGroup: "group.com.YOUR_APP_GROUP")
+
+        // Show push notifications while app is in foreground
+        Insider.setActiveForegroundPushView()
+
+        return true
+    }
+}
+```
+
+### Deep Link Handling
+
+Deep links are handled in `SceneDelegate.swift`:
+
+```swift
+import InsiderMobile
+
+public final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    public var window: UIWindow?
+
+    public func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let _ = (scene as? UIWindowScene) else { return }
+        for urlContext in connectionOptions.urlContexts {
+            Insider.handle(urlContext.url)
+        }
+    }
+}
+```
+
+### SDK Callback Handler
+
+```swift
+@objc public func insiderCallback(_ dict: [String: Any]) {
+    if let typeAsInt = dict["type"] as? Int,
+       let type = InsiderCallbackType(rawValue: typeAsInt) {
+        switch type {
+        case .notificationOpen:
+            // Handle push notification tap
+            break
+        case .inAppSeen:
+            // Handle in-app message impression
+            break
+        case .inappButtonClick:
+            // Handle in-app button interaction
+            break
+        case .sessionStarted:
+            // Handle session start
+            break
+        case .tempStoreAddedToCart, .tempStorePurchase, .tempStoreCustomAction:
+            // Handle e-commerce events
+            break
+        }
+    }
+}
+```
+
+## Push Notification Extensions
+
+The SDK requires two notification extensions for full push notification support:
+
+- **Notification Service Extension** — Intercepts incoming push notifications to download rich media (images, videos) before display. See `Base/NotificationService.swift`.
+- **Notification Content Extension** — Provides an interactive carousel UI for expanded push notifications. See `Base/NotificationViewController.swift`.
+
+Both extensions must share the same **App Group** identifier as the main app target. Refer to the source files for the complete implementation.
+
+The Notification Content Extension's `Info.plist` must include the following entries:
+
+```xml
+<key>NSExtension</key>
+<dict>
+    <key>NSExtensionAttributes</key>
+    <dict>
+        <key>UNNotificationExtensionCategory</key>
+        <string>insider_int_push</string>
+        <key>UNNotificationExtensionDefaultContentHidden</key>
+        <false/>
+        <key>UNNotificationExtensionInitialContentSizeRatio</key>
+        <real>0.5</real>
+    </dict>
+    <key>NSExtensionMainStoryboard</key>
+    <string>InsiderInterface</string>
+    <key>NSExtensionPointIdentifier</key>
+    <string>com.apple.usernotifications.content-extension</string>
+</dict>
+```
+
+### Notification Content Extension - Storyboard Setup
+
+#### CocoaPods
+
+CocoaPods copies `InsiderInterface.storyboard` from the SDK into your build automatically. However, the storyboard's view controller does not have a **Module** set by default, which means the `NotificationViewController` class will not be resolved at runtime.
+
+After running `pod install`, you need to configure it manually:
+
+1. Open `Pods/InsiderMobileAdvancedNotification/Resources/InsiderInterface.storyboard` in Xcode:
+
+   <img width="292" height="354" alt="Screenshot 2026-03-17 at 17 28 26" src="https://github.com/user-attachments/assets/ca016c1f-0fb2-4403-b67f-bd676eaebff0" />
+
+2. Select the **Notification View Controller** scene.
+3. In the **Identity Inspector**, set:
+   - **Class**: `NotificationViewController`
+   - **Module**: Your Notification Content Extension target name (e.g. `InsiderNotificationContentPods`)
+   - Keep **Inherit Module From Target** unchecked
+
+> **Important:** Running `pod install` may reset the storyboard to its original state. You may need to re-apply this change after each `pod install`.
+
+#### Swift Package Manager & Carthage
+
+Unlike CocoaPods, SPM and Carthage do not automatically provide the `InsiderInterface.storyboard` file. You need to create it manually in your Notification Content Extension target.
+
+Copy the `InsiderInterface.storyboard` from this project (e.g. `InsiderNotificationContentSPM/InsiderInterface.storyboard`) into your Notification Content Extension target, then open it in Xcode and check the **Inherit Module From Target** box field in the **Identity Inspector** to match your target name.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
