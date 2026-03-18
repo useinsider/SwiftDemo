@@ -44,3 +44,10 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 .claude/settings.local.json
+
+# Firebase
+GoogleService-Info.plist
+sa.json
+
+# Build output
+build/
