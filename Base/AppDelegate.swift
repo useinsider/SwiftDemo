@@ -8,32 +8,27 @@
 import InsiderGeofence
 import InsiderMobile
 import InsiderWebView
-
 import UIKit
 import UserNotifications
 
 @main
 public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+    private let appGroup = "group.com.useinsider.swiftdemo"
+
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = self
 
         Insider.registerCallback(with: #selector(insiderCallback(_:)), sender: self)
-        Insider.initWithLaunchOptions(nil, partnerName: "orkunbites", appGroup: "group.com.useinsider.mobile-ios")
-
+        Insider.initWithLaunchOptions(nil, partnerName: "salesdemo", appGroup: appGroup)
         Insider.setActiveForegroundPushView()
-
-#if DEBUG
-UserDefaults.standard.set("1", forKey: "InsiderDebugCheck")
-#endif
-
         return true
     }
 
-    @objc public func insiderCallback(_ dict: [String: Any]) {
-        print("insiderCallback: \(dict)")
+    @objc public func insiderCallback(_ context: [String: Any]) {
+        print(context)
         if
-            let typeAsInt = dict["type"] as? Int,
+            let typeAsInt = context["type"] as? Int,
             let type = InsiderCallbackType(rawValue: typeAsInt) {
             switch type {
             case InsiderCallbackType.notificationOpen:

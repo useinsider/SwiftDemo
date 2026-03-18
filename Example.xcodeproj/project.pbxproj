@@ -1145,7 +1145,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationContentPods/InsiderNotificationContentPods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 276CUFK954;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationContentPods/Info.plist;
@@ -1157,7 +1157,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationContent";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1174,7 +1174,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationContentPods/InsiderNotificationContentPods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 276CUFK954;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationContentPods/Info.plist;
@@ -1186,7 +1186,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationContent";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1202,6 +1202,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationContentCarthage/InsiderNotificationContentCarthage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationContentCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderNotificationContentCarthage;
@@ -1212,7 +1213,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationContent";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1228,6 +1229,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationContentCarthage/InsiderNotificationContentCarthage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationContentCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderNotificationContentCarthage;
@@ -1238,7 +1240,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationContent";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1254,6 +1256,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationContentSPM/InsiderNotificationContentSPM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationContentSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderNotificationContentSPM;
@@ -1264,7 +1267,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationContent";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1280,6 +1283,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationContentSPM/InsiderNotificationContentSPM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationContentSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderNotificationContentSPM;
@@ -1290,7 +1294,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationContent";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1309,7 +1313,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ExamplePods/ExamplePods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 276CUFK954;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExamplePods/Info.plist;
@@ -1330,7 +1334,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1352,7 +1356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ExamplePods/ExamplePods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 276CUFK954;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExamplePods/Info.plist;
@@ -1373,7 +1377,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1525,6 +1529,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ExampleSPM/ExampleSPM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleSPM/Info.plist;
@@ -1542,7 +1547,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1563,6 +1568,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ExampleSPM/ExampleSPM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleSPM/Info.plist;
@@ -1580,7 +1586,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1601,6 +1607,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ExampleCarthage/ExampleCarthage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleCarthage/Info.plist;
@@ -1618,7 +1625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1639,6 +1646,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ExampleCarthage/ExampleCarthage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleCarthage/Info.plist;
@@ -1656,7 +1664,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1675,9 +1683,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationServiceCarthage/InsiderNotificationServiceCarthage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationServiceCarthage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1685,7 +1695,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1705,9 +1715,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationServiceCarthage/InsiderNotificationServiceCarthage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationServiceCarthage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1715,7 +1727,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1736,9 +1748,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationServicePods/InsiderNotificationServicePods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationServicePods/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1746,7 +1760,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1767,9 +1781,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationServicePods/InsiderNotificationServicePods.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationServicePods/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1777,7 +1793,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1797,9 +1813,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationServiceSPM/InsiderNotificationServiceSPM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationServiceSPM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1807,7 +1825,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1827,9 +1845,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = InsiderNotificationServiceSPM/InsiderNotificationServiceSPM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsiderNotificationServiceSPM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1837,7 +1857,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios.InsiderNotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.swiftdemo.InsiderNotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

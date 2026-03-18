@@ -26,7 +26,7 @@ public final class NotificationService: UNNotificationServiceExtension {
     nonisolated(unsafe) private var bestAttemptContent: UNMutableNotificationContent?
 
     /// The App Group identifier used for sharing data between the main app and this extension.
-    private let appGroup = "group.com.useinsider.mobile-ios"
+    private let appGroup = "group.com.useinsider.swiftdemo"
 
     /// Called when a push notification is received, allowing modification of its content before display.
     ///

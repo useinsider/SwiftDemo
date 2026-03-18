@@ -29,7 +29,7 @@ import UserNotificationsUI
     @IBOutlet public var carousel: iCarousel!
 
     /// The App Group identifier used for sharing data between the main app and this extension.
-    private let appGroup = "group.com.useinsider.mobile-ios"
+    private let appGroup = "group.com.useinsider.swiftdemo"
 
     /// Returns the view for a specific item in the carousel.
     ///
