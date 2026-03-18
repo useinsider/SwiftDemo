@@ -15,12 +15,13 @@ import UserNotifications
 public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     private let appGroup = "group.com.useinsider.swiftdemo"
+    private let partnerName = "salesdemo"
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = self
 
         Insider.registerCallback(with: #selector(insiderCallback(_:)), sender: self)
-        Insider.initWithLaunchOptions(nil, partnerName: "salesdemo", appGroup: appGroup)
+        Insider.initWithLaunchOptions(nil, partnerName: partnerName, appGroup: appGroup)
         Insider.setActiveForegroundPushView()
         return true
     }
