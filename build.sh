@@ -13,6 +13,9 @@ Optional:
   -o, --output     Output directory for the IPA (default: ./build/<scheme>)
   -m, --method     Export method: release-testing, app-store-connect, enterprise, development (default: release-testing)
   -v, --verbose    Print detailed build information
+  --api-key-path       Path to App Store Connect API key (.p8)
+  --api-key-id         App Store Connect API Key ID
+  --api-key-issuer-id  App Store Connect Issuer ID
 
 Examples:
   $(basename "$0") -s ExamplePods -t ABCDE12345
@@ -32,6 +35,9 @@ TEAM_ID=""
 EXPORT_METHOD="release-testing"
 OUTPUT_DIR=""
 VERBOSE="false"
+API_KEY_PATH=""
+API_KEY_ID=""
+API_KEY_ISSUER_ID=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -40,6 +46,9 @@ while [[ $# -gt 0 ]]; do
     -o|--output) OUTPUT_DIR="$2"; shift 2;;
     -m|--method) EXPORT_METHOD="$2"; shift 2;;
     -v|--verbose) VERBOSE="true"; shift;;
+    --api-key-path) API_KEY_PATH="$2"; shift 2;;
+    --api-key-id) API_KEY_ID="$2"; shift 2;;
+    --api-key-issuer-id) API_KEY_ISSUER_ID="$2"; shift 2;;
     -h|--help) usage; exit 0;;
     *) echo "Error: Unknown argument: $1"; usage; exit 1;;
   esac
@@ -65,6 +74,14 @@ if [[ -z "${OUTPUT_DIR}" ]]; then
   OUTPUT_DIR="${BUILD_DIR}"
 fi
 
+AUTH_ARGS=()
+if [[ -n "${API_KEY_PATH}" && -n "${API_KEY_ID}" && -n "${API_KEY_ISSUER_ID}" ]]; then
+  AUTH_ARGS+=(-authenticationKeyPath "${API_KEY_PATH}")
+  AUTH_ARGS+=(-authenticationKeyID "${API_KEY_ID}")
+  AUTH_ARGS+=(-authenticationKeyIssuerID "${API_KEY_ISSUER_ID}")
+  log "Using App Store Connect API key for authentication"
+fi
+
 rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
 
@@ -84,7 +101,8 @@ xcodebuild archive \
   -configuration Release \
   -destination "generic/platform=iOS" \
   -archivePath "${ARCHIVE_PATH}" \
-  -allowProvisioningUpdates
+  -allowProvisioningUpdates \
+  ${AUTH_ARGS[@]+"${AUTH_ARGS[@]}"}
 
 if [[ ! -d "${ARCHIVE_PATH}" ]]; then
   echo "Error: Archive failed. ${ARCHIVE_PATH} not found."
@@ -120,7 +138,8 @@ xcodebuild -exportArchive \
   -archivePath "${ARCHIVE_PATH}" \
   -exportPath "${OUTPUT_DIR}" \
   -exportOptionsPlist "${EXPORT_OPTIONS_PLIST}" \
-  -allowProvisioningUpdates
+  -allowProvisioningUpdates \
+  ${AUTH_ARGS[@]+"${AUTH_ARGS[@]}"}
 
 if [[ ! -f "${IPA_FILE}" ]]; then
   echo "Error: IPA export failed. ${IPA_FILE} not found."
