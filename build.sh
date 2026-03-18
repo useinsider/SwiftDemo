@@ -16,6 +16,7 @@ Optional:
   --api-key-path       Path to App Store Connect API key (.p8)
   --api-key-id         App Store Connect API Key ID
   --api-key-issuer-id  App Store Connect Issuer ID
+  --keychain           Path to keychain for code signing
 
 Examples:
   $(basename "$0") -s ExamplePods -t ABCDE12345
@@ -38,6 +39,7 @@ VERBOSE="false"
 API_KEY_PATH=""
 API_KEY_ID=""
 API_KEY_ISSUER_ID=""
+KEYCHAIN=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -49,6 +51,7 @@ while [[ $# -gt 0 ]]; do
     --api-key-path) API_KEY_PATH="$2"; shift 2;;
     --api-key-id) API_KEY_ID="$2"; shift 2;;
     --api-key-issuer-id) API_KEY_ISSUER_ID="$2"; shift 2;;
+    --keychain) KEYCHAIN="$2"; shift 2;;
     -h|--help) usage; exit 0;;
     *) echo "Error: Unknown argument: $1"; usage; exit 1;;
   esac
@@ -82,6 +85,12 @@ if [[ -n "${API_KEY_PATH}" && -n "${API_KEY_ID}" && -n "${API_KEY_ISSUER_ID}" ]]
   log "Using App Store Connect API key for authentication"
 fi
 
+KEYCHAIN_ARGS=()
+if [[ -n "${KEYCHAIN}" ]]; then
+  KEYCHAIN_ARGS+=(OTHER_CODE_SIGN_FLAGS="--keychain ${KEYCHAIN}")
+  log "Using keychain: ${KEYCHAIN}"
+fi
+
 rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
 
@@ -102,7 +111,8 @@ xcodebuild archive \
   -destination "generic/platform=iOS" \
   -archivePath "${ARCHIVE_PATH}" \
   -allowProvisioningUpdates \
-  ${AUTH_ARGS[@]+"${AUTH_ARGS[@]}"}
+  ${AUTH_ARGS[@]+"${AUTH_ARGS[@]}"} \
+  ${KEYCHAIN_ARGS[@]+"${KEYCHAIN_ARGS[@]}"}
 
 if [[ ! -d "${ARCHIVE_PATH}" ]]; then
   echo "Error: Archive failed. ${ARCHIVE_PATH} not found."
@@ -139,7 +149,8 @@ xcodebuild -exportArchive \
   -exportPath "${OUTPUT_DIR}" \
   -exportOptionsPlist "${EXPORT_OPTIONS_PLIST}" \
   -allowProvisioningUpdates \
-  ${AUTH_ARGS[@]+"${AUTH_ARGS[@]}"}
+  ${AUTH_ARGS[@]+"${AUTH_ARGS[@]}"} \
+  ${KEYCHAIN_ARGS[@]+"${KEYCHAIN_ARGS[@]}"}
 
 if [[ ! -f "${IPA_FILE}" ]]; then
   echo "Error: IPA export failed. ${IPA_FILE} not found."
