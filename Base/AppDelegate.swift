@@ -15,7 +15,7 @@ import UserNotifications
 public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     private let appGroup = "group.com.useinsider.mobile-ios"
-    private let partnerName = "salesdemo"
+    private let partnerName = "partnername"
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = self
@@ -32,7 +32,7 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
             let typeAsInt = context["type"] as? Int,
             let type = InsiderCallbackType(rawValue: typeAsInt) {
             switch type {
-            case InsiderCallbackType.notificationOpen:
+            case .notificationOpen:
                 break
             case .inAppSeen:
                 break
@@ -40,7 +40,11 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
                 break
             case .sessionStarted:
                 break
-            case .tempStoreAddedToCart, .tempStorePurchase, .tempStoreCustomAction:
+            case .tempStoreAddedToCart:
+                break
+            case .tempStorePurchase:
+                break
+            case .tempStoreCustomAction:
                 break
             }
         }

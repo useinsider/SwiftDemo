@@ -13,7 +13,7 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>insidersalesdemo</string>
+				<string>insiderpartnername</string>
 			</array>
 		</dict>
 	</array>
