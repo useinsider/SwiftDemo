@@ -447,11 +447,11 @@
 				985C7DBD2EBE252400FF5A6B /* ExampleSPM */,
 				985C7D722EBE24A100FF5A6B /* ExamplePods */,
 				985C7E7E2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage */,
-				985C7EEC2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */,
 				985C7EDC2EBE321600FF5A6B /* InsiderNotificationServicePods */,
+				985C7EEC2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */,
 				981B60082F6970F6000572AD /* InsiderNotificationContentCarthage */,
-				981B602D2F6979B1000572AD /* InsiderNotificationContentSPM */,
 				981B55732F681567000572AD /* InsiderNotificationContentPods */,
+				981B602D2F6979B1000572AD /* InsiderNotificationContentSPM */,
 				985C7D712EBE24A100FF5A6B /* Products */,
 				AA54B0EB10A7C6A19D3B2045 /* Pods */,
 				C906A9F21AE26835A4867ADF /* Frameworks */,
@@ -795,14 +795,14 @@
 			projectRoot = "";
 			targets = (
 				985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */,
-				985C7DBB2EBE252400FF5A6B /* ExampleSPM */,
 				985C7D6F2EBE24A100FF5A6B /* ExamplePods */,
+				985C7DBB2EBE252400FF5A6B /* ExampleSPM */,
 				985C7E7C2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage */,
-				985C7EEA2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */,
 				985C7EDA2EBE321600FF5A6B /* InsiderNotificationServicePods */,
+				985C7EEA2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */,
 				981B60042F6970F6000572AD /* InsiderNotificationContentCarthage */,
-				981B60292F6979B1000572AD /* InsiderNotificationContentSPM */,
 				981B556F2F681567000572AD /* InsiderNotificationContentPods */,
+				981B60292F6979B1000572AD /* InsiderNotificationContentSPM */,
 			);
 		};
 /* End PBXProject section */
