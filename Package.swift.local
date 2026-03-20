@@ -1,0 +1,55 @@
+// swift-tools-version:5.3
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+    name: "Insider",
+    platforms: [
+        .iOS(.v12)
+    ],
+    products: [
+        .library(
+            name: "InsiderMobile",
+            targets: ["InsiderMobile"]),
+        .library(
+            name: "InsiderGeofence",
+            targets: ["InsiderGeofence"]),
+        .library(
+            name: "InsiderMobileAdvancedNotification",
+            targets: ["InsiderMobileAdvancedNotification"]),
+        .library(
+            name: "InsiderWebView",
+            targets: ["InsiderWebView", "InsiderMobile"]),
+    ],
+    targets: [
+        .binaryTarget(
+            name: "InsiderMobile",
+            url: "file://${SDK_BUILD_DIR}/InsiderMobile/outputs/InsiderMobileIOSFramework.zip",
+            checksum: "${CHECKSUM_MOBILE}"
+        ),
+        .binaryTarget(
+            name: "InsiderGeofence",
+            url: "file://${SDK_BUILD_DIR}/InsiderGeofence/outputs/InsiderGeofenceIOSFramework.zip",
+            checksum: "${CHECKSUM_GEOFENCE}"
+        ),
+        .binaryTarget(
+            name: "InsiderMobileAdvancedNotification",
+            url: "https://mobilesdk.useinsider.com/iOSNotification/2.3.1/InsiderMobileAdvancedNotification.zip",
+            checksum: "6f5c8ea5a91259b6722671cc9c84d0e159b900f0baa4297f31a6debf7c6f4feb"
+        ),
+        .target(
+            name: "InsiderNotificationContent",
+            dependencies: ["InsiderMobileAdvancedNotification"],
+            path: "./",
+            resources: [
+                .process("InsiderInterface.storyboard")
+            ]
+        ),
+        .binaryTarget(
+            name: "InsiderWebView",
+            url: "file://${SDK_BUILD_DIR}/InsiderWebView/outputs/InsiderWebViewIOSFramework.zip",
+            checksum: "${CHECKSUM_WEBVIEW}"
+        ),
+    ]
+)
