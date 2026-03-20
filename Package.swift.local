@@ -25,13 +25,11 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "InsiderMobile",
-            url: "file://${SDK_BUILD_DIR}/InsiderMobile/outputs/InsiderMobileIOSFramework.zip",
-            checksum: "${CHECKSUM_MOBILE}"
+            path: "${SDK_BUILD_DIR}/InsiderMobile/outputs/InsiderMobileIOSFramework.zip"
         ),
         .binaryTarget(
             name: "InsiderGeofence",
-            url: "file://${SDK_BUILD_DIR}/InsiderGeofence/outputs/InsiderGeofenceIOSFramework.zip",
-            checksum: "${CHECKSUM_GEOFENCE}"
+            path: "${SDK_BUILD_DIR}/InsiderGeofence/outputs/InsiderGeofenceIOSFramework.zip"
         ),
         .binaryTarget(
             name: "InsiderMobileAdvancedNotification",
@@ -48,8 +46,7 @@ let package = Package(
         ),
         .binaryTarget(
             name: "InsiderWebView",
-            url: "file://${SDK_BUILD_DIR}/InsiderWebView/outputs/InsiderWebViewIOSFramework.zip",
-            checksum: "${CHECKSUM_WEBVIEW}"
+            path: "${SDK_BUILD_DIR}/InsiderWebView/outputs/InsiderWebViewIOSFramework.zip"
         ),
     ]
 )
