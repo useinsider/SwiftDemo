@@ -10,6 +10,7 @@ xcuserdata/
 # Swift Package Manager
 .build/
 .swiftpm/
+Example.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
 # CocoaPods
 Pods/
