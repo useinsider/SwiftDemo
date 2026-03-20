@@ -6,19 +6,23 @@ DerivedData/
 *.xccheckout
 xcuserdata/
 
+
 # Swift Package Manager
 .build/
-.swiftpm/xcode/package.xcworkspace/xcuserdata
-.swiftpm/xcode/xcuserdata
+.swiftpm/
 
 # CocoaPods
 Pods/
 !Podfile
-!Podfile.lock
+!Podfile.local
+Podfile.lock
 
 # Carthage
 Carthage/Build/
 Carthage/Checkouts/
+!Cartfile
+!Cartfile.local
+Cartfile.resolved
 
 # macOS
 .DS_Store
