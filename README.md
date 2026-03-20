@@ -70,6 +70,10 @@ Choose one of the following methods:
 
 No extra steps required. Open `Example.xcworkspace` and select the **ExampleSPM** scheme. Xcode resolves packages automatically.
 
+> **Important:** When adding the **Insider-iOS-SDK** package, you must add **all SDKs** (including `InsiderMobileAdvancedNotification`) to the **main app target** (e.g. `ExampleSPM`), not to the service or content extension targets.
+>
+> <img width="600" src="https://github.com/user-attachments/assets/25df038d-cbed-4169-8d4d-134b558ddded" />
+
 The `Package.swift` in the project root declares all SDK dependencies:
 
 ```swift
@@ -303,7 +307,7 @@ After running `pod install`, you need to configure it manually:
 
 1. Open `Pods/InsiderMobileAdvancedNotification/Resources/InsiderInterface.storyboard` in Xcode:
 
-   <img width="292" height="354" alt="Screenshot 2026-03-17 at 17 28 26" src="https://github.com/user-attachments/assets/ca016c1f-0fb2-4403-b67f-bd676eaebff0" />
+   <img width="292" height="354" src="https://github.com/user-attachments/assets/ca016c1f-0fb2-4403-b67f-bd676eaebff0" />
 
 2. Select the **Notification View Controller** scene.
 3. In the **Identity Inspector**, set:
