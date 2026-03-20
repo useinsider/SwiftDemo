@@ -11,6 +11,7 @@ xcuserdata/
 .build/
 .swiftpm/
 Example.xcworkspace/xcshareddata/swiftpm/Package.resolved
+Example.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
 # CocoaPods
 Pods/
