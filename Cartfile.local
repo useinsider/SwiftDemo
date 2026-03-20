@@ -1,0 +1,4 @@
+binary "${SDK_BUILD_DIR}/InsiderWebView/outputs/InsiderWebView.json"
+binary "${SDK_BUILD_DIR}/InsiderGeofence/outputs/InsiderGeofence.json"
+binary "${SDK_BUILD_DIR}/InsiderMobile/outputs/InsiderMobile.json"
+binary "InsiderMobileAdvancedNotification.json"

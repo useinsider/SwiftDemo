@@ -134,7 +134,7 @@ end
 <summary><strong>Carthage</strong></summary>
 
 ```bash
-carthage update --use-xcframeworks
+carthage update --use-xcframeworks --platform iOS
 ```
 
 Open `Example.xcworkspace` and select the **ExampleCarthage** scheme.
@@ -142,10 +142,10 @@ Open `Example.xcworkspace` and select the **ExampleCarthage** scheme.
 The `Cartfile` includes:
 
 ```
-binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/14.3.1/InsiderMobile.json"
-binary "https://mobilesdk.useinsider.com/carthage/InsiderGeofence/1.2.4/InsiderGeofence.json"
-binary "InsiderMobileAdvancedNotification.json"
 binary "https://mobilesdk.useinsider.com/carthage/InsiderWebView/1.0.0/InsiderWebView.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderGeofence/1.2.4/InsiderGeofence.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/14.3.1/InsiderMobile.json"
+binary "InsiderMobileAdvancedNotification.json"
 ```
 
 After building, link the frameworks from `Carthage/Build/` in your target's **Frameworks, Libraries, and Embedded Content** section.
@@ -162,7 +162,7 @@ Before running, update the following values with your own:
 Insider.initWithLaunchOptions(
     nil,
     partnerName: "YOUR_PARTNER_NAME",
-    appGroup: "group.com.YOUR_APP_GROUP"
+    appGroup: "YOUR_APP_GROUP"
 )
 ```
 
@@ -176,6 +176,12 @@ Insider.initWithLaunchOptions(
    - Enable **Push Notifications**
    - Add an **App Groups** capability with the same identifier used above
    - Enable **Background Modes**: Remote notifications, Location updates, Background processing
+
+> **Important:** The App Group identifier must be identical across the main app target and both notification extension targets.
+> 
+> Verify that the `com.apple.security.application-groups` value in each target's `.entitlements` file matches the `appGroup` parameter passed to `Insider.initWithLaunchOptions`. 
+> 
+> A mismatch will prevent the SDK from sharing data between the app and its extensions.
 
 4. **URL Scheme**: In target's **Info** tab under **URL Types**, set the scheme to match your partner name (e.g., `insideryourpartnername`).
 
@@ -201,7 +207,7 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
         Insider.registerCallback(with: #selector(insiderCallback(_:)), sender: self)
 
         // Initialize with your partner name and app group
-        Insider.initWithLaunchOptions(nil, partnerName: "YOUR_PARTNER_NAME", appGroup: "group.com.YOUR_APP_GROUP")
+        Insider.initWithLaunchOptions(nil, partnerName: "YOUR_PARTNER_NAME", appGroup: "YOUR_APP_GROUP")
 
         // Show push notifications while app is in foreground
         Insider.setActiveForegroundPushView()
