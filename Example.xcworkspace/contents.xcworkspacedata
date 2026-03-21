@@ -10,7 +10,4 @@
    <FileRef
       location = "group:Cartfile">
    </FileRef>
-   <FileRef
-      location = "group:Package.swift">
-   </FileRef>
 </Workspace>
