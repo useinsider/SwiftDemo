@@ -4,12 +4,10 @@ install! 'cocoapods',
 platform :ios, '13.0'
 use_frameworks!
 
-SDK_BUILD_DIR = ENV.fetch('SDK_BUILD_DIR')
-
 target 'ExamplePods' do
-  pod 'InsiderMobile', :podspec => "#{SDK_BUILD_DIR}/InsiderMobile/outputs/InsiderMobile.podspec"
-  pod 'InsiderGeofence', :podspec => "#{SDK_BUILD_DIR}/InsiderGeofence/outputs/InsiderGeofence.podspec"
-  pod 'InsiderWebView', :podspec => "#{SDK_BUILD_DIR}/InsiderWebView/outputs/InsiderWebView.podspec"
+  pod 'InsiderMobile', :podspec => "build/InsiderMobile/outputs/InsiderMobile.podspec"
+  pod 'InsiderGeofence', :podspec => "build/InsiderGeofence/outputs/InsiderGeofence.podspec"
+  pod 'InsiderWebView', :podspec => "build/InsiderWebView/outputs/InsiderWebView.podspec"
 end
 
 target 'InsiderNotificationServicePods' do
