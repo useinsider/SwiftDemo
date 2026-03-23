@@ -70,35 +70,22 @@ Choose one of the following methods:
 
 No extra steps required. Open `Example.xcworkspace` and select the **ExampleSPM** scheme. Xcode resolves packages automatically.
 
+If you are integrating the SDK into your own project, add the package in Xcode as follows:
+
+1. Go to **File → Add Package Dependencies...**
+2. Enter the repository URL:
+
+   ```
+   https://github.com/useinsider/Insider-iOS-SDK
+   ```
+
+3. Select your project under **Add to Project** and click **Add Package**.
+
+<img width="600" src="https://github.com/user-attachments/assets/49f47611-dbf6-44e0-8208-4a2097e0e688" />
+
 > **Important:** When adding the **Insider-iOS-SDK** package, you must add **all SDKs** (including `InsiderMobileAdvancedNotification`) to the **main app target** (e.g. `ExampleSPM`), not to the service or content extension targets.
 >
 > <img width="600" src="https://github.com/user-attachments/assets/25df038d-cbed-4169-8d4d-134b558ddded" />
-
-The `Package.swift` in the project root declares all SDK dependencies:
-
-```swift
-// Package.swift
-.binaryTarget(
-    name: "InsiderMobile",
-    url: "https://mobilesdk.useinsider.com/iOS/14.3.1/InsiderMobileIOSFramework.zip",
-    checksum: "419ddfea46ea91a2c670d437ab96e39fdb8a4661082f8193ea717b53eddaf93a"
-),
-.binaryTarget(
-    name: "InsiderGeofence",
-    url: "https://mobilesdk.useinsider.com/iOS/InsiderGeofence/1.2.4/InsiderGeofenceIOSFramework.zip",
-    checksum: "a18057c7b31d3da0280d944618be9971ce991eb33a4ee383dadaa30a36785614"
-),
-.binaryTarget(
-    name: "InsiderMobileAdvancedNotification",
-    url: "https://mobilesdk.useinsider.com/iOSNotification/2.3.1/InsiderMobileAdvancedNotification.zip",
-    checksum: "6f5c8ea5a91259b6722671cc9c84d0e159b900f0baa4297f31a6debf7c6f4feb"
-),
-.binaryTarget(
-    name: "InsiderWebView",
-    url: "https://mobilesdk.useinsider.com/iOSWebView/1.0.0/InsiderWebViewIOSFramework.zip",
-    checksum: "217f67bdef288f7b26e2a22c8ba34f33feb36062065186c0bd707a6f1f7bcfc2"
-)
-```
 
 </details>
 
