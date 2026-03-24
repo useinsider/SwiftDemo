@@ -12,14 +12,6 @@
 
 This project demonstrates how to integrate the [Insider iOS SDK](https://academy.insiderone.com/docs/ios-integration) into a Swift application using **Swift Package Manager**, **CocoaPods**, or **Carthage**. It includes a fully working example with push notification extensions and all major SDK features.
 
-<table align="center">
-  <tbody>
-    <tr>
-      <td><video src="https://github.com/user-attachments/assets/ae8e5eb4-084d-46e0-a27c-a1da4a05b376" width="400"></td>
-    </tr>
-  </tbody>
-</table>
-
 ## Requirements
 
 | Requirement | Minimum |
