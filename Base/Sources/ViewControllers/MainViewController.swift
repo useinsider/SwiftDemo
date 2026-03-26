@@ -85,7 +85,8 @@ public final class MainViewController: UIViewController {
     private let coreActions: [AnyAction] = [
         AnyAction(GetInsiderIDAction()),
         AnyAction(RegisterWithQuietPermissionAction()),
-        AnyAction(StartTrackingGeofenceAction())
+        AnyAction(StartTrackingGeofenceAction()),
+        AnyAction(AppCardsAction())
     ]
 
     private let consentActions: [AnyAction] = [
