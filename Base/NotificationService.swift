@@ -43,20 +43,27 @@ public final class NotificationService: UNNotificationServiceExtension {
         guard
             let bestAttemptContent = request.content.mutableCopy() as? UNMutableNotificationContent
         else { return }
-        InsiderPushNotification.showInsiderRichPush(
-            bestAttemptContent,
-            appGroup: appGroup,
-            nextButtonText: "Next",
-            goToAppText: "Go to App",
-            success: { attachment in
-                if let attachment {
-                    bestAttemptContent.attachments = [attachment]
+        defer {
+            self.contentHandler = contentHandler
+            self.bestAttemptContent = bestAttemptContent
+        }
+        if let source = bestAttemptContent.userInfo["source"] as? String,
+           source == "Insider" {
+            InsiderPushNotification.showInsiderRichPush(
+                bestAttemptContent,
+                appGroup: appGroup,
+                nextButtonText: "Next",
+                goToAppText: "Go to App",
+                success: { attachment in
+                    if let attachment {
+                        bestAttemptContent.attachments = [attachment]
+                    }
+                    contentHandler(bestAttemptContent)
                 }
-                contentHandler(bestAttemptContent)
-            }
-        )
-        self.contentHandler = contentHandler
-        self.bestAttemptContent = bestAttemptContent
+            )
+        } else {
+            // Handle other rich push providers in here.
+        }
     }
 
     /// Called just before the extension is terminated by the system due to time expiration.
