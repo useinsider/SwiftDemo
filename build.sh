@@ -13,10 +13,6 @@ Optional:
   -o, --output     Output directory for the IPA (default: ./build/<scheme>)
   -m, --method     Export method: release-testing, app-store-connect, enterprise, development (default: release-testing)
   -v, --verbose    Print detailed build information
-  --api-key-path       Path to App Store Connect API key (.p8)
-  --api-key-id         App Store Connect API Key ID
-  --api-key-issuer-id  App Store Connect Issuer ID
-  --keychain           Path to keychain for code signing
 
 Examples:
   $(basename "$0") -s ExamplePods -t ABCDE12345
@@ -36,10 +32,6 @@ TEAM_ID=""
 EXPORT_METHOD="release-testing"
 OUTPUT_DIR=""
 VERBOSE="false"
-API_KEY_PATH=""
-API_KEY_ID=""
-API_KEY_ISSUER_ID=""
-KEYCHAIN=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -48,10 +40,6 @@ while [[ $# -gt 0 ]]; do
     -o|--output) OUTPUT_DIR="$2"; shift 2;;
     -m|--method) EXPORT_METHOD="$2"; shift 2;;
     -v|--verbose) VERBOSE="true"; shift;;
-    --api-key-path) API_KEY_PATH="$2"; shift 2;;
-    --api-key-id) API_KEY_ID="$2"; shift 2;;
-    --api-key-issuer-id) API_KEY_ISSUER_ID="$2"; shift 2;;
-    --keychain) KEYCHAIN="$2"; shift 2;;
     -h|--help) usage; exit 0;;
     *) echo "Error: Unknown argument: $1"; usage; exit 1;;
   esac
@@ -77,20 +65,6 @@ if [[ -z "${OUTPUT_DIR}" ]]; then
   OUTPUT_DIR="${BUILD_DIR}"
 fi
 
-AUTH_ARGS=()
-if [[ -n "${API_KEY_PATH}" && -n "${API_KEY_ID}" && -n "${API_KEY_ISSUER_ID}" ]]; then
-  AUTH_ARGS+=(-authenticationKeyPath "${API_KEY_PATH}")
-  AUTH_ARGS+=(-authenticationKeyID "${API_KEY_ID}")
-  AUTH_ARGS+=(-authenticationKeyIssuerID "${API_KEY_ISSUER_ID}")
-  log "Using App Store Connect API key for authentication"
-fi
-
-KEYCHAIN_ARGS=()
-if [[ -n "${KEYCHAIN}" ]]; then
-  KEYCHAIN_ARGS+=(OTHER_CODE_SIGN_FLAGS="--keychain ${KEYCHAIN}")
-  log "Using keychain: ${KEYCHAIN}"
-fi
-
 rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
 
@@ -110,9 +84,8 @@ xcodebuild archive \
   -configuration Release \
   -destination "generic/platform=iOS" \
   -archivePath "${ARCHIVE_PATH}" \
-  -allowProvisioningUpdates \
-  ${AUTH_ARGS[@]+"${AUTH_ARGS[@]}"} \
-  ${KEYCHAIN_ARGS[@]+"${KEYCHAIN_ARGS[@]}"}
+  CODE_SIGNING_REQUIRED=NO \
+  CODE_SIGNING_ALLOWED=NO
 
 if [[ ! -d "${ARCHIVE_PATH}" ]]; then
   echo "Error: Archive failed. ${ARCHIVE_PATH} not found."
@@ -131,7 +104,18 @@ cat > "${EXPORT_OPTIONS_PLIST}" <<EOF
     <key>teamID</key>
     <string>${TEAM_ID}</string>
     <key>signingStyle</key>
-    <string>automatic</string>
+    <string>manual</string>
+    <key>signingCertificate</key>
+    <string>iPhone Distribution</string>
+    <key>provisioningProfiles</key>
+    <dict>
+        <key>com.useinsider.mobile-ios</key>
+        <string>Mobile AdHoc</string>
+        <key>com.useinsider.mobile-ios.InsiderNotificationService</key>
+        <string>InsiderNotificationService AdHoc</string>
+        <key>com.useinsider.mobile-ios.InsiderNotificationContent</key>
+        <string>InsiderNotificationContent AdHoc</string>
+    </dict>
     <key>stripSwiftSymbols</key>
     <true/>
     <key>compileBitcode</key>
@@ -147,10 +131,7 @@ log "Exporting: ${IPA_FILE}"
 xcodebuild -exportArchive \
   -archivePath "${ARCHIVE_PATH}" \
   -exportPath "${OUTPUT_DIR}" \
-  -exportOptionsPlist "${EXPORT_OPTIONS_PLIST}" \
-  -allowProvisioningUpdates \
-  ${AUTH_ARGS[@]+"${AUTH_ARGS[@]}"} \
-  ${KEYCHAIN_ARGS[@]+"${KEYCHAIN_ARGS[@]}"}
+  -exportOptionsPlist "${EXPORT_OPTIONS_PLIST}"
 
 if [[ ! -f "${IPA_FILE}" ]]; then
   echo "Error: IPA export failed. ${IPA_FILE} not found."
