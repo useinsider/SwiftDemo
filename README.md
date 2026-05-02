@@ -127,7 +127,7 @@ The `Cartfile` includes:
 ```
 binary "https://mobilesdk.useinsider.com/carthage/InsiderWebView/1.0.0/InsiderWebView.json"
 binary "https://mobilesdk.useinsider.com/carthage/InsiderGeofence/1.2.4/InsiderGeofence.json"
-binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/14.3.1/InsiderMobile.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/15.0.1/InsiderMobile.json"
 binary "InsiderMobileAdvancedNotification.json"
 ```
 
