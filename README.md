@@ -415,9 +415,6 @@ Copy `InsiderWebViewScript.d.ts` into your web app's source tree (e.g. `src/type
 
 ```json
 {
-  "compilerOptions": {
-    "types": []
-  },
   "include": ["src/**/*", "src/types/InsiderWebViewScript.d.ts"]
 }
 ```
@@ -432,7 +429,7 @@ That is enough to make `window.insider` strongly typed everywhere — no `import
 
 #### Use the typed bridge
 
-All calls are checked at compile time — wrong parameter shapes, misspelled event names, or invalid values will fail `tsc` before they ever reach the device.
+All calls are checked at compile time — wrong parameter shapes or types will fail `tsc` before they ever reach the device. Note that event and parameter keys are typed as plain `string`, so they are not constrained at compile time; follow the SDK's naming rules (lowercase, starts with a letter, only `a–z`, `0–9`, `_`).
 
 ```ts
 async function onPurchase() {
