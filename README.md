@@ -399,6 +399,60 @@ if let url = URL(string: "http://localhost:8080/index.html") {
 
 > **Note:** iOS blocks plaintext HTTP traffic by default. To load `http://localhost:...` you must either set `NSAllowsLocalNetworking` (or `NSAllowsArbitraryLoads`) under `NSAppTransportSecurity` in the target's `Info.plist`, or serve `index.html` over HTTPS. When testing on a physical device, replace `localhost` with the host machine's LAN IP and make sure both devices are on the same network.
 
+### Using the SDK from TypeScript
+
+When the page loaded in the WebView is part of a TypeScript codebase, you can get full type-safety and autocompletion for the JavaScript bridge that `Insider.setupWebViewSDK(on:)` injects. The `WebView/Resources/InsiderWebViewScript.d.ts` file in this repository ships the ambient type declarations for that bridge — there is no runtime code in it; it only describes the API that the native SDK exposes at runtime as `window.insider`.
+
+It declares:
+
+- A global `window.insider` of type `Insider` (the bridge entry point).
+- Classes / enums you can construct in TypeScript: `InsiderEvent`, `InsiderProduct`, `InsiderIdentifiers`, `InsiderUser`, `CloseButtonPosition`.
+- Supporting types: `Insider`, `InsiderIDListener`, `InsiderListenerRegistration`, `MessageCenterMessage`, `ParameterMap`.
+
+#### Wire it into your project
+
+Copy `InsiderWebViewScript.d.ts` into your web app's source tree (e.g. `src/types/`) and reference it in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": []
+  },
+  "include": ["src/**/*", "src/types/InsiderWebViewScript.d.ts"]
+}
+```
+
+Alternatively, put a triple-slash reference at the top of your entry file:
+
+```ts
+/// <reference path="./types/InsiderWebViewScript.d.ts" />
+```
+
+That is enough to make `window.insider` strongly typed everywhere — no `import` needed because the file augments the global `Window` interface.
+
+#### Use the typed bridge
+
+All calls are checked at compile time — wrong parameter shapes, misspelled event names, or invalid values will fail `tsc` before they ever reach the device.
+
+```ts
+async function onPurchase() {
+    const product = window.insider
+        .createNewProduct(
+          'prod-123',
+          'Headphones', 
+          ['Audio', 'Headphones'], 
+          'https://cdn.example.com/p/123.jpg',
+          199.99,
+          'USD'
+        )
+        .setBrand('Acme')
+        .setSalePrice(149.99)
+        .setStock(42);
+
+    await window.insider.itemPurchased('sale-789', product, { campaign: 'spring_sale' });
+}
+```
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
