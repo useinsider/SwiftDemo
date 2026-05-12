@@ -5,9 +5,7 @@
 //  Created by Insider on 7.11.2025.
 //
 
-import InsiderGeofence
 import InsiderMobile
-import InsiderWebView
 import UIKit
 import UserNotifications
 

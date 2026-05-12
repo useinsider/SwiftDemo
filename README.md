@@ -1,4 +1,7 @@
-# Insider iOS SDK Example
+# Insider iOS SDKs Example
+
+[![CocoaPods compatible](https://img.shields.io/cocoapods/v/InsiderMobile.svg)](https://cocoapods.org/pods/InsiderMobile) [![Swift Package Manager](https://img.shields.io/github/v/release/useinsider/Insider-iOS-SDK?label=SwiftPM&sort=semver&color=red)](https://github.com/useinsider/Insider-iOS-SDK/releases/latest) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/47c3c8d8-9d33-40dd-938f-bc276ea7d560" width="400">
@@ -22,27 +25,48 @@ This project demonstrates how to integrate the [Insider iOS SDK](https://academy
 
 ## Project Structure
 
-The project contains three build schemes, one for each dependency manager. All schemes share the same source code located in the `Base/` directory.
+The project ships **two flavors** of the example app — one for the classic native SDK (`InsiderMobile` + `InsiderGeofence`), and one for the `InsiderWebView` SDK — each provided as three schemes (SPM, CocoaPods, Carthage). Shared code is split into per-flavor directories that are wired into every target via Xcode's *file-system synchronized groups*.
 
 ```
-Base/
-├── AppDelegate.swift                 # SDK initialization & callbacks
-├── SceneDelegate.swift               # Deep link handling
-├── NotificationService.swift         # Rich push (Service Extension)
-├── NotificationViewController.swift  # Interactive push (Content Extension)
-└── Sources/
-    ├── Actions/                      # SDK feature implementations
-    ├── ViewControllers/              # UI
-    └── ...
+Shared/                              # Used by every app target
+├── Sources/
+│   ├── AppDelegate.swift            # SDK initialization & callbacks
+│   ├── SceneDelegate.swift          # Deep link handling
+│   ├── NotificationService.swift    # Rich push (Service Extension)
+│   └── NotificationViewController.swift  # Interactive push (Content Extension)
+└── Resources/
+    ├── Assets.xcassets
+    └── Base.lproj/LaunchScreen.storyboard
+
+Native/                              # Used by Example{SPM,Pods,Carthage}
+├── Sources/
+│   ├── Actions/                     # SDK feature implementations
+│   ├── ViewControllers/             # UI
+│   ├── Views/, Utilities/, Design/, Additions/
+└── Resources/
+    ├── Colors.xcassets, Images.xcassets
+    └── Fonts/{Figtree,RedHatDisplay}
+
+WebView/                             # Used by ExampleWebView{SPM,Pods,Carthage}
+├── Sources/MainViewController.swift
+└── Resources/{index.html, WebView.storyboard}
+
+Example{SPM,Pods,Carthage}/          # Per-target Info.plist + entitlements
+ExampleWebView{SPM,Pods,Carthage}/   # Per-target Info.plist + entitlements
+InsiderNotificationService{SPM,Pods,Carthage}/
+InsiderNotificationContent{SPM,Pods,Carthage}/
 ```
 
-| Scheme | Dependency Manager | Workspace |
-|---|---|---|
-| `ExampleSPM` | Swift Package Manager | `Example.xcworkspace` |
-| `ExamplePods` | CocoaPods | `Example.xcworkspace` |
-| `ExampleCarthage` | Carthage | `Example.xcworkspace` |
+| Scheme | Dependency Manager | Flavor | SDKs |
+|---|---|---|---|
+| `ExampleSPM` | Swift Package Manager | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification |
+| `ExamplePods` | CocoaPods | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification |
+| `ExampleCarthage` | Carthage | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification |
+| `ExampleWebViewSPM` | Swift Package Manager | WebView | InsiderMobile, InsiderWebView |
+| `ExampleWebViewPods` | CocoaPods | WebView | InsiderMobile, InsiderWebView |
+| `ExampleWebViewCarthage` | Carthage | WebView | InsiderMobile, InsiderWebView |
 
-Each scheme has its own **Notification Service** and **Notification Content** extension targets.
+All targets live in `Example.xcworkspace`. Each native scheme has its own **Notification Service** and **Notification Content** extension targets.
 
 ## Getting Started
 
@@ -99,6 +123,10 @@ use_frameworks!
 target 'ExamplePods' do
   pod 'InsiderMobile'
   pod 'InsiderGeofence'
+end
+
+target 'ExampleWebViewPods' do
+  pod 'InsiderMobile'
   pod 'InsiderWebView'
 end
 
@@ -139,7 +167,7 @@ After building, link the frameworks from `Carthage/Build/` in your target's **Fr
 
 Before running, update the following values with your own:
 
-1. **Partner Name** in `Base/AppDelegate.swift`:
+1. **Partner Name** in `Shared/Sources/AppDelegate.swift`:
 
 ```swift
 Insider.initWithLaunchOptions(
@@ -150,9 +178,9 @@ Insider.initWithLaunchOptions(
 ```
 
 2. **App Group** identifier in all three files:
-   - `Base/AppDelegate.swift`
-   - `Base/NotificationService.swift`
-   - `Base/NotificationViewController.swift`
+   - `Shared/Sources/AppDelegate.swift`
+   - `Shared/Sources/NotificationService.swift`
+   - `Shared/Sources/NotificationViewController.swift`
 
 3. **Signing & Capabilities** for every target (app + both extensions):
    - Set your development team
@@ -174,8 +202,7 @@ The SDK is initialized in `AppDelegate.swift`:
 
 ```swift
 import InsiderMobile
-import InsiderGeofence
-import InsiderWebView
+import UIKit
 
 @main
 public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -206,6 +233,7 @@ Deep links are handled in `SceneDelegate.swift`:
 
 ```swift
 import InsiderMobile
+import UIKit
 
 public final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     public var window: UIWindow?
@@ -250,8 +278,8 @@ public final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 The SDK requires two notification extensions for full push notification support:
 
-- **Notification Service Extension** — Intercepts incoming push notifications to download rich media (images, videos) before display. See `Base/NotificationService.swift`.
-- **Notification Content Extension** — Provides an interactive carousel UI for expanded push notifications. See `Base/NotificationViewController.swift`.
+- **Notification Service Extension** — Intercepts incoming push notifications to download rich media (images, videos) before display. See `Shared/Sources/NotificationService.swift`.
+- **Notification Content Extension** — Provides an interactive carousel UI for expanded push notifications. See `Shared/Sources/NotificationViewController.swift`.
 
 Both extensions must share the same **App Group** identifier as the main app target. Refer to the source files for the complete implementation.
 
@@ -301,6 +329,75 @@ After running `pod install`, you need to configure it manually:
 Unlike CocoaPods, SPM and Carthage do not automatically provide the `InsiderInterface.storyboard` file. You need to create it manually in your Notification Content Extension target.
 
 Copy the `InsiderInterface.storyboard` from this project (e.g. `InsiderNotificationContentSPM/InsiderInterface.storyboard`) into your Notification Content Extension target, then open it in Xcode and check the **Inherit Module From Target** box field in the **Identity Inspector** to match your target name.
+
+## InsiderWebView
+
+The `ExampleWebView{SPM,Pods,Carthage}` schemes demonstrate the `InsiderWebView` SDK. The whole demo lives in `WebView/`:
+
+```
+WebView/
+├── Sources/MainViewController.swift  # Hosts a WKWebView and wires up the SDK
+└── Resources/
+    ├── WebView.storyboard            # @IBOutlet for the WKWebView
+    └── index.html                    # Demo page that talks to the SDK
+```
+
+`MainViewController` hands the `WKWebView` to the SDK via a single call, then loads the demo page:
+
+```swift
+import InsiderMobile
+import InsiderWebView
+import UIKit
+import WebKit
+
+public final class MainViewController: UIViewController {
+
+    @IBOutlet private weak var webView: WKWebView!
+
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        if #available(iOS 16.4, *) {
+            webView.isInspectable = true
+        }
+        Insider.setupWebViewSDK(on: webView)
+
+        // ...load the page (see below)
+    }
+}
+```
+
+The demo ships two ways of feeding `index.html` to the web view — pick whichever fits your workflow.
+
+### Loading the page from the app bundle
+
+The `WebView/Resources` folder is copied into the app bundle at build time, so `index.html` is available via `Bundle.main`:
+
+```swift
+if let htmlPath = Bundle.main.path(forResource: "index", ofType: "html") {
+    let url = URL(fileURLWithPath: htmlPath)
+    webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
+}
+```
+
+This is the default in `MainViewController.viewDidLoad()`. Use it when you want the page to ship with the app and work offline.
+
+### Loading the page from a local HTTP server
+
+While iterating on `index.html`, it is faster to serve the file over HTTP so you can edit and refresh without rebuilding the app. From the repository root, run:
+
+```bash
+python3 -m http.server 8080 --directory WebView/Resources
+```
+
+Then replace the bundle-loading block in `MainViewController.viewDidLoad()` with:
+
+```swift
+if let url = URL(string: "http://localhost:8080/index.html") {
+    webView.load(URLRequest(url: url))
+}
+```
+
+> **Note:** iOS blocks plaintext HTTP traffic by default. To load `http://localhost:...` you must either set `NSAllowsLocalNetworking` (or `NSAllowsArbitraryLoads`) under `NSAppTransportSecurity` in the target's `Info.plist`, or serve `index.html` over HTTPS. When testing on a physical device, replace `localhost` with the host machine's LAN IP and make sure both devices are on the same network.
 
 ## License
 

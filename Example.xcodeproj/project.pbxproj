@@ -8,41 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		0C50B9E3971A309C095E134F /* Pods_InsiderNotificationServicePods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 883262C3818FE2F39786D11C /* Pods_InsiderNotificationServicePods.framework */; };
+		7953C323649D7EE0CC46419D /* Pods_ExampleWebViewPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84929E0BC410DCDAC729FCFF /* Pods_ExampleWebViewPods.framework */; };
 		909C479A8D1475761F44FE39 /* Pods_ExamplePods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E887F14643FBC65BC7B9F37 /* Pods_ExamplePods.framework */; };
-		981B53DE2F680B47000572AD /* Example.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 981B53DD2F680B47000572AD /* Example.xcconfig */; };
+		9802E1AC2FB373CC00D8D81F /* InsiderNotificationContentPods.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 981B55702F681567000572AD /* InsiderNotificationContentPods.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9802E1AD2FB373CC00D8D81F /* InsiderNotificationServicePods.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 985C7EDB2EBE321600FF5A6B /* InsiderNotificationServicePods.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		980385DB2FB3810100632BF4 /* InsiderWebView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 982907FF2ECCB1380042EBAB /* InsiderWebView.xcframework */; };
+		980385DC2FB3810100632BF4 /* InsiderMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E472EBE290A00FF5A6B /* InsiderMobile.xcframework */; };
+		980385E02FB3810100632BF4 /* InsiderNotificationServiceCarthage.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 985C7E7D2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		980385E12FB3810100632BF4 /* InsiderNotificationContentCarthage.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 981B60052F6970F6000572AD /* InsiderNotificationContentCarthage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		980385E42FB3810100632BF4 /* InsiderWebView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 982907FF2ECCB1380042EBAB /* InsiderWebView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		980385E52FB3810100632BF4 /* InsiderMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E472EBE290A00FF5A6B /* InsiderMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		981B55712F681567000572AD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 981B555A2F681530000572AD /* UserNotifications.framework */; };
 		981B55722F681567000572AD /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 981B555C2F681531000572AD /* UserNotificationsUI.framework */; };
 		981B557C2F681567000572AD /* InsiderNotificationContentPods.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 981B55702F681567000572AD /* InsiderNotificationContentPods.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		981B59A72F681958000572AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B59A32F681958000572AD /* AppDelegate.swift */; };
-		981B5BD92F696A1A000572AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B59A32F681958000572AD /* AppDelegate.swift */; };
-		981B5BDA2F696A1A000572AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B59A32F681958000572AD /* AppDelegate.swift */; };
-		981B5FF02F696B1E000572AD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FEF2F696B1E000572AD /* NotificationService.swift */; };
-		981B5FF62F696B1E000572AD /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FF42F696B1E000572AD /* NotificationViewController.swift */; };
 		981B60062F6970F6000572AD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 981B555A2F681530000572AD /* UserNotifications.framework */; };
 		981B60072F6970F6000572AD /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 981B555C2F681531000572AD /* UserNotificationsUI.framework */; };
 		981B60112F6970F6000572AD /* InsiderNotificationContentCarthage.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 981B60052F6970F6000572AD /* InsiderNotificationContentCarthage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		981B601D2F6977D7000572AD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FEF2F696B1E000572AD /* NotificationService.swift */; };
-		981B601E2F6977D7000572AD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FEF2F696B1E000572AD /* NotificationService.swift */; };
-		981B60252F697826000572AD /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FF42F696B1E000572AD /* NotificationViewController.swift */; };
 		981B602B2F6979B1000572AD /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 981B555A2F681530000572AD /* UserNotifications.framework */; };
 		981B602C2F6979B1000572AD /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 981B555C2F681531000572AD /* UserNotificationsUI.framework */; };
 		981B60362F6979B1000572AD /* InsiderNotificationContentSPM.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 981B602A2F6979B1000572AD /* InsiderNotificationContentSPM.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		982635142F697CCE00AC52E9 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981B5FF42F696B1E000572AD /* NotificationViewController.swift */; };
-		982908002ECCB1380042EBAB /* InsiderWebView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 982907FF2ECCB1380042EBAB /* InsiderWebView.xcframework */; };
-		982908012ECCB1380042EBAB /* InsiderWebView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 982907FF2ECCB1380042EBAB /* InsiderWebView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		982908042ECCB35D0042EBAB /* InsiderGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 982908032ECCB35D0042EBAB /* InsiderGeofence */; };
 		982908062ECCB35D0042EBAB /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 982908052ECCB35D0042EBAB /* InsiderMobile */; };
 		982908082ECCB35D0042EBAB /* InsiderMobileAdvancedNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 982908072ECCB35D0042EBAB /* InsiderMobileAdvancedNotification */; };
-		9829080A2ECCB35D0042EBAB /* InsiderWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 982908092ECCB35D0042EBAB /* InsiderWebView */; };
 		985C7DD32EBE254300FF5A6B /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 985C7DD22EBE254300FF5A6B /* InsiderMobile */; };
-		985C7E322EBE26DD00FF5A6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C7E312EBE26DD00FF5A6B /* SceneDelegate.swift */; };
-		985C7E4B2EBE2A5600FF5A6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C7E312EBE26DD00FF5A6B /* SceneDelegate.swift */; };
-		985C7E4C2EBE2A5600FF5A6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C7E312EBE26DD00FF5A6B /* SceneDelegate.swift */; };
 		985C7E842EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 985C7E7D2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		985C7E8B2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E8A2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework */; };
 		985C7E8C2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E8A2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		985C7EE22EBE321600FF5A6B /* InsiderNotificationServicePods.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 985C7EDB2EBE321600FF5A6B /* InsiderNotificationServicePods.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		985C7EF22EBE322B00FF5A6B /* InsiderNotificationServiceSPM.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 985C7EEB2EBE322B00FF5A6B /* InsiderNotificationServiceSPM.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		989E5B452FB3C7A0003FC974 /* InsiderMobileAdvancedNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 989E5B3C2FB3C7A0003FC974 /* InsiderMobileAdvancedNotification */; };
+		989E5B462FB3C7A0003FC974 /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 989E5B3B2FB3C7A0003FC974 /* InsiderMobile */; };
+		989E5B472FB3C7A0003FC974 /* InsiderWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 989E5B3D2FB3C7A0003FC974 /* InsiderWebView */; };
+		989E5B482FB3C7A0003FC974 /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 989E5B402FB3C7A0003FC974 /* InsiderMobile */; };
+		989E5B492FB3C7A0003FC974 /* InsiderMobileAdvancedNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 989E5B412FB3C7A0003FC974 /* InsiderMobileAdvancedNotification */; };
+		989E5B4B2FB3C7A0003FC974 /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 989E5B392FB3C7A0003FC974 /* InsiderMobile */; };
+		989E5B4D2FB3C7A0003FC974 /* InsiderWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 989E5B422FB3C7A0003FC974 /* InsiderWebView */; };
+		989E5B502FB3C7A0003FC974 /* InsiderNotificationServiceSPM.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 985C7EEB2EBE322B00FF5A6B /* InsiderNotificationServiceSPM.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		989E5B512FB3C7A0003FC974 /* InsiderNotificationContentSPM.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 981B602A2F6979B1000572AD /* InsiderNotificationContentSPM.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		989E61C62FB3CA50003FC974 /* InsiderMobileAdvancedNotification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E8A2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework */; };
+		989E61C72FB3CA50003FC974 /* InsiderMobileAdvancedNotification.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E8A2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98AFD8962EC7115F00EDDD32 /* InsiderMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E472EBE290A00FF5A6B /* InsiderMobile.xcframework */; };
 		98AFD8972EC7115F00EDDD32 /* InsiderMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E472EBE290A00FF5A6B /* InsiderMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98AFD89A2EC711AE00EDDD32 /* InsiderGeofence.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98AFD8992EC711AE00EDDD32 /* InsiderGeofence.xcframework */; };
@@ -50,11 +54,38 @@
 		98CEC21F2ED72EEF005E13D9 /* InsiderGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 98CEC21E2ED72EEF005E13D9 /* InsiderGeofence */; };
 		98CEC2212ED72EEF005E13D9 /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 98CEC2202ED72EEF005E13D9 /* InsiderMobile */; };
 		98CEC2232ED72EEF005E13D9 /* InsiderMobileAdvancedNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 98CEC2222ED72EEF005E13D9 /* InsiderMobileAdvancedNotification */; };
-		98CEC2252ED72EEF005E13D9 /* InsiderWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 98CEC2242ED72EEF005E13D9 /* InsiderWebView */; };
 		C02B4BA39913CED5BCB407E1 /* Pods_InsiderNotificationContentPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019C33BE28E141D49A52EEF4 /* Pods_InsiderNotificationContentPods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9802E1A32FB373CC00D8D81F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985C7D682EBE24A100FF5A6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 985C7EDA2EBE321600FF5A6B;
+			remoteInfo = InsiderNotificationService;
+		};
+		9802E1A52FB373CC00D8D81F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985C7D682EBE24A100FF5A6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 981B556F2F681567000572AD;
+			remoteInfo = InsiderNotificationContentPods;
+		};
+		980385D52FB3810100632BF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985C7D682EBE24A100FF5A6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 985C7E7C2EBE2C1F00FF5A6B;
+			remoteInfo = InsiderNotificationServiceCarthage;
+		};
+		980385D72FB3810100632BF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985C7D682EBE24A100FF5A6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 981B60042F6970F6000572AD;
+			remoteInfo = InsiderNotificationContentCarthage;
+		};
 		981B557A2F681567000572AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 985C7D682EBE24A100FF5A6B /* Project object */;
@@ -97,9 +128,59 @@
 			remoteGlobalIDString = 985C7EEA2EBE322B00FF5A6B;
 			remoteInfo = InsiderNotificationServiceSPM;
 		};
+		989E5B362FB3C7A0003FC974 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985C7D682EBE24A100FF5A6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 985C7EEA2EBE322B00FF5A6B;
+			remoteInfo = InsiderNotificationServiceSPM;
+		};
+		989E5B382FB3C7A0003FC974 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985C7D682EBE24A100FF5A6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 981B60292F6979B1000572AD;
+			remoteInfo = InsiderNotificationContentSPM;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		9802E1AB2FB373CC00D8D81F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9802E1AC2FB373CC00D8D81F /* InsiderNotificationContentPods.appex in Embed Foundation Extensions */,
+				9802E1AD2FB373CC00D8D81F /* InsiderNotificationServicePods.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		980385DF2FB3810100632BF4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				980385E02FB3810100632BF4 /* InsiderNotificationServiceCarthage.appex in Embed Foundation Extensions */,
+				980385E12FB3810100632BF4 /* InsiderNotificationContentCarthage.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		980385E22FB3810100632BF4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				980385E42FB3810100632BF4 /* InsiderWebView.xcframework in Embed Frameworks */,
+				980385E52FB3810100632BF4 /* InsiderMobile.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		985C7E5F2EBE2AA000FF5A6B /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,6 +228,29 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		989E5B4F2FB3C7A0003FC974 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				989E5B502FB3C7A0003FC974 /* InsiderNotificationServiceSPM.appex in Embed Foundation Extensions */,
+				989E5B512FB3C7A0003FC974 /* InsiderNotificationContentSPM.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		989E61C82FB3CA50003FC974 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				989E61C72FB3CA50003FC974 /* InsiderMobileAdvancedNotification.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		98AFD8982EC7115F00EDDD32 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,7 +258,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				98AFD89B2EC711AE00EDDD32 /* InsiderGeofence.xcframework in Embed Frameworks */,
-				982908012ECCB1380042EBAB /* InsiderWebView.xcframework in Embed Frameworks */,
 				98AFD8972EC7115F00EDDD32 /* InsiderMobile.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -164,41 +267,120 @@
 
 /* Begin PBXFileReference section */
 		019C33BE28E141D49A52EEF4 /* Pods_InsiderNotificationContentPods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InsiderNotificationContentPods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		05F0B585BFDDE8EBE87277EE /* Pods-ExamplePods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplePods.debug.xcconfig"; path = "Target Support Files/Pods-ExamplePods/Pods-ExamplePods.debug.xcconfig"; sourceTree = "<group>"; };
 		17A4FE454FB113DF5CEE21C9 /* Pods-InsiderNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsiderNotificationService.release.xcconfig"; path = "Target Support Files/Pods-InsiderNotificationService/Pods-InsiderNotificationService.release.xcconfig"; sourceTree = "<group>"; };
 		1B00B13FA56CB466143AB92F /* Pods-InsiderNotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsiderNotificationService.debug.xcconfig"; path = "Target Support Files/Pods-InsiderNotificationService/Pods-InsiderNotificationService.debug.xcconfig"; sourceTree = "<group>"; };
 		206200930317D322BC4FC9DA /* Pods-InsiderNotificationContentPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsiderNotificationContentPods.debug.xcconfig"; path = "Target Support Files/Pods-InsiderNotificationContentPods/Pods-InsiderNotificationContentPods.debug.xcconfig"; sourceTree = "<group>"; };
+		22D6A1734BB167D7B85841E2 /* Pods-ExamplePods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplePods.debug.xcconfig"; path = "Target Support Files/Pods-ExamplePods/Pods-ExamplePods.debug.xcconfig"; sourceTree = "<group>"; };
 		3ABE631F467CA2F3578262B1 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		764CC3C244171AAD48D5458C /* Pods-ExampleWebViewPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleWebViewPods.release.xcconfig"; path = "Target Support Files/Pods-ExampleWebViewPods/Pods-ExampleWebViewPods.release.xcconfig"; sourceTree = "<group>"; };
 		7E20F53DB50E0DBFCB7D8858 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		84929E0BC410DCDAC729FCFF /* Pods_ExampleWebViewPods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleWebViewPods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		870FEA5D798A6B131784B037 /* Pods-ExamplePods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplePods.release.xcconfig"; path = "Target Support Files/Pods-ExamplePods/Pods-ExamplePods.release.xcconfig"; sourceTree = "<group>"; };
 		883262C3818FE2F39786D11C /* Pods_InsiderNotificationServicePods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InsiderNotificationServicePods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		981B53DD2F680B47000572AD /* Example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Example.xcconfig; sourceTree = "<group>"; };
+		9802E1B32FB373CC00D8D81F /* ExampleWebViewPods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleWebViewPods.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		980385E92FB3810100632BF4 /* ExampleWebViewCarthage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleWebViewCarthage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		981B53DD2F680B47000572AD /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		981B555A2F681530000572AD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		981B555C2F681531000572AD /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		981B55702F681567000572AD /* InsiderNotificationContentPods.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsiderNotificationContentPods.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		981B59A32F681958000572AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		981B5FEF2F696B1E000572AD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		981B5FF42F696B1E000572AD /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		981B60052F6970F6000572AD /* InsiderNotificationContentCarthage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsiderNotificationContentCarthage.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		981B602A2F6979B1000572AD /* InsiderNotificationContentSPM.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsiderNotificationContentSPM.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		982907FF2ECCB1380042EBAB /* InsiderWebView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = InsiderWebView.xcframework; path = Carthage/Build/InsiderWebView.xcframework; sourceTree = "<group>"; };
 		985C7D702EBE24A100FF5A6B /* ExamplePods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplePods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985C7DBC2EBE252400FF5A6B /* ExampleSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985C7E2D2EBE26DD00FF5A6B /* ExampleCarthage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleCarthage.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		985C7E312EBE26DD00FF5A6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		985C7E472EBE290A00FF5A6B /* InsiderMobile.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = InsiderMobile.xcframework; path = Carthage/Build/InsiderMobile.xcframework; sourceTree = "<group>"; };
 		985C7E7D2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsiderNotificationServiceCarthage.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		985C7E8A2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = InsiderMobileAdvancedNotification.xcframework; path = Carthage/Build/InsiderMobileAdvancedNotification.xcframework; sourceTree = "<group>"; };
 		985C7EDB2EBE321600FF5A6B /* InsiderNotificationServicePods.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsiderNotificationServicePods.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		985C7EEB2EBE322B00FF5A6B /* InsiderNotificationServiceSPM.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InsiderNotificationServiceSPM.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		989E5B552FB3C7A0003FC974 /* ExampleWebViewSPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleWebViewSPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98AFD8992EC711AE00EDDD32 /* InsiderGeofence.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = InsiderGeofence.xcframework; path = Carthage/Build/InsiderGeofence.xcframework; sourceTree = "<group>"; };
 		99F7896E79339AB2649EFBF7 /* Pods-InsiderNotificationServicePods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsiderNotificationServicePods.release.xcconfig"; path = "Target Support Files/Pods-InsiderNotificationServicePods/Pods-InsiderNotificationServicePods.release.xcconfig"; sourceTree = "<group>"; };
 		9E887F14643FBC65BC7B9F37 /* Pods_ExamplePods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExamplePods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6F0A29F71F160BAD8320DA1 /* Pods-ExampleWebViewPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleWebViewPods.debug.xcconfig"; path = "Target Support Files/Pods-ExampleWebViewPods/Pods-ExampleWebViewPods.debug.xcconfig"; sourceTree = "<group>"; };
 		A942007C1441ACC3D0BBBA79 /* Pods-InsiderNotificationContentPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsiderNotificationContentPods.release.xcconfig"; path = "Target Support Files/Pods-InsiderNotificationContentPods/Pods-InsiderNotificationContentPods.release.xcconfig"; sourceTree = "<group>"; };
 		AF84959C057775F9CBA48DF4 /* Pods-InsiderNotificationServicePods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InsiderNotificationServicePods.debug.xcconfig"; path = "Target Support Files/Pods-InsiderNotificationServicePods/Pods-InsiderNotificationServicePods.debug.xcconfig"; sourceTree = "<group>"; };
-		C15DA79E1FEB71F77A7A2DF6 /* Pods-ExamplePods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExamplePods.release.xcconfig"; path = "Target Support Files/Pods-ExamplePods/Pods-ExamplePods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9802E1942FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationServiceCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+			);
+			target = 985C7E7C2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage */;
+		};
+		9802E1952FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationServicePods" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+			);
+			target = 985C7EDA2EBE321600FF5A6B /* InsiderNotificationServicePods */;
+		};
+		9802E1962FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationServiceSPM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+			);
+			target = 985C7EEA2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */;
+		};
+		9802E1972FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationViewController.swift,
+			);
+			target = 981B60042F6970F6000572AD /* InsiderNotificationContentCarthage */;
+		};
+		9802E1982FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentPods" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationViewController.swift,
+			);
+			target = 981B556F2F681567000572AD /* InsiderNotificationContentPods */;
+		};
+		9802E1992FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentSPM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationViewController.swift,
+			);
+			target = 981B60292F6979B1000572AD /* InsiderNotificationContentSPM */;
+		};
+		9802E1B42FB373CC00D8D81F /* Exceptions for "ExamplePods" folder in "ExampleWebViewPods" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9802E1A12FB373CC00D8D81F /* ExampleWebViewPods */;
+		};
+		9802E1B72FB373E000D8D81F /* Exceptions for "ExampleWebViewPods" folder in "ExampleCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
+		};
+		980385EB2FB3810100632BF4 /* Exceptions for "ExampleWebViewPods" folder in "ExampleWebViewCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
+		};
+		980385F12FB3825C00632BF4 /* Exceptions for "ExampleWebViewCarthage" folder in "ExampleCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
+		};
+		980385F22FB3825C00632BF4 /* Exceptions for "ExampleWebViewCarthage" folder in "ExampleWebViewCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
+		};
 		981B55802F681567000572AD /* Exceptions for "InsiderNotificationContentPods" folder in "InsiderNotificationContentPods" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -234,13 +416,6 @@
 			);
 			target = 985C7DBB2EBE252400FF5A6B /* ExampleSPM */;
 		};
-		985C7E3E2EBE26DE00FF5A6B /* Exceptions for "ExampleCarthage" folder in "ExampleCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
-		};
 		985C7E882EBE2C1F00FF5A6B /* Exceptions for "InsiderNotificationServiceCarthage" folder in "InsiderNotificationServiceCarthage" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -262,17 +437,132 @@
 			);
 			target = 985C7EEA2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */;
 		};
+		989E5B572FB3C7A0003FC974 /* Exceptions for "ExampleSPM" folder in "ExampleWebViewSPM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 989E5B342FB3C7A0003FC974 /* ExampleWebViewSPM */;
+		};
+		989E5F412FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+				Sources/NotificationViewController.swift,
+			);
+			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
+		};
+		989E5F422FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExamplePods" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+				Sources/NotificationViewController.swift,
+			);
+			target = 985C7D6F2EBE24A100FF5A6B /* ExamplePods */;
+		};
+		989E5F432FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleSPM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+				Sources/NotificationViewController.swift,
+			);
+			target = 985C7DBB2EBE252400FF5A6B /* ExampleSPM */;
+		};
+		989E5F442FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleWebViewCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+				Sources/NotificationViewController.swift,
+			);
+			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
+		};
+		989E5F452FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleWebViewPods" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+				Sources/NotificationViewController.swift,
+			);
+			target = 9802E1A12FB373CC00D8D81F /* ExampleWebViewPods */;
+		};
+		989E5F462FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleWebViewSPM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/NotificationService.swift,
+				Sources/NotificationViewController.swift,
+			);
+			target = 989E5B342FB3C7A0003FC974 /* ExampleWebViewSPM */;
+		};
+		989E5F542FB3C98D003FC974 /* Exceptions for "ExampleWebViewSPM" folder in "ExampleCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
+		};
+		989E5F552FB3C98D003FC974 /* Exceptions for "ExampleWebViewSPM" folder in "ExampleWebViewCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
+		};
+		989E61C42FB3C9C4003FC974 /* Exceptions for "ExampleCarthage" folder in "ExampleCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
+		};
+		989E61C52FB3C9C4003FC974 /* Exceptions for "ExampleCarthage" folder in "ExampleWebViewCarthage" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		981B535B2F6809D4000572AD /* Resources */ = {
+		9802E18E2FB372E600D8D81F /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Resources;
+			exceptions = (
+				989E5F412FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleCarthage" target */,
+				989E5F422FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExamplePods" target */,
+				989E5F432FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleSPM" target */,
+				989E5F442FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleWebViewCarthage" target */,
+				989E5F452FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleWebViewPods" target */,
+				989E5F462FB3C8B8003FC974 /* Exceptions for "Shared" folder in "ExampleWebViewSPM" target */,
+				9802E1942FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationServiceCarthage" target */,
+				9802E1952FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationServicePods" target */,
+				9802E1962FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationServiceSPM" target */,
+				9802E1972FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentCarthage" target */,
+				9802E1982FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentPods" target */,
+				9802E1992FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentSPM" target */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
-		981B54482F680D3C000572AD /* Sources */ = {
+		9802E19A2FB3735E00D8D81F /* WebView */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Sources;
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		9802E1A02FB373AE00D8D81F /* ExampleWebViewPods */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9802E1B72FB373E000D8D81F /* Exceptions for "ExampleWebViewPods" folder in "ExampleCarthage" target */,
+				980385EB2FB3810100632BF4 /* Exceptions for "ExampleWebViewPods" folder in "ExampleWebViewCarthage" target */,
+			);
+			path = ExampleWebViewPods;
+			sourceTree = "<group>";
+		};
+		980385F02FB3814600632BF4 /* ExampleWebViewCarthage */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				980385F12FB3825C00632BF4 /* Exceptions for "ExampleWebViewCarthage" folder in "ExampleCarthage" target */,
+				980385F22FB3825C00632BF4 /* Exceptions for "ExampleWebViewCarthage" folder in "ExampleWebViewCarthage" target */,
+			);
+			path = ExampleWebViewCarthage;
 			sourceTree = "<group>";
 		};
 		981B55732F681567000572AD /* InsiderNotificationContentPods */ = {
@@ -303,6 +593,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				985C7D822EBE24A200FF5A6B /* Exceptions for "ExamplePods" folder in "ExamplePods" target */,
+				9802E1B42FB373CC00D8D81F /* Exceptions for "ExamplePods" folder in "ExampleWebViewPods" target */,
 			);
 			path = ExamplePods;
 			sourceTree = "<group>";
@@ -311,6 +602,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				985C7DCF2EBE252500FF5A6B /* Exceptions for "ExampleSPM" folder in "ExampleSPM" target */,
+				989E5B572FB3C7A0003FC974 /* Exceptions for "ExampleSPM" folder in "ExampleWebViewSPM" target */,
 			);
 			path = ExampleSPM;
 			sourceTree = "<group>";
@@ -318,7 +610,8 @@
 		985C7E2E2EBE26DD00FF5A6B /* ExampleCarthage */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				985C7E3E2EBE26DE00FF5A6B /* Exceptions for "ExampleCarthage" folder in "ExampleCarthage" target */,
+				989E61C42FB3C9C4003FC974 /* Exceptions for "ExampleCarthage" folder in "ExampleCarthage" target */,
+				989E61C52FB3C9C4003FC974 /* Exceptions for "ExampleCarthage" folder in "ExampleWebViewCarthage" target */,
 			);
 			path = ExampleCarthage;
 			sourceTree = "<group>";
@@ -347,9 +640,40 @@
 			path = InsiderNotificationServiceSPM;
 			sourceTree = "<group>";
 		};
+		989E5B592FB3C7D3003FC974 /* ExampleWebViewSPM */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				989E5F542FB3C98D003FC974 /* Exceptions for "ExampleWebViewSPM" folder in "ExampleCarthage" target */,
+				989E5F552FB3C98D003FC974 /* Exceptions for "ExampleWebViewSPM" folder in "ExampleWebViewCarthage" target */,
+			);
+			path = ExampleWebViewSPM;
+			sourceTree = "<group>";
+		};
+		98E1C84D2FB372C200E2137B /* Native */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Native;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9802E1A82FB373CC00D8D81F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7953C323649D7EE0CC46419D /* Pods_ExampleWebViewPods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		980385D92FB3810100632BF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				980385DB2FB3810100632BF4 /* InsiderWebView.xcframework in Frameworks */,
+				980385DC2FB3810100632BF4 /* InsiderMobile.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		981B556D2F681567000572AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,6 +688,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989E61C62FB3CA50003FC974 /* InsiderMobileAdvancedNotification.xcframework in Frameworks */,
 				981B60072F6970F6000572AD /* UserNotificationsUI.framework in Frameworks */,
 				981B60062F6970F6000572AD /* UserNotifications.framework in Frameworks */,
 			);
@@ -392,13 +717,11 @@
 			files = (
 				982908082ECCB35D0042EBAB /* InsiderMobileAdvancedNotification in Frameworks */,
 				982908062ECCB35D0042EBAB /* InsiderMobile in Frameworks */,
-				9829080A2ECCB35D0042EBAB /* InsiderWebView in Frameworks */,
 				98CEC2212ED72EEF005E13D9 /* InsiderMobile in Frameworks */,
 				98CEC2232ED72EEF005E13D9 /* InsiderMobileAdvancedNotification in Frameworks */,
 				98CEC21F2ED72EEF005E13D9 /* InsiderGeofence in Frameworks */,
 				985C7DD32EBE254300FF5A6B /* InsiderMobile in Frameworks */,
 				982908042ECCB35D0042EBAB /* InsiderGeofence in Frameworks */,
-				98CEC2252ED72EEF005E13D9 /* InsiderWebView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +730,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				98AFD89A2EC711AE00EDDD32 /* InsiderGeofence.xcframework in Frameworks */,
-				982908002ECCB1380042EBAB /* InsiderWebView.xcframework in Frameworks */,
 				98AFD8962EC7115F00EDDD32 /* InsiderMobile.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,17 +757,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		989E5B442FB3C7A0003FC974 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				989E5B452FB3C7A0003FC974 /* InsiderMobileAdvancedNotification in Frameworks */,
+				989E5B462FB3C7A0003FC974 /* InsiderMobile in Frameworks */,
+				989E5B472FB3C7A0003FC974 /* InsiderWebView in Frameworks */,
+				989E5B482FB3C7A0003FC974 /* InsiderMobile in Frameworks */,
+				989E5B492FB3C7A0003FC974 /* InsiderMobileAdvancedNotification in Frameworks */,
+				989E5B4B2FB3C7A0003FC974 /* InsiderMobile in Frameworks */,
+				989E5B4D2FB3C7A0003FC974 /* InsiderWebView in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		985C7D672EBE24A100FF5A6B = {
 			isa = PBXGroup;
 			children = (
-				981B53DD2F680B47000572AD /* Example.xcconfig */,
-				985C7DD42EBE255500FF5A6B /* Base */,
+				981B53DD2F680B47000572AD /* Config.xcconfig */,
+				9802E18E2FB372E600D8D81F /* Shared */,
+				98E1C84D2FB372C200E2137B /* Native */,
+				9802E19A2FB3735E00D8D81F /* WebView */,
 				985C7E2E2EBE26DD00FF5A6B /* ExampleCarthage */,
-				985C7DBD2EBE252400FF5A6B /* ExampleSPM */,
 				985C7D722EBE24A100FF5A6B /* ExamplePods */,
+				985C7DBD2EBE252400FF5A6B /* ExampleSPM */,
+				980385F02FB3814600632BF4 /* ExampleWebViewCarthage */,
+				9802E1A02FB373AE00D8D81F /* ExampleWebViewPods */,
+				989E5B592FB3C7D3003FC974 /* ExampleWebViewSPM */,
 				985C7E7E2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage */,
 				985C7EDC2EBE321600FF5A6B /* InsiderNotificationServicePods */,
 				985C7EEC2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */,
@@ -470,21 +811,11 @@
 				981B55702F681567000572AD /* InsiderNotificationContentPods.appex */,
 				981B60052F6970F6000572AD /* InsiderNotificationContentCarthage.appex */,
 				981B602A2F6979B1000572AD /* InsiderNotificationContentSPM.appex */,
+				9802E1B32FB373CC00D8D81F /* ExampleWebViewPods.app */,
+				980385E92FB3810100632BF4 /* ExampleWebViewCarthage.app */,
+				989E5B552FB3C7A0003FC974 /* ExampleWebViewSPM.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		985C7DD42EBE255500FF5A6B /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				981B54482F680D3C000572AD /* Sources */,
-				981B535B2F6809D4000572AD /* Resources */,
-				981B5FEF2F696B1E000572AD /* NotificationService.swift */,
-				981B5FF42F696B1E000572AD /* NotificationViewController.swift */,
-				981B59A32F681958000572AD /* AppDelegate.swift */,
-				985C7E312EBE26DD00FF5A6B /* SceneDelegate.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		AA54B0EB10A7C6A19D3B2045 /* Pods */ = {
@@ -494,12 +825,14 @@
 				7E20F53DB50E0DBFCB7D8858 /* Pods-Example.release.xcconfig */,
 				1B00B13FA56CB466143AB92F /* Pods-InsiderNotificationService.debug.xcconfig */,
 				17A4FE454FB113DF5CEE21C9 /* Pods-InsiderNotificationService.release.xcconfig */,
-				05F0B585BFDDE8EBE87277EE /* Pods-ExamplePods.debug.xcconfig */,
-				C15DA79E1FEB71F77A7A2DF6 /* Pods-ExamplePods.release.xcconfig */,
 				AF84959C057775F9CBA48DF4 /* Pods-InsiderNotificationServicePods.debug.xcconfig */,
 				99F7896E79339AB2649EFBF7 /* Pods-InsiderNotificationServicePods.release.xcconfig */,
 				206200930317D322BC4FC9DA /* Pods-InsiderNotificationContentPods.debug.xcconfig */,
 				A942007C1441ACC3D0BBBA79 /* Pods-InsiderNotificationContentPods.release.xcconfig */,
+				22D6A1734BB167D7B85841E2 /* Pods-ExamplePods.debug.xcconfig */,
+				870FEA5D798A6B131784B037 /* Pods-ExamplePods.release.xcconfig */,
+				A6F0A29F71F160BAD8320DA1 /* Pods-ExampleWebViewPods.debug.xcconfig */,
+				764CC3C244171AAD48D5458C /* Pods-ExampleWebViewPods.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -516,6 +849,7 @@
 				981B555A2F681530000572AD /* UserNotifications.framework */,
 				981B555C2F681531000572AD /* UserNotificationsUI.framework */,
 				019C33BE28E141D49A52EEF4 /* Pods_InsiderNotificationContentPods.framework */,
+				84929E0BC410DCDAC729FCFF /* Pods_ExampleWebViewPods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -523,6 +857,63 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9802E1A12FB373CC00D8D81F /* ExampleWebViewPods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9802E1B02FB373CC00D8D81F /* Build configuration list for PBXNativeTarget "ExampleWebViewPods" */;
+			buildPhases = (
+				6F72B940FC0043F394493942 /* [CP] Check Pods Manifest.lock */,
+				9802E1A72FB373CC00D8D81F /* Sources */,
+				9802E1A82FB373CC00D8D81F /* Frameworks */,
+				9802E1AA2FB373CC00D8D81F /* Resources */,
+				9802E1AB2FB373CC00D8D81F /* Embed Foundation Extensions */,
+				ADB1A23FDBA04B682F851C66 /* [CP] Embed Pods Frameworks */,
+				621EBE2442A4352357E2FDB2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9802E1A22FB373CC00D8D81F /* PBXTargetDependency */,
+				9802E1A42FB373CC00D8D81F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9802E18E2FB372E600D8D81F /* Shared */,
+				9802E19A2FB3735E00D8D81F /* WebView */,
+				985C7D722EBE24A100FF5A6B /* ExamplePods */,
+			);
+			name = ExampleWebViewPods;
+			productName = Example;
+			productReference = 9802E1B32FB373CC00D8D81F /* ExampleWebViewPods.app */;
+			productType = "com.apple.product-type.application";
+		};
+		980385D32FB3810100632BF4 /* ExampleWebViewCarthage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 980385E62FB3810100632BF4 /* Build configuration list for PBXNativeTarget "ExampleWebViewCarthage" */;
+			buildPhases = (
+				980385D82FB3810100632BF4 /* Sources */,
+				980385D92FB3810100632BF4 /* Frameworks */,
+				980385DD2FB3810100632BF4 /* Resources */,
+				980385DF2FB3810100632BF4 /* Embed Foundation Extensions */,
+				980385E22FB3810100632BF4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				980385D42FB3810100632BF4 /* PBXTargetDependency */,
+				980385D62FB3810100632BF4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9802E18E2FB372E600D8D81F /* Shared */,
+				9802E19A2FB3735E00D8D81F /* WebView */,
+				9802E1A02FB373AE00D8D81F /* ExampleWebViewPods */,
+				980385F02FB3814600632BF4 /* ExampleWebViewCarthage */,
+				985C7E2E2EBE26DD00FF5A6B /* ExampleCarthage */,
+				989E5B592FB3C7D3003FC974 /* ExampleWebViewSPM */,
+			);
+			name = ExampleWebViewCarthage;
+			productName = ExampleCarthage;
+			productReference = 980385E92FB3810100632BF4 /* ExampleWebViewCarthage.app */;
+			productType = "com.apple.product-type.application";
+		};
 		981B556F2F681567000572AD /* InsiderNotificationContentPods */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 981B557D2F681567000572AD /* Build configuration list for PBXNativeTarget "InsiderNotificationContentPods" */;
@@ -552,6 +943,7 @@
 				981B60012F6970F6000572AD /* Sources */,
 				981B60022F6970F6000572AD /* Frameworks */,
 				981B60032F6970F6000572AD /* Resources */,
+				989E61C82FB3CA50003FC974 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -604,9 +996,9 @@
 				981B557B2F681567000572AD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				981B535B2F6809D4000572AD /* Resources */,
-				981B54482F680D3C000572AD /* Sources */,
+				9802E18E2FB372E600D8D81F /* Shared */,
 				985C7D722EBE24A100FF5A6B /* ExamplePods */,
+				98E1C84D2FB372C200E2137B /* Native */,
 			);
 			name = ExamplePods;
 			productName = Example;
@@ -629,9 +1021,9 @@
 				981B60352F6979B1000572AD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				981B535B2F6809D4000572AD /* Resources */,
-				981B54482F680D3C000572AD /* Sources */,
+				9802E18E2FB372E600D8D81F /* Shared */,
 				985C7DBD2EBE252400FF5A6B /* ExampleSPM */,
+				98E1C84D2FB372C200E2137B /* Native */,
 			);
 			name = ExampleSPM;
 			packageProductDependencies = (
@@ -639,11 +1031,9 @@
 				982908032ECCB35D0042EBAB /* InsiderGeofence */,
 				982908052ECCB35D0042EBAB /* InsiderMobile */,
 				982908072ECCB35D0042EBAB /* InsiderMobileAdvancedNotification */,
-				982908092ECCB35D0042EBAB /* InsiderWebView */,
 				98CEC21E2ED72EEF005E13D9 /* InsiderGeofence */,
 				98CEC2202ED72EEF005E13D9 /* InsiderMobile */,
 				98CEC2222ED72EEF005E13D9 /* InsiderMobileAdvancedNotification */,
-				98CEC2242ED72EEF005E13D9 /* InsiderWebView */,
 			);
 			productName = ExampleSPM;
 			productReference = 985C7DBC2EBE252400FF5A6B /* ExampleSPM.app */;
@@ -666,9 +1056,12 @@
 				981B60102F6970F6000572AD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				981B535B2F6809D4000572AD /* Resources */,
-				981B54482F680D3C000572AD /* Sources */,
+				9802E18E2FB372E600D8D81F /* Shared */,
+				9802E1A02FB373AE00D8D81F /* ExampleWebViewPods */,
+				980385F02FB3814600632BF4 /* ExampleWebViewCarthage */,
 				985C7E2E2EBE26DD00FF5A6B /* ExampleCarthage */,
+				989E5B592FB3C7D3003FC974 /* ExampleWebViewSPM */,
+				98E1C84D2FB372C200E2137B /* Native */,
 			);
 			name = ExampleCarthage;
 			productName = ExampleCarthage;
@@ -738,6 +1131,40 @@
 			productReference = 985C7EEB2EBE322B00FF5A6B /* InsiderNotificationServiceSPM.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		989E5B342FB3C7A0003FC974 /* ExampleWebViewSPM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 989E5B522FB3C7A0003FC974 /* Build configuration list for PBXNativeTarget "ExampleWebViewSPM" */;
+			buildPhases = (
+				989E5B432FB3C7A0003FC974 /* Sources */,
+				989E5B442FB3C7A0003FC974 /* Frameworks */,
+				989E5B4E2FB3C7A0003FC974 /* Resources */,
+				989E5B4F2FB3C7A0003FC974 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				989E5B352FB3C7A0003FC974 /* PBXTargetDependency */,
+				989E5B372FB3C7A0003FC974 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9802E18E2FB372E600D8D81F /* Shared */,
+				9802E19A2FB3735E00D8D81F /* WebView */,
+				985C7DBD2EBE252400FF5A6B /* ExampleSPM */,
+			);
+			name = ExampleWebViewSPM;
+			packageProductDependencies = (
+				989E5B392FB3C7A0003FC974 /* InsiderMobile */,
+				989E5B3B2FB3C7A0003FC974 /* InsiderMobile */,
+				989E5B3C2FB3C7A0003FC974 /* InsiderMobileAdvancedNotification */,
+				989E5B3D2FB3C7A0003FC974 /* InsiderWebView */,
+				989E5B402FB3C7A0003FC974 /* InsiderMobile */,
+				989E5B412FB3C7A0003FC974 /* InsiderMobileAdvancedNotification */,
+				989E5B422FB3C7A0003FC974 /* InsiderWebView */,
+			);
+			productName = ExampleSPM;
+			productReference = 989E5B552FB3C7A0003FC974 /* ExampleWebViewSPM.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -797,6 +1224,9 @@
 				985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */,
 				985C7D6F2EBE24A100FF5A6B /* ExamplePods */,
 				985C7DBB2EBE252400FF5A6B /* ExampleSPM */,
+				980385D32FB3810100632BF4 /* ExampleWebViewCarthage */,
+				9802E1A12FB373CC00D8D81F /* ExampleWebViewPods */,
+				989E5B342FB3C7A0003FC974 /* ExampleWebViewSPM */,
 				985C7E7C2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage */,
 				985C7EDA2EBE321600FF5A6B /* InsiderNotificationServicePods */,
 				985C7EEA2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */,
@@ -808,6 +1238,20 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9802E1AA2FB373CC00D8D81F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		980385DD2FB3810100632BF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		981B556E2F681567000572AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -847,7 +1291,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				981B53DE2F680B47000572AD /* Example.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,6 +1309,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		985C7EE92EBE322B00FF5A6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		989E5B4E2FB3C7A0003FC974 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -891,6 +1341,49 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-InsiderNotificationContentPods-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		621EBE2442A4352357E2FDB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleWebViewPods/Pods-ExampleWebViewPods-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleWebViewPods/Pods-ExampleWebViewPods-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExampleWebViewPods/Pods-ExampleWebViewPods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F72B940FC0043F394493942 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExampleWebViewPods-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -961,6 +1454,27 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InsiderNotificationContentPods/Pods-InsiderNotificationContentPods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ADB1A23FDBA04B682F851C66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleWebViewPods/Pods-ExampleWebViewPods-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExampleWebViewPods/Pods-ExampleWebViewPods-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExampleWebViewPods/Pods-ExampleWebViewPods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C623344AA2610116FA1E0EAB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1028,11 +1542,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9802E1A72FB373CC00D8D81F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		980385D82FB3810100632BF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		981B556C2F681567000572AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				981B5FF62F696B1E000572AD /* NotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,7 +1567,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				981B60252F697826000572AD /* NotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,7 +1574,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				982635142F697CCE00AC52E9 /* NotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,8 +1581,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				985C7E4B2EBE2A5600FF5A6B /* SceneDelegate.swift in Sources */,
-				981B5BD92F696A1A000572AD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1065,8 +1588,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				985C7E4C2EBE2A5600FF5A6B /* SceneDelegate.swift in Sources */,
-				981B59A72F681958000572AD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1074,8 +1595,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				985C7E322EBE26DD00FF5A6B /* SceneDelegate.swift in Sources */,
-				981B5BDA2F696A1A000572AD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1083,7 +1602,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				981B601E2F6977D7000572AD /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,7 +1609,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				981B5FF02F696B1E000572AD /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,13 +1616,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				981B601D2F6977D7000572AD /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		989E5B432FB3C7A0003FC974 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9802E1A22FB373CC00D8D81F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 985C7EDA2EBE321600FF5A6B /* InsiderNotificationServicePods */;
+			targetProxy = 9802E1A32FB373CC00D8D81F /* PBXContainerItemProxy */;
+		};
+		9802E1A42FB373CC00D8D81F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 981B556F2F681567000572AD /* InsiderNotificationContentPods */;
+			targetProxy = 9802E1A52FB373CC00D8D81F /* PBXContainerItemProxy */;
+		};
+		980385D42FB3810100632BF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 985C7E7C2EBE2C1F00FF5A6B /* InsiderNotificationServiceCarthage */;
+			targetProxy = 980385D52FB3810100632BF4 /* PBXContainerItemProxy */;
+		};
+		980385D62FB3810100632BF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 981B60042F6970F6000572AD /* InsiderNotificationContentCarthage */;
+			targetProxy = 980385D72FB3810100632BF4 /* PBXContainerItemProxy */;
+		};
 		981B557B2F681567000572AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 981B556F2F681567000572AD /* InsiderNotificationContentPods */;
@@ -1136,9 +1679,183 @@
 			target = 985C7EEA2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */;
 			targetProxy = 985C7EF02EBE322B00FF5A6B /* PBXContainerItemProxy */;
 		};
+		989E5B352FB3C7A0003FC974 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 985C7EEA2EBE322B00FF5A6B /* InsiderNotificationServiceSPM */;
+			targetProxy = 989E5B362FB3C7A0003FC974 /* PBXContainerItemProxy */;
+		};
+		989E5B372FB3C7A0003FC974 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 981B60292F6979B1000572AD /* InsiderNotificationContentSPM */;
+			targetProxy = 989E5B382FB3C7A0003FC974 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		9802E1B12FB373CC00D8D81F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6F0A29F71F160BAD8320DA1 /* Pods-ExampleWebViewPods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExampleWebViewPods/ExampleWebViewPods.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 276CUFK954;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExampleWebViewPods/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9802E1B22FB373CC00D8D81F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 764CC3C244171AAD48D5458C /* Pods-ExampleWebViewPods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExampleWebViewPods/ExampleWebViewPods.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 276CUFK954;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExampleWebViewPods/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		980385E72FB3810100632BF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExampleWebViewCarthage/ExampleWebViewCarthage.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 276CUFK954;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExampleWebViewCarthage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		980385E82FB3810100632BF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExampleWebViewCarthage/ExampleWebViewCarthage.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 276CUFK954;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExampleWebViewCarthage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		981B557E2F681567000572AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 206200930317D322BC4FC9DA /* Pods-InsiderNotificationContentPods.debug.xcconfig */;
@@ -1161,10 +1878,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1190,10 +1911,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1217,10 +1942,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1244,10 +1973,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1271,10 +2004,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1298,16 +2035,20 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		985C7D842EBE24A200FF5A6B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05F0B585BFDDE8EBE87277EE /* Pods-ExamplePods.debug.xcconfig */;
+			baseConfigurationReference = 22D6A1734BB167D7B85841E2 /* Pods-ExamplePods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1324,7 +2065,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Native;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1350,7 +2091,7 @@
 		};
 		985C7D852EBE24A200FF5A6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C15DA79E1FEB71F77A7A2DF6 /* Pods-ExamplePods.release.xcconfig */;
+			baseConfigurationReference = 870FEA5D798A6B131784B037 /* Pods-ExamplePods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1367,7 +2108,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Native;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1393,7 +2134,7 @@
 		};
 		985C7D862EBE24A200FF5A6B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 981B53DD2F680B47000572AD /* Example.xcconfig */;
+			baseConfigurationReference = 981B53DD2F680B47000572AD /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1463,7 +2204,7 @@
 		};
 		985C7D872EBE24A200FF5A6B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 981B53DD2F680B47000572AD /* Example.xcconfig */;
+			baseConfigurationReference = 981B53DD2F680B47000572AD /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1541,7 +2282,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Native;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -1580,7 +2321,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Native;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -1619,7 +2360,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Native;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -1658,7 +2399,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Native;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -1874,9 +2615,105 @@
 			};
 			name = Release;
 		};
+		989E5B532FB3C7A0003FC974 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExampleWebViewSPM/ExampleWebViewSPM.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 276CUFK954;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExampleWebViewSPM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		989E5B542FB3C7A0003FC974 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExampleWebViewSPM/ExampleWebViewSPM.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 276CUFK954;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExampleWebViewSPM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.useinsider.mobile-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9802E1B02FB373CC00D8D81F /* Build configuration list for PBXNativeTarget "ExampleWebViewPods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9802E1B12FB373CC00D8D81F /* Debug */,
+				9802E1B22FB373CC00D8D81F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		980385E62FB3810100632BF4 /* Build configuration list for PBXNativeTarget "ExampleWebViewCarthage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				980385E72FB3810100632BF4 /* Debug */,
+				980385E82FB3810100632BF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		981B557D2F681567000572AD /* Build configuration list for PBXNativeTarget "InsiderNotificationContentPods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1967,9 +2804,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		989E5B522FB3C7A0003FC974 /* Build configuration list for PBXNativeTarget "ExampleWebViewSPM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				989E5B532FB3C7A0003FC974 /* Debug */,
+				989E5B542FB3C7A0003FC974 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		989E5B3F2FB3C7A0003FC974 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.3;
+			};
+		};
 		98CEC21D2ED72EEF005E13D9 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
@@ -1993,13 +2847,40 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = InsiderMobileAdvancedNotification;
 		};
-		982908092ECCB35D0042EBAB /* InsiderWebView */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = InsiderWebView;
-		};
 		985C7DD22EBE254300FF5A6B /* InsiderMobile */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InsiderMobile;
+		};
+		989E5B392FB3C7A0003FC974 /* InsiderMobile */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InsiderMobile;
+		};
+		989E5B3B2FB3C7A0003FC974 /* InsiderMobile */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InsiderMobile;
+		};
+		989E5B3C2FB3C7A0003FC974 /* InsiderMobileAdvancedNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InsiderMobileAdvancedNotification;
+		};
+		989E5B3D2FB3C7A0003FC974 /* InsiderWebView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InsiderWebView;
+		};
+		989E5B402FB3C7A0003FC974 /* InsiderMobile */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989E5B3F2FB3C7A0003FC974 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
+			productName = InsiderMobile;
+		};
+		989E5B412FB3C7A0003FC974 /* InsiderMobileAdvancedNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989E5B3F2FB3C7A0003FC974 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
+			productName = InsiderMobileAdvancedNotification;
+		};
+		989E5B422FB3C7A0003FC974 /* InsiderWebView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 989E5B3F2FB3C7A0003FC974 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
+			productName = InsiderWebView;
 		};
 		98CEC21E2ED72EEF005E13D9 /* InsiderGeofence */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2015,11 +2896,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 98CEC21D2ED72EEF005E13D9 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
 			productName = InsiderMobileAdvancedNotification;
-		};
-		98CEC2242ED72EEF005E13D9 /* InsiderWebView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 98CEC21D2ED72EEF005E13D9 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
-			productName = InsiderWebView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,6 +7,10 @@ use_frameworks!
 target 'ExamplePods' do
   pod 'InsiderMobile'
   pod 'InsiderGeofence'
+end
+
+target 'ExampleWebViewPods' do
+  pod 'InsiderMobile'
   pod 'InsiderWebView'
 end
 

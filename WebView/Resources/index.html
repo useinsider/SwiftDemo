@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Insider WebView SDK — Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-canvas: #efebe4;
+            --surface-primary: #efebe4;
+            --surface-elevated: #ffffff;
+            --border-subtle: rgba(24, 24, 27, 0.12);
+            --text-primary: #181818;
+            --text-secondary: rgba(24, 24, 27, 0.7);
+            --text-placeholder: rgba(24, 24, 27, 0.4);
+            --on-accent: #ffffff;
+            --accent-primary: #f44827;
+            --status-danger: #e92e2f;
+            --gradient-start: #ff6126;
+            --gradient-end: #e92e2f;
+            --gradient-button: linear-gradient(180deg, var(--gradient-start) 0%, var(--gradient-end) 60%);
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-canvas);
+            /* Page itself never scrolls horizontally — the demo must fit the WebView width.
+             * The inner .h-scroll sections still scroll horizontally via their own overflow-x. */
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', system-ui, sans-serif;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* ---------- Header ---------- */
+        .app-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 56px 1fr 56px;
+            align-items: center;
+            padding: 12px 10px;
+            padding-top: calc(12px + env(safe-area-inset-top, 0px));
+            background-color: var(--bg-canvas);
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+        }
+        .header-right { justify-content: flex-end; }
+
+        .brand {
+            justify-self: center;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* Inline ExampleSwift logo asset (Primary_SolarDarkMatter.pdf converted to SVG).
+         * Original viewBox 1335x185 — icon on the left, "INSIDER ONE" text on the right.
+         * Native ExampleSwift renders this asset aspect-fit into a 120×40pt frame, which
+         * yields ~17pt visible height. Match that height here so the web banner sits at
+         * the same visual scale as the trash button in the native nav bar. */
+        .brand-logo { height: 17px; width: auto; flex: 0 0 auto; display: block; }
+
+        .page-title {
+            justify-self: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .icon-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background-color: var(--surface-elevated);
+            color: var(--text-primary);
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            touch-action: manipulation;
+            padding: 0;
+        }
+        .icon-button:active { background-color: #f4f0e8; }
+        /* Match the native trash glyph: SF Symbol "trash" at point size 14pt
+         * (per MainViewController.swift). Bumping the inner SVG so the glyph
+         * fills the white circle the way it does on iOS. */
+        .icon-button svg { width: 20px; height: 20px; }
+
+        /* ---------- Print label (mirrors iOS printLabel) ---------- */
+        .print-label {
+            min-height: 20px;
+            margin: 0;
+            padding: 4px 10px 8px 10px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+
+        /* ---------- Container & Sections ---------- */
+        .container {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 10px 32px 10px;
+        }
+
+        .section { margin-bottom: 20px; }
+
+        .section-title {
+            margin: 12px 0 12px 0;
+            font-size: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .subsection-title {
+            margin: 16px 0 8px 0;
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* ---------- Grids ---------- */
+        .grid { display: grid; gap: 6px; }
+        .grid-1 { grid-template-columns: 1fr; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        /* Allow grid cells to shrink below their intrinsic content size so
+         * inputs inside 2-col rows can't push the right column off-screen. */
+        .grid > * { min-width: 0; }
+
+        /* Horizontal scroll row (mirrors iOS Core/Consent sections).
+         * Stays inside the container's 10px padding so the row has the same
+         * visible left/right gutter as every non-scrolling section. The page
+         * itself doesn't scroll horizontally (body has overflow-x: hidden);
+         * only the row's own overflow-x: auto handles the side-scroll.
+         * Scrollbar is hidden (iOS pattern). */
+        .h-scroll {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 0 4px 0;
+            scrollbar-width: none;       /* Firefox */
+            -ms-overflow-style: none;    /* IE/Edge */
+        }
+        .h-scroll::-webkit-scrollbar { display: none; } /* Chrome / Safari */
+        .h-scroll .btn {
+            /* 25% wider than the default 3-up sizing — ~2.4 buttons visible per viewport. */
+            flex: 0 0 calc(((100% - 12px) / 3) * 1.25);
+            scroll-snap-align: start;
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 80px;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 18px;
+            background: var(--gradient-button);
+            color: var(--on-accent);
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+            touch-action: manipulation;
+            /* Wrap onto a new line at word boundaries only — never split words mid-character. */
+            white-space: normal;
+            word-break: normal;
+            overflow-wrap: break-word;
+            hyphens: none;
+            transition: opacity 0.15s ease, transform 0.05s ease;
+        }
+        .btn:active { opacity: 0.8; transform: scale(0.99); }
+
+        .btn-custom {
+            width: 100%;
+            min-height: 44px;
+            border-radius: 22px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .btn-hero {
+            width: 100%;
+            min-height: 56px;
+            border-radius: 28px;
+            font-size: 17px;
+            font-weight: 700;
+            margin-top: 16px;
+        }
+
+        .btn-link {
+            background: none;
+            border: none;
+            color: var(--accent-primary);
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px 12px;
+            touch-action: manipulation;
+        }
+        .btn-link:active { opacity: 0.6; }
+
+        .btn-set {
+            flex: 0 0 auto;
+            min-height: 40px;
+            min-width: 44px;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 15px;
+            background: var(--gradient-button);
+            color: var(--on-accent);
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        .btn-set:active { opacity: 0.8; }
+
+        /* ---------- Input rows (mirrors iOS InputButtonCollectionViewCell) ---------- */
+        .input-row {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-row .label {
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+
+        .input-row .field-with-button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .text-field {
+            flex: 1;
+            min-width: 0; /* allow shrinking inside flex/grid so the SET button isn't pushed off-screen */
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 0.75px solid var(--border-subtle);
+            border-radius: 8px;
+            background-color: var(--surface-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+        }
+        .text-field::placeholder { color: var(--text-placeholder); }
+        .text-field:focus { border-color: var(--accent-primary); }
+
+        /* ---------- Segmented control (intermediate views) ---------- */
+        .segmented {
+            display: inline-flex;
+            padding: 5px;
+            border-radius: 26px;
+            background-color: rgba(24, 24, 27, 0.08);
+            gap: 0;
+            width: 100%;
+        }
+
+        .segmented .seg {
+            flex: 1;
+            min-height: 44px;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 22px;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        .segmented .seg[aria-pressed="true"] {
+            background-color: var(--surface-elevated);
+            font-weight: 700;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ---------- Parameter rows (Custom Event / Custom Attributes) ---------- */
+        .param-row {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-bottom: 10px;
+        }
+        .param-row .pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .param-row .delete-row {
+            display: flex;
+            justify-content: center;
+            padding-top: 4px;
+            padding-bottom: 14px;
+            border-bottom: 0.75px solid var(--border-subtle);
+        }
+
+        .add-row {
+            display: flex;
+            justify-content: center;
+            padding: 14px 0 6px 0;
+        }
+
+        /* ---------- View toggling ---------- */
+        .view { display: none; }
+        body[data-view="main"]  .view-main  { display: block; }
+        body[data-view="event"] .view-event { display: block; }
+        body[data-view="attrs"] .view-attrs { display: block; }
+
+        body[data-view="main"]  .show-on-main  { display: inline-flex; }
+        body[data-view="main"]  .show-on-sub   { display: none; }
+        body[data-view="event"] .show-on-main,
+        body[data-view="attrs"] .show-on-main  { display: none; }
+        body[data-view="event"] .show-on-sub,
+        body[data-view="attrs"] .show-on-sub   { display: inline-flex; }
+        body:not([data-view="event"]) #title-event { display: none; }
+        body:not([data-view="attrs"]) #title-attrs { display: none; }
+
+        @media (max-width: 380px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .btn { font-size: 14px; }
+        }
+    </style>
+</head>
+<body data-view="main">
+<header class="app-header">
+    <div class="header-left">
+        <button class="icon-button show-on-sub" type="button" onclick="navigateTo('main')" aria-label="Back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="brand show-on-main" aria-label="INSIDER ONE">
+        <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1335 185.25" aria-hidden="true"><defs><clipPath id="insLogoClipA"><path d="M1253 40h79.309v104H1253Zm0 0"/></clipPath><clipPath id="insLogoClipB"><path d="M2.691 0H178v184.504H2.691Zm0 0"/></clipPath><clipPath id="insLogoClipC"><path d="M177.488 94.14a93 93 0 0 0-3.41-25.038c-2.05-7.348-1.828-15.149.387-22.45 3.926-12.937.402-27.558-10.266-37.25-10.617-9.656-25.406-11.804-37.875-6.77-7.129 2.872-14.894 3.598-22.476 2.352a85 85 0 0 0-13.762-1.113C41.816 3.863 2.69 44.285 2.69 94.141c0 15.03 3.555 29.191 9.844 41.652 1.79 3.555 2.172 7.644 1.035 11.445-1.82 6.075-.457 12.922 4.18 17.89 4.605 4.935 11.293 6.767 17.434 5.415 3.898-.856 7.957-.137 11.39 1.898 12.809 7.621 27.668 11.977 43.512 11.977 11.512 0 22.504-2.3 32.57-6.48 3.504-1.458 7.387-1.598 11.04-.567 10.413 2.941 22.066-.047 29.742-8.676 6.964-7.828 8.933-18.351 6.16-27.703-1.059-3.554-.805-7.387.636-10.8 4.66-11.04 7.254-23.231 7.254-36.051m-95.91 75.727c-9.922 0-19.355-2.37-27.855-6.62-3.063-1.536-4.684-4.876-4.243-8.267a18.38 18.38 0 0 0-4.796-15.011c-4.055-4.348-9.73-6.285-15.227-5.766-3.3.317-6.477-1.418-7.918-4.41-5.11-10.629-8.008-22.762-8.008-35.652 0-41.825 30.457-75.727 68.032-75.727 4.074 0 8.054.398 11.925 1.16 6.43 1.266 10.871 7.153 10.356 13.688-.852 10.758 3.105 21.785 11.707 29.613a35.96 35.96 0 0 0 21.676 9.297c6.07.441 10.93 5.234 11.695 11.273.445 3.493.672 7.059.672 10.688a84 84 0 0 1-1.426 15.48c-1.05 5.633-5.563 10.004-11.211 10.918a29.04 29.04 0 0 0-17.102 9.395c-5.488 6.164-7.875 14.012-7.285 21.637.473 6.085-2.906 11.867-8.593 14.07a61.6 61.6 0 0 1-22.418 4.215Zm0 0"/></clipPath><linearGradient id="insLogoGrad" x1="890" x2="890" y1="0" y2="246.885" gradientTransform="translate(2.692)scale(.74698)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e92e2f"/><stop offset="1" stop-color="#ff6126"/></linearGradient></defs><path fill="#18181b" d="M264.883 40.55h18.367v103.106h-18.367Zm127.93 72.208L335.602 40.55H318.64v103.13h17.62V69.238l58.926 73.946.375.496h14.875V40.55h-17.625Zm101.41-29.574c-24.532-5.836-31.172-8.465-31.172-15.868 0-10.382 15.347-11.52 21.945-11.52 14.602 0 25.09 5.192 29.516 14.602l.664 1.407 14.039-10.176-.473-.973c-6.43-13.445-22.277-21.136-43.457-21.136-25.418 0-40.601 10.671-40.601 28.539 0 17.87 14.875 24.824 38.847 30.16 23.164 5.086 29.512 8.789 29.512 17.207 0 9.02-7.883 13.61-23.434 13.61-18.492 0-31.855-8.005-35.699-21.411l-.52-1.797-14.308 10.777.285.887c5.711 17.149 24.324 27.406 49.785 27.406 26.953 0 42.403-10.835 42.403-29.742 0-18.906-13.11-26.14-37.332-31.933Zm68.359-42.634h18.367v103.106h-18.367Zm90.195 0h-36.441v103.106h35.387c37.914 0 58.785-17.808 58.785-50.133 0-32.332-21.04-52.972-57.73-52.972M634.56 56.997h18.218c25.196 0 39.075 13.031 39.075 36.692 0 23.66-13.301 34.003-39.504 34.003h-17.77V56.996Zm125.881 40.062h49.594V80.613h-49.594V57.141h58.672V40.55h-76.898v103.13h78.992v-16.297h-60.766Zm178.016-26.618c0-19.546-11.727-29.89-33.898-29.89h-54.602v103.105h18.36v-43.328h30.058l20.246 43.328h19.836l-21.2-44.777c13.88-3.578 21.177-13.383 21.177-28.438Zm-70.14-13.734h34.456c11.73 0 17.172 4.406 17.172 13.898s-5.457 13.758-17.172 13.758h-34.457Zm179.738-17.187c-33.875 0-54.91 20.476-54.91 53.425 0 32.946 21.43 51.79 54.605 51.79 33.172 0 54.766-20.477 54.766-53.426 0-32.946-21.364-51.79-54.461-51.79m0 16.585c22.18 0 35.949 13.551 35.949 35.348 0 23.063-13.61 36.836-36.383 36.836-22.766 0-35.945-13.547-35.945-35.344 0-23.062 13.61-36.84 36.379-36.84m155.715 56.654-57.204-72.207h-16.964V143.68h17.62V69.238l58.907 73.946.394.496h14.875V40.55h-17.628Zm0 0"/><g clip-path="url(#insLogoClipA)"><path fill="#18181b" d="M1271.543 127.383V97.059h49.602V80.613h-49.602V57.141h58.672V40.55h-76.899v103.13h78.993v-16.297Zm0 0"/></g><g clip-path="url(#insLogoClipB)"><g clip-path="url(#insLogoClipC)"><path fill="url(#insLogoGrad)" d="M2.691 0v184.418h175.7V0Zm0 0"/></g></g></svg>
+    </div>
+
+    <span class="page-title" id="title-event">Create Custom Event</span>
+    <span class="page-title" id="title-attrs">Set User Attributes</span>
+
+    <div class="header-right">
+        <button class="icon-button show-on-main" type="button" onclick="clearPrintLabel()" aria-label="Clear log">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+                <path d="M10 11v6"/>
+                <path d="M14 11v6"/>
+                <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<p class="print-label show-on-main" id="printLabel"></p>
+
+<!-- ============================================================== -->
+<!-- MAIN VIEW                                                      -->
+<!-- ============================================================== -->
+<main class="container view view-main">
+    <!-- Custom -->
+    <section class="section">
+        <h2 class="section-title">Custom</h2>
+        <button class="btn btn-custom" onclick="didTouchCustomAction()">Run Custom Action</button>
+    </section>
+
+    <!-- Core (horizontal scroll) -->
+    <section class="section">
+        <h2 class="section-title">Core</h2>
+        <div class="h-scroll">
+            <button class="btn" onclick="didTouchGetInsiderID()">Insider ID</button>
+            <button class="btn" onclick="didTouchRegisterForAPNS()">Register for APNS</button>
+            <button class="btn" onclick="didTouchStartTrackingGeofence()">Start Tracking Geofence</button>
+            <button class="btn" onclick="didTouchGetMessageCenterData()">Get Message Center Data</button>
+        </div>
+    </section>
+
+    <!-- Consent (horizontal scroll) -->
+    <section class="section">
+        <h2 class="section-title">Consent</h2>
+        <div class="h-scroll">
+            <button class="btn" onclick="didTouchSetGDPRConsent(true)">GDPR Consent (true)</button>
+            <button class="btn" onclick="didTouchSetGDPRConsent(false)">GDPR Consent (false)</button>
+            <button class="btn" onclick="didTouchSetMobileAppAccess(true)">Mobile App Access (true)</button>
+            <button class="btn" onclick="didTouchSetMobileAppAccess(false)">Mobile App Access (false)</button>
+            <button class="btn" onclick="didTouchEnableIDFACollection(true)">Enable IDFA Collection (true)</button>
+            <button class="btn" onclick="didTouchEnableIDFACollection(false)">Enable IDFA Collection (false)</button>
+            <button class="btn" onclick="didTouchEnableIpCollection(true)">Enable IP Collection (true)</button>
+            <button class="btn" onclick="didTouchEnableIpCollection(false)">Enable IP Collection (false)</button>
+            <button class="btn" onclick="didTouchEnableCarrierCollection(true)">Enable Carrier Collection (true)</button>
+            <button class="btn" onclick="didTouchEnableCarrierCollection(false)">Enable Carrier Collection (false)</button>
+            <button class="btn" onclick="didTouchEnableLocationCollection(true)">Enable Location Collection (true)</button>
+            <button class="btn" onclick="didTouchEnableLocationCollection(false)">Enable Location Collection (false)</button>
+            <button class="btn" onclick="didTouchSetEmailOptin(true)">Email Optin (true)</button>
+            <button class="btn" onclick="didTouchSetEmailOptin(false)">Email Optin (false)</button>
+            <button class="btn" onclick="didTouchSetPushOptin(true)">Push Optin (true)</button>
+            <button class="btn" onclick="didTouchSetPushOptin(false)">Push Optin (false)</button>
+            <button class="btn" onclick="didTouchSetLocationOptin(true)">Location Optin (true)</button>
+            <button class="btn" onclick="didTouchSetLocationOptin(false)">Location Optin (false)</button>
+            <button class="btn" onclick="didTouchSetSMSOptin(true)">SMS Optin (true)</button>
+            <button class="btn" onclick="didTouchSetSMSOptin(false)">SMS Optin (false)</button>
+            <button class="btn" onclick="didTouchSetWhatsAppOptin(true)">WhatsApp Optin (true)</button>
+            <button class="btn" onclick="didTouchSetWhatsAppOptin(false)">WhatsApp Optin (false)</button>
+        </div>
+    </section>
+
+    <!-- User -->
+    <section class="section">
+        <h2 class="section-title">User</h2>
+        <div class="grid grid-2">
+            <button class="btn" onclick="didTouchLogin()">Login</button>
+            <button class="btn" onclick="didTouchLogout()">Logout</button>
+            <button class="btn" onclick="didTouchLogoutResettingInsiderID()">Logout (Reset ID)</button>
+            <button class="btn" onclick="navigateTo('attrs')">Custom User Attributes</button>
+        </div>
+    </section>
+
+    <!-- User Attributes (label + input + SET) -->
+    <section class="section">
+        <h2 class="section-title">User Attributes</h2>
+        <div class="grid grid-2">
+            <div class="input-row">
+                <label class="label" for="ua-name">Name</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-name" type="text" autocomplete="off">
+                    <button class="btn-set" type="button" onclick="setUserAttr('Name')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-surname">Surname</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-surname" type="text" autocomplete="off">
+                    <button class="btn-set" type="button" onclick="setUserAttr('Surname')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-email">E-mail</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-email" type="email" autocomplete="off" autocapitalize="none">
+                    <button class="btn-set" type="button" onclick="setUserAttr('Email')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-phone">Phone Number</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-phone" type="tel" autocomplete="off">
+                    <button class="btn-set" type="button" onclick="setUserAttr('PhoneNumber')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-age">Age</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-age" type="number" inputmode="numeric" autocomplete="off">
+                    <button class="btn-set" type="button" onclick="setUserAttr('Age')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-gender">Gender</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-gender" type="text" autocomplete="off" placeholder="male / female / other">
+                    <button class="btn-set" type="button" onclick="setUserAttr('Gender')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-birthday">Birthday</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-birthday" type="date" autocomplete="off">
+                    <button class="btn-set" type="button" onclick="setUserAttr('Birthday')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-language">Language</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-language" type="text" autocomplete="off" placeholder="en">
+                    <button class="btn-set" type="button" onclick="setUserAttr('Language')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-locale">Locale</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-locale" type="text" autocomplete="off" placeholder="en_US">
+                    <button class="btn-set" type="button" onclick="setUserAttr('Locale')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-facebook">Facebook ID</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-facebook" type="text" autocomplete="off">
+                    <button class="btn-set" type="button" onclick="setUserAttr('FacebookID')">SET</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <label class="label" for="ua-twitter">Twitter ID</label>
+                <div class="field-with-button">
+                    <input class="text-field" id="ua-twitter" type="text" autocomplete="off">
+                    <button class="btn-set" type="button" onclick="setUserAttr('TwitterID')">SET</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inapp -->
+    <section class="section">
+        <h2 class="section-title">Inapp</h2>
+        <div class="grid grid-2">
+            <button class="btn" onclick="didTouchEnableInAppMessages()">Enable Inapp Messages</button>
+            <button class="btn" onclick="didTouchDisableInAppMessages()">Disable Inapp Messages</button>
+        </div>
+    </section>
+
+    <!-- Event -->
+    <section class="section">
+        <h2 class="section-title">Event</h2>
+        <div class="grid grid-3">
+            <button class="btn" onclick="didTouchVisitHomePage()">Visit Home Page</button>
+            <button class="btn" onclick="didTouchVisitHomePageCustom()">Visit Homepage (Custom Params)</button>
+            <button class="btn" onclick="didTouchVisitListingPage()">Visit Listing Page</button>
+            <button class="btn" onclick="didTouchVisitListingPageCustom()">Visit Listing Page (Custom Params)</button>
+            <button class="btn" onclick="didTouchVisitProductPageCustom()">Visit Product Page (Custom Params)</button>
+            <button class="btn" onclick="didTouchVisitCartPageCustom()">Visit Cart Page (Custom Params)</button>
+            <button class="btn" onclick="didTouchSignUpConfirmation()">Sign Up Confirmation</button>
+            <button class="btn" onclick="navigateTo('event')">Custom Event</button>
+        </div>
+    </section>
+
+    <!-- Product -->
+    <section class="section">
+        <h2 class="section-title">Product</h2>
+        <div class="grid grid-3">
+            <button class="btn" onclick="didTouchVisitProductPage()">Visit Product Detail Page</button>
+            <button class="btn" onclick="didTouchItemAddedToCart()">Add Item to Cart</button>
+            <button class="btn" onclick="didTouchItemAddedToCartCustom()">Add to Cart (Custom Params)</button>
+            <button class="btn" onclick="didTouchItemRemovedFromCart()">Remove Item from Cart</button>
+            <button class="btn" onclick="didTouchItemRemovedFromCartCustom()">Remove from Cart (Custom Params)</button>
+            <button class="btn" onclick="didTouchVisitCartPage()">Visit Cart Page</button>
+            <button class="btn" onclick="didTouchItemPurchased()">Item Purchased</button>
+            <button class="btn" onclick="didTouchItemPurchasedCustom()">Item Purchased (Custom Params)</button>
+            <button class="btn" onclick="didTouchCartClearedCustom()">Cart Cleared (Custom Params)</button>
+        </div>
+    </section>
+
+    <!-- Wishlist -->
+    <section class="section">
+        <h2 class="section-title">Wishlist</h2>
+        <div class="grid grid-3">
+            <button class="btn" onclick="didTouchVisitWishlist()">Visit Wishlist</button>
+            <button class="btn" onclick="didTouchVisitWishlistCustom()">Visit Wishlist (Custom Params)</button>
+            <button class="btn" onclick="didTouchItemAddedToWishlist()">Add Item to Wishlist</button>
+            <button class="btn" onclick="didTouchItemAddedToWishlistCustom()">Add to Wishlist (Custom Params)</button>
+            <button class="btn" onclick="didTouchItemRemovedFromWishlist()">Remove Item from Wishlist</button>
+            <button class="btn" onclick="didTouchItemRemovedFromWishlistCustom()">Remove from Wishlist (Custom Params)</button>
+            <button class="btn" onclick="didTouchWishlistCleared()">Clear Wishlist</button>
+            <button class="btn" onclick="didTouchWishlistClearedCustom()">Wishlist Cleared (Custom Params)</button>
+        </div>
+    </section>
+
+
+</main>
+
+<!-- ============================================================== -->
+<!-- CUSTOM EVENT VIEW                                              -->
+<!-- ============================================================== -->
+<main class="container view view-event">
+    <section class="section">
+        <div class="input-row" style="margin-top: 16px;">
+            <label class="label" for="event-name">Name</label>
+            <input class="text-field" id="event-name" type="text" placeholder="e.g., product_viewed" autocomplete="off" autocapitalize="none">
+        </div>
+    </section>
+    <section class="section">
+        <h3 class="subsection-title">Parameters</h3>
+        <div id="event-params"></div>
+        <div class="add-row">
+            <button class="btn-link" type="button" onclick="addParamRow('event')">+ Add Parameter</button>
+        </div>
+        <button class="btn btn-hero" type="button" onclick="sendCustomEvent()">Send Event</button>
+    </section>
+</main>
+
+<!-- ============================================================== -->
+<!-- CUSTOM USER ATTRIBUTES VIEW                                    -->
+<!-- ============================================================== -->
+<main class="container view view-attrs">
+    <section class="section" style="margin-top: 16px;">
+        <div id="attrs-params"></div>
+        <div class="add-row">
+            <button class="btn-link" type="button" onclick="addParamRow('attrs')">+ Add Attribute</button>
+        </div>
+        <button class="btn btn-hero" type="button" onclick="setCustomAttributes()">Set Attributes</button>
+    </section>
+</main>
+
+<script>
+    // -----------------------------------------------------------------
+    // Bootstrap — set internal browser close button on load.
+    // -----------------------------------------------------------------
+    window.insider.setInternalBrowserCloseButtonPosition(window.insider.closeButtonPosition.RIGHT);
+
+    // Disable iOS keyboard auto-capitalize / auto-correct / spell-check on every
+    // text field — this is a developer/test surface, raw lowercase identifiers
+    // (e.g. "product_viewed", "en_US") should not be auto-corrected.
+    function disableKeyboardAssist(el) {
+        el.setAttribute('autocapitalize', 'off');
+        el.setAttribute('autocorrect', 'off');
+        el.setAttribute('spellcheck', 'false');
+    }
+    document.querySelectorAll('.text-field').forEach(disableKeyboardAssist);
+
+    // -----------------------------------------------------------------
+    // Print label & log helpers (mirror iOS printLabel + console)
+    // -----------------------------------------------------------------
+    function setPrintLabel(text) {
+        const el = document.getElementById('printLabel');
+        if (el) el.textContent = text;
+    }
+    function clearPrintLabel() {
+        setPrintLabel('');
+        try { console.clear(); } catch (e) { /* noop */ }
+        window._insiderLogger.info('Logs cleared');
+    }
+    function logInfo(message, value) {
+        const text = value !== undefined ? message + ' ' + String(value) : message;
+        setPrintLabel(text);
+        if (value !== undefined) {
+            window._insiderLogger.info(message, value);
+        } else {
+            window._insiderLogger.info(message);
+        }
+    }
+    function logError(message, error) {
+        setPrintLabel(message + ': ' + (error && error.message ? error.message : String(error)));
+        window._insiderLogger.error(message, error);
+    }
+    function logUnsupported(name) {
+        const message = name + ' is not supported in the WebView SDK';
+        setPrintLabel(message);
+        window._insiderLogger.warn ? window._insiderLogger.warn(message) : window._insiderLogger.info(message);
+    }
+
+    // -----------------------------------------------------------------
+    // View routing
+    // -----------------------------------------------------------------
+    function navigateTo(view) {
+        document.body.setAttribute('data-view', view);
+        window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+        // Sub-views always start fresh — clear any state left over from a previous visit.
+        if (view === 'event') {
+            const nameInput = document.getElementById('event-name');
+            if (nameInput) nameInput.value = '';
+            resetParamRows('event');
+        }
+        if (view === 'attrs') {
+            resetParamRows('attrs');
+        }
+    }
+
+    function resetParamRows(viewKey) {
+        const containerId = viewKey === 'event' ? 'event-params' : 'attrs-params';
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        addParamRow(viewKey);
+    }
+
+    // -----------------------------------------------------------------
+    // Random helpers
+    // -----------------------------------------------------------------
+    function generateRandomString(length) {
+        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+    }
+    function generateRandomNumber(length) {
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += Math.floor(Math.random() * 10);
+        }
+        return result;
+    }
+
+    function buildSampleProduct(suffix) {
+        const idSuffix = suffix !== undefined ? '-' + suffix : '';
+        return window.insider
+            .createNewProduct(
+                'productId' + idSuffix,
+                'productName' + idSuffix,
+                ['tax1', 'tax2'],
+                'https://example.com/image.jpg',
+                123.45,
+                'USD'
+            )
+            .setColor('Red')
+            .setVoucherName('SUMMER2024')
+            .setPromotionName('Summer Sale')
+            .setSize('XL')
+            .setGroupCode('GROUP-001')
+            .setSalePrice(99.99)
+            .setShippingCost(5.5)
+            .setVoucherDiscount(10.0)
+            .setPromotionDiscount(15.0)
+            .setStock(50)
+            .setQuantity(2)
+            .setBrand('Insider Brand')
+            .setGender('Unisex')
+            .setDescription('Premium quality product with amazing features')
+            .setSku('SKU-12345' + idSuffix)
+            .setProductType('Electronics')
+            .setGtin('1234567890123')
+            .setTags(['new', 'featured', 'bestseller'])
+            .setInStock(true)
+            .setProductUrl('https://example.com/products/' + 'productId' + idSuffix);
+    }
+
+    function buildSampleProducts(count) {
+        const products = [];
+        for (let i = 0; i < count; i++) products.push(buildSampleProduct(i));
+        return products;
+    }
+
+    // -----------------------------------------------------------------
+    // Custom
+    // -----------------------------------------------------------------
+    function didTouchCustomAction() {
+        // Placeholder for ad-hoc test code — edit this body to try things out
+        // without re-deploying the SDK. Mirrors iOS ExampleSwift's CustomAction.
+        logInfo('Run your custom action here (demo/index.html). e.g., window.insider.tagEvent("ping").build()');
+    }
+
+    // -----------------------------------------------------------------
+    // Core
+    // -----------------------------------------------------------------
+    async function didTouchGetInsiderID() {
+        try {
+            const insiderID = await window.insider.getInsiderID();
+            logInfo('Insider ID:', insiderID);
+        } catch (error) { logError('Error getting Insider ID', error); }
+    }
+
+    async function didTouchRegisterForAPNS() {
+        // iOS: Insider.register(withQuietPermission: false) — closest web equivalent
+        try {
+            await window.insider.registerWithQuietPermission(false);
+            logInfo('Registered with quiet permission');
+        } catch (error) { logError('Error registering for APNS', error); }
+    }
+
+    async function didTouchStartTrackingGeofence() {
+        try {
+            await window.insider.getCurrentUser().setLocationOptin(true);
+            await window.insider.startTrackingGeofence();
+            logInfo('Geofence tracking started');
+        } catch (error) { logError('Error starting geofence tracking', error); }
+    }
+
+    // -----------------------------------------------------------------
+    // Consent
+    // -----------------------------------------------------------------
+    async function didTouchSetGDPRConsent(consent) {
+        try { await window.insider.setGDPRConsent(consent); logInfo('GDPR consent set to', consent); }
+        catch (error) { logError('Error setting GDPR consent', error); }
+    }
+    async function didTouchSetMobileAppAccess(access) {
+        try { await window.insider.setMobileAppAccess(access); logInfo('Mobile app access set to', access); }
+        catch (error) { logError('Error setting mobile app access', error); }
+    }
+    function didTouchEnableIDFACollection(enable) {
+        // iOS-only — no IDFA on web.
+        logUnsupported('Enable IDFA Collection (' + enable + ')');
+    }
+    async function didTouchEnableIpCollection(enable) {
+        try { await window.insider.enableIpCollection(enable); logInfo('IP collection set to', enable); }
+        catch (error) { logError('Error setting IP collection', error); }
+    }
+    async function didTouchEnableCarrierCollection(enable) {
+        try { await window.insider.enableCarrierCollection(enable); logInfo('Carrier collection set to', enable); }
+        catch (error) { logError('Error setting carrier collection', error); }
+    }
+    async function didTouchEnableLocationCollection(enable) {
+        try { await window.insider.enableLocationCollection(enable); logInfo('Location collection set to', enable); }
+        catch (error) { logError('Error setting location collection', error); }
+    }
+    async function didTouchSetEmailOptin(optin) {
+        try { await window.insider.getCurrentUser().setEmailOptin(optin); logInfo('Email opt-in set to', optin); }
+        catch (error) { logError('Error setting email opt-in', error); }
+    }
+    async function didTouchSetPushOptin(optin) {
+        try { await window.insider.getCurrentUser().setPushOptin(optin); logInfo('Push opt-in set to', optin); }
+        catch (error) { logError('Error setting push opt-in', error); }
+    }
+    async function didTouchSetLocationOptin(optin) {
+        try { await window.insider.getCurrentUser().setLocationOptin(optin); logInfo('Location opt-in set to', optin); }
+        catch (error) { logError('Error setting location opt-in', error); }
+    }
+    async function didTouchSetSMSOptin(optin) {
+        try { await window.insider.getCurrentUser().setSMSOptin(optin); logInfo('SMS opt-in set to', optin); }
+        catch (error) { logError('Error setting SMS opt-in', error); }
+    }
+    async function didTouchSetWhatsAppOptin(optin) {
+        try { await window.insider.getCurrentUser().setWhatsappOptin(optin); logInfo('WhatsApp opt-in set to', optin); }
+        catch (error) { logError('Error setting WhatsApp opt-in', error); }
+    }
+
+    // -----------------------------------------------------------------
+    // User
+    // -----------------------------------------------------------------
+    async function didTouchLogin() {
+        try {
+            const identifiers = window.insider.createIdentifiers()
+                .addEmail(generateRandomString(10) + '@example.com')
+                .addPhoneNumber('+' + generateRandomNumber(12))
+                .addUserID(generateRandomString(8))
+                .addCustomIdentifier('loyalty_level', 'gold')
+                .addCustomIdentifier('preferred_language', 'en');
+            const insiderID = await window.insider.getCurrentUser().login(identifiers);
+            logInfo('Logged in. Insider ID:', insiderID);
+        } catch (error) { logError('Error logging in', error); }
+    }
+
+    async function didTouchLogout() {
+        try {
+            await window.insider.getCurrentUser().logout();
+            logInfo('User logged out');
+        } catch (error) { logError('Error logging out', error); }
+    }
+
+    async function didTouchLogoutResettingInsiderID() {
+        try {
+            const identifiers = window.insider.createIdentifiers()
+                .addEmail(generateRandomString(10) + '@example.com')
+                .addUserID(generateRandomString(8));
+            const newID = await window.insider.getCurrentUser().logoutResettingInsiderID([identifiers]);
+            logInfo('Logged out + reset ID. New Insider ID:', newID);
+        } catch (error) { logError('Error in logoutResettingInsiderID', error); }
+    }
+
+    // -----------------------------------------------------------------
+    // User Attributes — individual SET buttons
+    // -----------------------------------------------------------------
+    async function setUserAttr(kind) {
+        const user = window.insider.getCurrentUser();
+        try {
+            switch (kind) {
+                case 'Name':         await user.setName(document.getElementById('ua-name').value); break;
+                case 'Surname':      await user.setSurname(document.getElementById('ua-surname').value); break;
+                case 'Email':        await user.setEmail(document.getElementById('ua-email').value); break;
+                case 'PhoneNumber':  await user.setPhoneNumber(document.getElementById('ua-phone').value); break;
+                case 'Age':          await user.setAge(parseInt(document.getElementById('ua-age').value, 10)); break;
+                case 'Gender':       await user.setGender(document.getElementById('ua-gender').value); break;
+                case 'Birthday': {
+                    const raw = document.getElementById('ua-birthday').value;
+                    if (!raw) throw new Error('Birthday is empty');
+                    await user.setBirthday(new Date(raw));
+                    break;
+                }
+                case 'Language':     await user.setLanguage(document.getElementById('ua-language').value); break;
+                case 'Locale':       await user.setLocale(document.getElementById('ua-locale').value); break;
+                case 'FacebookID':   // No setFacebookID on web user.
+                case 'TwitterID':    // No setTwitterID on web user.
+                    logUnsupported('set' + kind);
+                    return;
+                default:
+                    logError('Unknown user attribute kind', kind);
+                    return;
+            }
+            logInfo('Set user attribute:', kind);
+        } catch (error) { logError('Error setting ' + kind, error); }
+    }
+
+    // -----------------------------------------------------------------
+    // Inapp
+    // -----------------------------------------------------------------
+    async function didTouchEnableInAppMessages() {
+        try { await window.insider.enableInAppMessages(); logInfo('Inapp messages enabled'); }
+        catch (error) { logError('Error enabling inapp messages', error); }
+    }
+    async function didTouchDisableInAppMessages() {
+        try { await window.insider.disableInAppMessages(); logInfo('Inapp messages disabled'); }
+        catch (error) { logError('Error disabling inapp messages', error); }
+    }
+    async function didTouchGetMessageCenterData() {
+        try {
+            const endDate = new Date();
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - 30);
+            const data = await window.insider.getMessageCenterData(startDate, endDate, 10);
+            logInfo('Message center data retrieved. Count:', Array.isArray(data) ? data.length : data);
+        } catch (error) { logError('Error getting message center data', error); }
+    }
+
+    // -----------------------------------------------------------------
+    // Event
+    // -----------------------------------------------------------------
+    async function didTouchVisitHomePage() {
+        try { await window.insider.visitHomePage(); logInfo('Visited home page'); }
+        catch (error) { logError('Error visiting home page', error); }
+    }
+    async function didTouchVisitHomePageCustom() {
+        try {
+            await window.insider.visitHomePage({
+                'method': ['tabBar', 'toolBar'],
+                'count': [4.9, 5.5, 6],
+                'date': new Date(),
+            });
+            logInfo('Visited home page (custom params)');
+        } catch (error) { logError('Error visiting home page', error); }
+    }
+    async function didTouchVisitListingPage() {
+        try {
+            await window.insider.visitListingPage(['Erkek', 'T-shirt', 'Adidas']);
+            logInfo('Visited listing page');
+        } catch (error) { logError('Error visiting listing page', error); }
+    }
+    async function didTouchVisitListingPageCustom() {
+        try {
+            await window.insider.visitListingPage(
+                ['Erkek', 'T-shirt', 'Adidas'],
+                { 'sort_by': 'price', 'filter_brand': 'Adidas' }
+            );
+            logInfo('Visited listing page (custom params)');
+        } catch (error) { logError('Error visiting listing page', error); }
+    }
+    async function didTouchVisitProductPage() {
+        try {
+            await window.insider.visitProductDetailsPage(buildSampleProduct());
+            logInfo('Visited product details page');
+        } catch (error) { logError('Error visiting product page', error); }
+    }
+    async function didTouchVisitProductPageCustom() {
+        try {
+            await window.insider.visitProductDetailsPage(
+                buildSampleProduct(),
+                { 'source': 'recommendation', 'position': 3 }
+            );
+            logInfo('Visited product details page (custom params)');
+        } catch (error) { logError('Error visiting product page', error); }
+    }
+    async function didTouchVisitCartPage() {
+        try {
+            await window.insider.visitCartPage(buildSampleProducts(5));
+            logInfo('Visited cart page');
+        } catch (error) { logError('Error visiting cart page', error); }
+    }
+    async function didTouchVisitCartPageCustom() {
+        try {
+            await window.insider.visitCartPage(
+                buildSampleProducts(5),
+                { 'coupon_applied': true, 'cart_source': 'wishlist' }
+            );
+            logInfo('Visited cart page (custom params)');
+        } catch (error) { logError('Error visiting cart page', error); }
+    }
+    async function didTouchSignUpConfirmation() {
+        try {
+            await window.insider.signUpConfirmation({ 'method': 'email', 'referral': 'campaign_123' });
+            logInfo('Sign up confirmation sent');
+        } catch (error) { logError('Error sending sign up confirmation', error); }
+    }
+
+    // -----------------------------------------------------------------
+    // Product
+    // -----------------------------------------------------------------
+    async function didTouchItemAddedToCart() {
+        try {
+            await window.insider.itemAddedToCart(buildSampleProduct());
+            logInfo('Item added to cart');
+        } catch (error) { logError('Error adding item to cart', error); }
+    }
+    async function didTouchItemAddedToCartCustom() {
+        try {
+            await window.insider.itemAddedToCart(
+                buildSampleProduct(),
+                { 'source': 'product_detail', 'quantity': 2 }
+            );
+            logInfo('Item added to cart (custom params)');
+        } catch (error) { logError('Error adding item to cart', error); }
+    }
+    async function didTouchItemRemovedFromCart() {
+        try { await window.insider.itemRemovedFromCart('productId'); logInfo('Item removed from cart'); }
+        catch (error) { logError('Error removing item from cart', error); }
+    }
+    async function didTouchItemRemovedFromCartCustom() {
+        try {
+            await window.insider.itemRemovedFromCart('productId', { 'reason': 'out_of_stock' });
+            logInfo('Item removed from cart (custom params)');
+        } catch (error) { logError('Error removing item from cart', error); }
+    }
+    async function didTouchItemPurchased() {
+        try {
+            await window.insider.itemPurchased('orderId-12345', buildSampleProduct());
+            logInfo('Item purchased');
+        } catch (error) { logError('Error purchasing item', error); }
+    }
+    async function didTouchItemPurchasedCustom() {
+        try {
+            await window.insider.itemPurchased(
+                'orderId-12345',
+                buildSampleProduct(),
+                { 'payment_method': 'credit_card', 'installments': 3 }
+            );
+            logInfo('Item purchased (custom params)');
+        } catch (error) { logError('Error purchasing item', error); }
+    }
+    async function didTouchCartClearedCustom() {
+        try {
+            await window.insider.cartCleared({ 'reason': 'user_action', 'item_count': 5 });
+            logInfo('Cart cleared (custom params)');
+        } catch (error) { logError('Error clearing cart', error); }
+    }
+
+    // -----------------------------------------------------------------
+    // Wishlist
+    // -----------------------------------------------------------------
+    async function didTouchVisitWishlist() {
+        try { await window.insider.visitWishlist(buildSampleProducts(5)); logInfo('Visited wishlist'); }
+        catch (error) { logError('Error visiting wishlist', error); }
+    }
+    async function didTouchVisitWishlistCustom() {
+        try {
+            await window.insider.visitWishlist(
+                buildSampleProducts(5),
+                { 'source': 'profile', 'sort_by': 'date_added' }
+            );
+            logInfo('Visited wishlist (custom params)');
+        } catch (error) { logError('Error visiting wishlist', error); }
+    }
+    async function didTouchItemAddedToWishlist() {
+        try { await window.insider.itemAddedToWishlist(buildSampleProduct()); logInfo('Item added to wishlist'); }
+        catch (error) { logError('Error adding item to wishlist', error); }
+    }
+    async function didTouchItemAddedToWishlistCustom() {
+        try {
+            await window.insider.itemAddedToWishlist(
+                buildSampleProduct(),
+                { 'source': 'product_detail', 'notify_price_drop': true }
+            );
+            logInfo('Item added to wishlist (custom params)');
+        } catch (error) { logError('Error adding item to wishlist', error); }
+    }
+    async function didTouchItemRemovedFromWishlist() {
+        try { await window.insider.itemRemovedFromWishlist('productId'); logInfo('Item removed from wishlist'); }
+        catch (error) { logError('Error removing item from wishlist', error); }
+    }
+    async function didTouchItemRemovedFromWishlistCustom() {
+        try {
+            await window.insider.itemRemovedFromWishlist('productId', { 'reason': 'purchased' });
+            logInfo('Item removed from wishlist (custom params)');
+        } catch (error) { logError('Error removing item from wishlist', error); }
+    }
+    async function didTouchWishlistCleared() {
+        try { await window.insider.wishlistCleared(); logInfo('Wishlist cleared'); }
+        catch (error) { logError('Error clearing wishlist', error); }
+    }
+    async function didTouchWishlistClearedCustom() {
+        try {
+            await window.insider.wishlistCleared({ 'reason': 'bulk_add_to_cart', 'item_count': 3 });
+            logInfo('Wishlist cleared (custom params)');
+        } catch (error) { logError('Error clearing wishlist', error); }
+    }
+
+    // -----------------------------------------------------------------
+    // Param-row UI (shared by Custom Event and Custom Attributes)
+    // -----------------------------------------------------------------
+    const PARAM_TYPES = ['String', 'Integer', 'Double', 'Boolean'];
+
+    function addParamRow(viewKey) {
+        const containerId = viewKey === 'event' ? 'event-params' : 'attrs-params';
+        const container = document.getElementById(containerId);
+        const row = document.createElement('div');
+        row.className = 'param-row';
+
+        // Segmented control
+        const seg = document.createElement('div');
+        seg.className = 'segmented';
+        PARAM_TYPES.forEach((t, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'seg';
+            b.textContent = t;
+            b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+            b.addEventListener('click', () => {
+                seg.querySelectorAll('.seg').forEach(s => s.setAttribute('aria-pressed', 'false'));
+                b.setAttribute('aria-pressed', 'true');
+                row.dataset.type = t;
+            });
+            seg.appendChild(b);
+        });
+        row.dataset.type = PARAM_TYPES[0];
+        row.appendChild(seg);
+
+        // Name + Value pair
+        const pair = document.createElement('div');
+        pair.className = 'pair';
+        const nameInput = document.createElement('input');
+        nameInput.className = 'text-field';
+        nameInput.placeholder = 'Name';
+        nameInput.autocomplete = 'off';
+        nameInput.dataset.role = 'name';
+        disableKeyboardAssist(nameInput);
+        const valueInput = document.createElement('input');
+        valueInput.className = 'text-field';
+        valueInput.placeholder = 'Value';
+        valueInput.autocomplete = 'off';
+        valueInput.dataset.role = 'value';
+        disableKeyboardAssist(valueInput);
+        pair.appendChild(nameInput);
+        pair.appendChild(valueInput);
+        row.appendChild(pair);
+
+        // Delete row
+        const del = document.createElement('div');
+        del.className = 'delete-row';
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'btn-link';
+        delBtn.textContent = 'Delete';
+        delBtn.addEventListener('click', () => row.remove());
+        del.appendChild(delBtn);
+        row.appendChild(del);
+
+        container.appendChild(row);
+    }
+
+    function readParamRows(containerId) {
+        const rows = document.querySelectorAll('#' + containerId + ' .param-row');
+        const out = [];
+        rows.forEach(row => {
+            const type = row.dataset.type || 'String';
+            const name = row.querySelector('input[data-role="name"]').value.trim();
+            const rawValue = row.querySelector('input[data-role="value"]').value;
+            if (!name) return;
+            out.push({ type, name, rawValue });
+        });
+        return out;
+    }
+
+    // -----------------------------------------------------------------
+    // Coerce raw text-field input to the JS type the SDK expects.
+    // Empty values are rejected up-front (the SDK's validateParameters
+    // would reject them anyway with type:'string'/'number'/'boolean'),
+    // so we return ok:false instead of letting the SDK throw mid-loop.
+    // -----------------------------------------------------------------
+    function coerceParamValue(type, rawValue) {
+        const raw = rawValue == null ? '' : String(rawValue);
+        switch (type) {
+            case 'String': {
+                if (raw.trim() === '') return { ok: false, reason: 'empty value' };
+                return { ok: true, value: raw };
+            }
+            case 'Integer': {
+                if (raw.trim() === '') return { ok: false, reason: 'empty value' };
+                const v = parseInt(raw, 10);
+                return Number.isFinite(v) ? { ok: true, value: v } : { ok: false, reason: 'invalid integer' };
+            }
+            case 'Double': {
+                if (raw.trim() === '') return { ok: false, reason: 'empty value' };
+                const v = parseFloat(raw);
+                return Number.isFinite(v) ? { ok: true, value: v } : { ok: false, reason: 'invalid double' };
+            }
+            case 'Boolean': {
+                const lc = raw.trim().toLowerCase();
+                if (lc === 'true' || lc === '1' || lc === 'yes') return { ok: true, value: true };
+                if (lc === 'false' || lc === '0' || lc === 'no') return { ok: true, value: false };
+                return { ok: false, reason: 'invalid boolean' };
+            }
+            default: return { ok: false, reason: 'unknown type' };
+        }
+    }
+
+    // -----------------------------------------------------------------
+    // Send Custom Event
+    // -----------------------------------------------------------------
+    async function sendCustomEvent() {
+        try {
+            const eventName = document.getElementById('event-name').value.trim();
+            if (!eventName) { logError('Custom Event', new Error('Event name is required')); return; }
+
+            const event = window.insider.tagEvent(eventName);
+            const rows = readParamRows('event-params');
+            const added = [];
+            const skipped = [];
+            for (const { type, name, rawValue } of rows) {
+                if (!name) { skipped.push('<row with empty name>'); continue; }
+                const coerced = coerceParamValue(type, rawValue);
+                if (!coerced.ok) { skipped.push(name + ' [' + coerced.reason + ']'); continue; }
+                // Isolate each addXParameter call so a single row's validation
+                // failure can't abort the rest of the loop or skip event.build().
+                try {
+                    switch (type) {
+                        case 'String':  event.addStringParameter(name, coerced.value); break;
+                        case 'Integer':
+                        case 'Double':  event.addNumericParameter(name, coerced.value); break;
+                        case 'Boolean': event.addBooleanParameter(name, coerced.value); break;
+                    }
+                    added.push(name + '=' + JSON.stringify(coerced.value));
+                } catch (e) {
+                    skipped.push(name + ' [' + (e && e.message ? e.message : String(e)) + ']');
+                }
+            }
+            await event.build();
+            const addedMsg = added.length ? ' params(' + added.length + '): ' + added.join(', ') : ' (no params)';
+            const skipMsg = skipped.length ? ' | skipped: ' + skipped.join(', ') : '';
+            logInfo('Event sent "' + eventName + '"' + addedMsg + skipMsg);
+            navigateTo('main');
+        } catch (error) { logError('Error sending custom event', error); }
+    }
+
+    // -----------------------------------------------------------------
+    // Set Custom Attributes
+    // -----------------------------------------------------------------
+    async function setCustomAttributes() {
+        try {
+            const user = window.insider.getCurrentUser();
+            const rows = readParamRows('attrs-params');
+            const added = [];
+            const skipped = [];
+            for (const { type, name, rawValue } of rows) {
+                if (!name) { skipped.push('<row with empty name>'); continue; }
+                const coerced = coerceParamValue(type, rawValue);
+                if (!coerced.ok) { skipped.push(name + ' [' + coerced.reason + ']'); continue; }
+                try {
+                    switch (type) {
+                        case 'String':  await user.setStringCustomAttribute(name, coerced.value); break;
+                        case 'Integer':
+                        case 'Double':  await user.setNumericCustomAttribute(name, coerced.value); break;
+                        case 'Boolean': await user.setBooleanCustomAttribute(name, coerced.value); break;
+                    }
+                    added.push(name + '=' + JSON.stringify(coerced.value));
+                } catch (e) {
+                    skipped.push(name + ' [' + (e && e.message ? e.message : String(e)) + ']');
+                }
+            }
+            const addedMsg = added.length ? ' attrs(' + added.length + '): ' + added.join(', ') : ' (no attrs)';
+            const skipMsg = skipped.length ? ' | skipped: ' + skipped.join(', ') : '';
+            logInfo('Custom attributes set' + addedMsg + skipMsg);
+            navigateTo('main');
+        } catch (error) { logError('Error setting custom attributes', error); }
+    }
+</script>
+</body>
+</html>

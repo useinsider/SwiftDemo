@@ -17,8 +17,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Figtree-Black.ttf</string>
@@ -64,7 +62,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
+					<string>Native</string>
 				</dict>
 			</array>
 		</dict>

@@ -16,8 +16,21 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="tgr-Rg-a2n">
+                                <rect key="frame" x="98.333333333333329" y="352.66666666666669" width="196.33333333333337" height="196.66666666666669"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tgr-Rg-a2n" secondAttribute="height" id="xCB-83-otY"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BackgroundPrimary"/>
+                        <constraints>
+                            <constraint firstItem="tgr-Rg-a2n" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="1z9-D0-mgs"/>
+                            <constraint firstItem="tgr-Rg-a2n" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="EOU-f9-4KJ"/>
+                            <constraint firstItem="tgr-Rg-a2n" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZU8-lg-G7h"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -26,8 +39,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Launch" width="501" height="450"/>
         <namedColor name="BackgroundPrimary">
-            <color red="0.93700000000000006" green="0.92200000000000004" blue="0.89400000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.93699997663497925" green="0.92199999094009399" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
