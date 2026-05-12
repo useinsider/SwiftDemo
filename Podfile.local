@@ -10,6 +10,11 @@ target 'ExamplePods' do
   pod 'InsiderWebView', :podspec => "build/InsiderWebView/outputs/InsiderWebView.podspec"
 end
 
+target 'ExampleWebViewPods' do
+  pod 'InsiderMobile', :podspec => "build/InsiderMobile/outputs/InsiderMobile.podspec"
+  pod 'InsiderWebView', :podspec => "build/InsiderWebView/outputs/InsiderWebView.podspec"
+end
+
 target 'InsiderNotificationServicePods' do
   pod 'InsiderMobileAdvancedNotification'
 end
