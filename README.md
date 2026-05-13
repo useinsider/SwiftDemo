@@ -68,6 +68,25 @@ InsiderNotificationContent{SPM,Pods,Carthage}/
 
 All targets live in `Example.xcworkspace`. Each native scheme has its own **Notification Service** and **Notification Content** extension targets.
 
+| Feature | Native | WebView |
+|---|:---:|:---:|
+| **Reinit** | 🟢 | 🔴 |
+| Event tracking (`tagEvent`, custom events) | 🟢 | 🟢 |
+| Page-visit events (home, listing, PDP, cart, wishlist) | 🟢 | 🟢 |
+| User identifiers (login, logout) | 🟢 | 🟢 |
+| User attributes & opt-ins (email, SMS, push, location, ...) | 🟢 | 🟢 |
+| Product, cart, wishlist, purchase events | 🟢 | 🟢 |
+| In-app messaging (enable / disable / remove) | 🟢 | 🟢 |
+| **Smart Recommender** | 🟢 | 🔴 |
+| **Content Optimizer** (A/B testing) | 🟢 | 🔴 |
+| Push notifications | 🟢 | 🟢 |
+| Geofencing | 🟢 | 🟢 |
+| GDPR (carrier, IP, location, ...) | 🟢 | 🟢 |
+| **App Cards** (campaign messaging) | 🟢 | 🔴 |
+
+If your use case depends on any row in **bold**, pick a `Example{SPM,Pods,Carthage}` scheme. Otherwise either flavor works.
+
+
 ## Getting Started
 
 ### 1. Clone the Repository
@@ -167,20 +186,20 @@ After building, link the frameworks from `Carthage/Build/` in your target's **Fr
 
 Before running, update the following values with your own:
 
-1. **Partner Name** in `Shared/Sources/AppDelegate.swift`:
+1. **Partner Name** in [`Shared/Sources/AppDelegate.swift`](Shared/Sources/AppDelegate.swift):
 
 ```swift
 Insider.initWithLaunchOptions(
-    nil,
+    launchOptions,
     partnerName: "YOUR_PARTNER_NAME",
     appGroup: "YOUR_APP_GROUP"
 )
 ```
 
 2. **App Group** identifier in all three files:
-   - `Shared/Sources/AppDelegate.swift`
-   - `Shared/Sources/NotificationService.swift`
-   - `Shared/Sources/NotificationViewController.swift`
+   - [`Shared/Sources/AppDelegate.swift`](Shared/Sources/AppDelegate.swift)
+   - [`Shared/Sources/NotificationService.swift`](Shared/Sources/NotificationService.swift)
+   - [`Shared/Sources/NotificationViewController.swift`](Shared/Sources/NotificationViewController.swift)
 
 3. **Signing & Capabilities** for every target (app + both extensions):
    - Set your development team
@@ -217,7 +236,11 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
         Insider.registerCallback(with: #selector(insiderCallback(_:)), sender: self)
 
         // Initialize with your partner name and app group
-        Insider.initWithLaunchOptions(nil, partnerName: "YOUR_PARTNER_NAME", appGroup: "YOUR_APP_GROUP")
+        Insider.initWithLaunchOptions(
+            launchOptions, 
+            partnerName: "YOUR_PARTNER_NAME", 
+            appGroup: "YOUR_APP_GROUP"
+        )
 
         // Show push notifications while app is in foreground
         Insider.setActiveForegroundPushView()
@@ -401,7 +424,7 @@ if let url = URL(string: "http://localhost:8080/index.html") {
 
 ### Using the SDK from TypeScript
 
-When the page loaded in the WebView is part of a TypeScript codebase, you can get full type-safety and autocompletion for the JavaScript bridge that `Insider.setupWebViewSDK(on:)` injects. The `WebView/Resources/InsiderWebViewScript.d.ts` file in this repository ships the ambient type declarations for that bridge — there is no runtime code in it; it only describes the API that the native SDK exposes at runtime as `window.insider`.
+When the page loaded in the WebView is part of a TypeScript codebase, you can get full type-safety and autocompletion for the JavaScript bridge that `Insider.setupWebViewSDK(on:)` injects. The [`InsiderWebViewScript.d.ts`](WebView/Resources/InsiderWebViewScript.d.ts) file in this repository ships the ambient type declarations for that bridge — there is no runtime code in it; it only describes the API that the native SDK exposes at runtime as `window.insider`.
 
 It declares:
 
@@ -411,7 +434,7 @@ It declares:
 
 #### Wire it into your project
 
-Copy `InsiderWebViewScript.d.ts` into your web app's source tree (e.g. `src/types/`) and reference it in `tsconfig.json`:
+Copy [`InsiderWebViewScript.d.ts`](WebView/Resources/InsiderWebViewScript.d.ts) into your web app's source tree (e.g. `src/types/`) and reference it in `tsconfig.json`:
 
 ```json
 {
