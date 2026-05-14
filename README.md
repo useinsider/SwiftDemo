@@ -1,7 +1,6 @@
 # Insider iOS SDKs Example
 
-[![CocoaPods compatible](https://img.shields.io/cocoapods/v/InsiderMobile.svg)](https://cocoapods.org/pods/InsiderMobile) [![Swift Package Manager](https://img.shields.io/github/v/release/useinsider/Insider-iOS-SDK?label=SwiftPM&sort=semver&color=red)](https://github.com/useinsider/Insider-iOS-SDK/releases/latest) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-
+[![CocoaPods compatible](https://img.shields.io/cocoapods/v/InsiderMobile.svg?label=InsiderMobile)](https://cocoapods.org/pods/InsiderMobile) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/InsiderMobileAdvancedNotification.svg?label=InsiderMobileAdvancedNotification)](https://cocoapods.org/pods/InsiderMobileAdvancedNotification) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/InsiderGeofence.svg?label=InsiderGeofence)](https://cocoapods.org/pods/InsiderGeofence) [![CocoaPods compatible](https://img.shields.io/cocoapods/v/InsiderWebView.svg?label=InsiderWebView)](https://cocoapods.org/pods/InsiderWebView) [![Swift Package Manager](https://img.shields.io/github/v/release/useinsider/Insider-iOS-SDK?label=SwiftPM&sort=semver&color=red)](https://github.com/useinsider/Insider-iOS-SDK/releases/latest) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/47c3c8d8-9d33-40dd-938f-bc276ea7d560" width="400">
@@ -76,7 +75,7 @@ All targets live in `Example.xcworkspace`. Each native scheme has its own **Noti
 | User identifiers (login, logout) | 🟢 | 🟢 |
 | User attributes & opt-ins (email, SMS, push, location, ...) | 🟢 | 🟢 |
 | Product, cart, wishlist, purchase events | 🟢 | 🟢 |
-| In-app messaging (enable / disable / remove) | 🟢 | 🟢 |
+| In-app messaging (enable / disable) | 🟢 | 🟢 |
 | **Smart Recommender** | 🟢 | 🔴 |
 | **Content Optimizer** (A/B testing) | 🟢 | 🔴 |
 | Push notifications | 🟢 | 🟢 |
