@@ -17,6 +17,6 @@ public struct CustomAction: Action {
     /// Executes the custom action logic.
     public func execute() {
         print("Run your custom action in here: \(#file):\(#line)")
-        // e.g, Insider.reinit(withPartnerName: "qaautomation1")
+        // e.g, Insider.reinit(withPartnerName: "<partnername>")
     }
 }

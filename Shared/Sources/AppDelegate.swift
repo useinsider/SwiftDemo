@@ -25,7 +25,6 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
     }
 
     @objc public func insiderCallback(_ context: [String: Any]) {
-        print(context)
         if
             let typeAsInt = context["type"] as? Int,
             let type = InsiderCallbackType(rawValue: typeAsInt) {
