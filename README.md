@@ -67,25 +67,6 @@ InsiderNotificationContent{SPM,Pods,Carthage}/
 
 All targets live in `Example.xcworkspace`. Each native scheme has its own **Notification Service** and **Notification Content** extension targets.
 
-| Feature | Native | WebView |
-|---|:---:|:---:|
-| **Reinit** | 🟢 | 🔴 |
-| Event tracking (`tagEvent`, custom events) | 🟢 | 🟢 |
-| Page-visit events (home, listing, PDP, cart, wishlist) | 🟢 | 🟢 |
-| User identifiers (login, logout) | 🟢 | 🟢 |
-| User attributes & opt-ins (email, SMS, push, location, ...) | 🟢 | 🟢 |
-| Product, cart, wishlist, purchase events | 🟢 | 🟢 |
-| In-app messaging (enable / disable) | 🟢 | 🟢 |
-| **Smart Recommender** | 🟢 | 🔴 |
-| **Content Optimizer** (A/B testing) | 🟢 | 🔴 |
-| Push notifications | 🟢 | 🟢 |
-| Geofencing | 🟢 | 🟢 |
-| GDPR (carrier, IP, location, ...) | 🟢 | 🟢 |
-| **App Cards** (campaign messaging) | 🟢 | 🔴 |
-
-If your use case depends on any row in **bold**, pick a `Example{SPM,Pods,Carthage}` scheme. Otherwise either flavor works.
-
-
 ## Getting Started
 
 ### 1. Clone the Repository
