@@ -13,7 +13,7 @@ import UserNotifications
 public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     private let appGroup = "group.com.useinsider.mobile-ios"
-    private let partnerName = "orkunbites"
+    private let partnerName = "partnername"
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = self
