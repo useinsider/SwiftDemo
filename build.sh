@@ -11,7 +11,7 @@ Required:
 
 Optional:
   -o, --output     Output directory for the IPA (default: ./build/<scheme>)
-  -m, --method     Export method: release-testing, app-store-connect, enterprise, development (default: release-testing)
+  -m, --method     Export method: release-testing, app-store-connect, enterprise, debugging (default: release-testing)
   -v, --verbose    Print detailed build information
 
 Examples:
@@ -52,7 +52,10 @@ if [[ -z "${SCHEME}" || -z "${TEAM_ID}" ]]; then
 fi
 
 case "${EXPORT_METHOD}" in
-  release-testing|app-store-connect|enterprise|development);;
+  release-testing)    PROFILE_SUFFIX="AdHoc";       SIGNING_CERT="iPhone Distribution"; SIGNING_STYLE="manual" ;;
+  app-store-connect)  PROFILE_SUFFIX="AppStore";    SIGNING_CERT="iPhone Distribution"; SIGNING_STYLE="manual" ;;
+  enterprise)         PROFILE_SUFFIX="Enterprise";  SIGNING_CERT="iPhone Distribution"; SIGNING_STYLE="manual" ;;
+  debugging)          PROFILE_SUFFIX="Development"; SIGNING_CERT="Apple Development";   SIGNING_STYLE="automatic" ;;
   *) echo "Error: Invalid export method: ${EXPORT_METHOD}"; usage; exit 1;;
 esac
 
@@ -93,6 +96,25 @@ if [[ ! -d "${ARCHIVE_PATH}" ]]; then
 fi
 log "Archived: ${ARCHIVE_PATH}"
 
+if [[ "${SIGNING_STYLE}" == "automatic" ]]; then
+  SIGNING_BLOCK=""
+else
+  SIGNING_BLOCK=$(cat <<PROF
+    <key>signingCertificate</key>
+    <string>${SIGNING_CERT}</string>
+    <key>provisioningProfiles</key>
+    <dict>
+        <key>com.useinsider.mobile-ios</key>
+        <string>Mobile ${PROFILE_SUFFIX}</string>
+        <key>com.useinsider.mobile-ios.InsiderNotificationService</key>
+        <string>InsiderNotificationService ${PROFILE_SUFFIX}</string>
+        <key>com.useinsider.mobile-ios.InsiderNotificationContent</key>
+        <string>InsiderNotificationContent ${PROFILE_SUFFIX}</string>
+    </dict>
+PROF
+)
+fi
+
 EXPORT_OPTIONS_PLIST="${BUILD_DIR}/ExportOptions.plist"
 cat > "${EXPORT_OPTIONS_PLIST}" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -104,18 +126,8 @@ cat > "${EXPORT_OPTIONS_PLIST}" <<EOF
     <key>teamID</key>
     <string>${TEAM_ID}</string>
     <key>signingStyle</key>
-    <string>manual</string>
-    <key>signingCertificate</key>
-    <string>iPhone Distribution</string>
-    <key>provisioningProfiles</key>
-    <dict>
-        <key>com.useinsider.mobile-ios</key>
-        <string>Mobile AdHoc</string>
-        <key>com.useinsider.mobile-ios.InsiderNotificationService</key>
-        <string>InsiderNotificationService AdHoc</string>
-        <key>com.useinsider.mobile-ios.InsiderNotificationContent</key>
-        <string>InsiderNotificationContent AdHoc</string>
-    </dict>
+    <string>${SIGNING_STYLE}</string>
+${SIGNING_BLOCK}
     <key>stripSwiftSymbols</key>
     <true/>
     <key>compileBitcode</key>
@@ -123,6 +135,8 @@ cat > "${EXPORT_OPTIONS_PLIST}" <<EOF
 </dict>
 </plist>
 EOF
+
+cat $EXPORT_OPTIONS_PLIST
 
 IPA_FILE="${OUTPUT_DIR}/${SCHEME}.ipa"
 rm -rf "${IPA_FILE}"

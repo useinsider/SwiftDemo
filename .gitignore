@@ -43,6 +43,10 @@ Cartfile.resolved
 timeline.xctimeline
 playground.xcworkspace
 
+.vscode/
+.orbit-output/.log-reminded
+.orbit-output/.plan-mode-edits
+
 # Fastlane
 fastlane/report.xml
 fastlane/Preview.html
