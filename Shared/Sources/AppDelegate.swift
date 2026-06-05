@@ -19,7 +19,7 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
         UNUserNotificationCenter.current().delegate = self
 
         Insider.registerCallback(with: #selector(insiderCallback(_:)), sender: self)
-        Insider.initWithLaunchOptions(nil, partnerName: partnerName, appGroup: appGroup)
+        Insider.initWithLaunchOptions(launchOptions, partnerName: partnerName, appGroup: appGroup)
         Insider.setActiveForegroundPushView()
         return true
     }
