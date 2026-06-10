@@ -2821,7 +2821,7 @@
 			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.3;
+				minimumVersion = 1.8.6;
 			};
 		};
 		98CEC21D2ED72EEF005E13D9 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */ = {
@@ -2829,7 +2829,7 @@
 			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.5;
+				minimumVersion = 1.8.6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
