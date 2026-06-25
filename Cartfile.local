@@ -1,4 +1,5 @@
 binary "build/InsiderWebView/outputs/InsiderWebView.json"
 binary "build/InsiderGeofence/outputs/InsiderGeofence.json"
 binary "build/InsiderMobile/outputs/InsiderMobile.json"
+binary "build/InsiderLiveActivities/outputs/InsiderLiveActivities.json"
 binary "InsiderMobileAdvancedNotification.json"

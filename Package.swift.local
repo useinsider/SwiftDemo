@@ -21,6 +21,9 @@ let package = Package(
         .library(
             name: "InsiderWebView",
             targets: ["InsiderWebView", "InsiderMobile"]),
+        .library(
+            name: "InsiderLiveActivities",
+            targets: ["InsiderLiveActivities", "InsiderMobile"]),
     ],
     targets: [
         .binaryTarget(
@@ -47,6 +50,10 @@ let package = Package(
         .binaryTarget(
             name: "InsiderWebView",
             path: "build/InsiderWebView/outputs/InsiderWebView.xcframework.zip"
+        ),
+        .binaryTarget(
+            name: "InsiderLiveActivities",
+            path: "build/InsiderLiveActivities/outputs/InsiderLiveActivities.xcframework.zip"
         ),
     ]
 )

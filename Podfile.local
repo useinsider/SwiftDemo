@@ -8,6 +8,7 @@ target 'ExamplePods' do
   pod 'InsiderMobile', :podspec => "build/InsiderMobile/outputs/InsiderMobile.podspec"
   pod 'InsiderGeofence', :podspec => "build/InsiderGeofence/outputs/InsiderGeofence.podspec"
   pod 'InsiderWebView', :podspec => "build/InsiderWebView/outputs/InsiderWebView.podspec"
+  pod 'InsiderLiveActivities', :podspec => "build/InsiderLiveActivities/outputs/InsiderLiveActivities.podspec"
 end
 
 target 'ExampleWebViewPods' do
@@ -21,4 +22,9 @@ end
 
 target 'InsiderNotificationContentPods' do
   pod 'InsiderMobileAdvancedNotification'
+end
+
+target 'InsiderLiveActivitiesWidgetPodsExtension' do
+  pod 'InsiderMobile', :podspec => "build/InsiderMobile/outputs/InsiderMobile.podspec"
+  pod 'InsiderLiveActivities', :podspec => "build/InsiderLiveActivities/outputs/InsiderLiveActivities.podspec"
 end
