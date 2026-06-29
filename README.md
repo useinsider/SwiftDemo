@@ -12,7 +12,7 @@
   <a href="LICENSE">MIT License</a>
 </p>
 
-This project demonstrates how to integrate the [Insider iOS SDK](https://academy.insiderone.com/docs/ios-integration) into a Swift application using **Swift Package Manager**, **CocoaPods**, or **Carthage**. It includes a fully working example with push notification extensions and all major SDK features.
+This project demonstrates how to integrate the [Insider iOS SDK](https://academy.insiderone.com/docs/ios-integration) into a Swift application using **Swift Package Manager**, **CocoaPods**, or **Carthage**. It includes a fully working example with push notification extensions, Live Activities, and all major SDK features.
 
 ## Requirements
 
@@ -40,11 +40,15 @@ Shared/                              # Used by every app target
 Native/                              # Used by Example{SPM,Pods,Carthage}
 ├── Sources/
 │   ├── Actions/                     # SDK feature implementations
-│   ├── ViewControllers/             # UI
+│   ├── LiveActivities/              # Live Activity SDK calls + in-app logger
+│   ├── ViewControllers/             # UI (incl. LiveActivitiesViewController)
 │   ├── Views/, Utilities/, Design/, Additions/
 └── Resources/
     ├── Colors.xcassets, Images.xcassets
     └── Fonts/{Figtree,RedHatDisplay}
+
+Shared/Sources/LiveActivitiesAttributes/   # ActivityKit attribute models (shared with the widget)
+InsiderLiveActivitiesWidget{,SPM,Pods,Carthage}/  # Widget extension (SwiftUI Live Activity UI) per integration
 
 WebView/                             # Used by ExampleWebView{SPM,Pods,Carthage}
 ├── Sources/MainViewController.swift
@@ -332,6 +336,103 @@ After running `pod install`, you need to configure it manually:
 Unlike CocoaPods, SPM and Carthage do not automatically provide the `InsiderInterface.storyboard` file. You need to create it manually in your Notification Content Extension target.
 
 Copy the `InsiderInterface.storyboard` from this project (e.g. `InsiderNotificationContentSPM/InsiderInterface.storyboard`) into your Notification Content Extension target, then open it in Xcode and check the **Inherit Module From Target** box field in the **Identity Inspector** to match your target name.
+
+## Live Activities
+
+The native `Example{SPM,Pods,Carthage}` schemes demonstrate **Live Activities** driven by Insider via the `InsiderLiveActivities` SDK. Tap **Live Activities** in the demo app to start, update, and end three sample activities — **Delivery**, **Workout**, and **Match** — and watch the log output for each SDK call.
+
+The feature is split across three places:
+
+```
+Shared/Sources/LiveActivitiesAttributes/   # ActivityKit attribute + ContentState models (shared by app and widget)
+├── DeliveryActivityAttributes.swift
+├── WorkoutActivityAttributes.swift
+└── MatchActivityAttributes.swift
+
+Native/Sources/LiveActivities/             # Used by the app target only
+├── LiveActivitiesActions.swift            # Thin wrapper over Insider.liveActivities + ActivityKit
+└── AppLogger.swift                        # In-app logger for SDK call results
+
+InsiderLiveActivitiesWidget{,SPM,Pods,Carthage}/  # Widget extension — SwiftUI Live Activity UI
+```
+
+### 1. Define the Activity attributes
+
+Each activity conforms to `InsiderLiveActivitiesAttributes` and exposes an `insiderLiveActivityId`. The nested `ContentState` holds the dynamic values shown on the Lock Screen / Dynamic Island. Both the `ContentState` and any enums it references conform to `Sendable` so they can safely cross concurrency boundaries during `await activity.update(_:)`:
+
+```swift
+import ActivityKit
+import InsiderLiveActivities
+
+@available(iOS 16.1, *)
+public struct DeliveryActivityAttributes: InsiderLiveActivitiesAttributes {
+    public let insiderLiveActivityId: InsiderLiveActivityIdentifier
+    public let courierName: String
+
+    public struct ContentState: Codable, Hashable, Sendable {
+        public var status: DeliveryStatus
+        public var etaMinutes: Int
+    }
+}
+```
+
+### 2. Register push-to-start tokens
+
+So Insider can start activities remotely, register the push-to-start token for each attribute type (iOS 17.2+). See `LiveActivitiesActions.registerPushToStartTokens(forType:label:)`:
+
+```swift
+import ActivityKit
+import InsiderLiveActivities
+import InsiderMobile
+
+if #available(iOS 17.2, *) {
+    try await Insider.liveActivities.register(forType: Activity<DeliveryActivityAttributes>.self)
+}
+```
+
+### 3. Resume activities on launch
+
+On app start, resume any activities Insider is tracking so they reconnect to the SDK. This is wired in [`Shared/Sources/AppDelegate.swift`](Shared/Sources/AppDelegate.swift):
+
+```swift
+if #available(iOS 16.1, *) {
+    Task {
+        try await Insider.liveActivities.resumeActivities(forType: Activity<DeliveryActivityAttributes>.self)
+    }
+}
+```
+
+### 4. Start, update, and end an activity
+
+Start with `Activity.request(...)` using `pushType: .token` so Insider can push updates, then drive state changes with `await activity.update(_:)` and end with `await activity.end(_:)`. See `LiveActivitiesActions` and `LiveActivitiesViewController` for the full flow.
+
+To stop tracking activities of a type — or all of them — use the SDK helpers:
+
+```swift
+await Insider.liveActivities.cancel(forType: Activity<DeliveryActivityAttributes>.self)
+await Insider.liveActivities.cancelAll()
+```
+
+### 5. Render the UI in the widget extension
+
+The widget extension declares one `Widget` per activity in `InsiderLiveActivitiesWidgetBundle`, each backed by an `ActivityConfiguration` for its attribute type:
+
+```swift
+@main
+struct InsiderLiveActivitiesWidgetBundle: WidgetBundle {
+    var body: some Widget {
+        DeliveryLiveActivity()
+        WorkoutLiveActivity()
+        MatchLiveActivity()
+    }
+}
+```
+
+### Configuration
+
+- **`NSSupportsLiveActivities`** (`true`) is set in each app target's `Info.plist`; `NSSupportsLiveActivitiesFrequentUpdates` is also enabled for frequent push updates.
+- The widget extension target must share the same **App Group** as the main app so the SDK can read activity state.
+- Live Activities require **iOS 16.1+** (push-to-start: **iOS 17.2+**) and a physical device or simulator that supports the Dynamic Island / Lock Screen presentation.
 
 ## InsiderWebView
 
