@@ -62,9 +62,9 @@ InsiderNotificationContent{SPM,Pods,Carthage}/
 
 | Scheme | Dependency Manager | Flavor | SDKs |
 |---|---|---|---|
-| `ExampleSPM` | Swift Package Manager | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification |
-| `ExamplePods` | CocoaPods | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification |
-| `ExampleCarthage` | Carthage | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification |
+| `ExampleSPM` | Swift Package Manager | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification, InsiderLiveActivities |
+| `ExamplePods` | CocoaPods | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification, InsiderLiveActivities |
+| `ExampleCarthage` | Carthage | Native | InsiderMobile, InsiderGeofence, InsiderMobileAdvancedNotification, InsiderLiveActivities |
 | `ExampleWebViewSPM` | Swift Package Manager | WebView | InsiderMobile, InsiderWebView |
 | `ExampleWebViewPods` | CocoaPods | WebView | InsiderMobile, InsiderWebView |
 | `ExampleWebViewCarthage` | Carthage | WebView | InsiderMobile, InsiderWebView |
@@ -100,11 +100,11 @@ If you are integrating the SDK into your own project, add the package in Xcode a
 
 3. Select your project under **Add to Project** and click **Add Package**.
 
-<img width="600" src="https://github.com/user-attachments/assets/49f47611-dbf6-44e0-8208-4a2097e0e688" />
+<img width="600" src="https://github.com/user-attachments/assets/57627bd4-0d31-4f9e-98e6-686da1fa8c70" />
 
 > **Important:** When adding the **Insider-iOS-SDK** package, you must add **all SDKs** (including `InsiderMobileAdvancedNotification`) to the **main app target** (e.g. `ExampleSPM`), not to the service or content extension targets.
 >
-> <img width="600" src="https://github.com/user-attachments/assets/25df038d-cbed-4169-8d4d-134b558ddded" />
+> <img width="600" src="https://github.com/user-attachments/assets/6d85de85-297a-466e-a873-b0353568f5cf" />
 
 </details>
 
@@ -120,7 +120,7 @@ Open `Example.xcworkspace` and select the **ExamplePods** scheme.
 The `Podfile` includes:
 
 ```ruby
-platform :ios, '13.0'
+platform :ios, '16.1'
 use_frameworks!
 
 target 'ExamplePods' do
@@ -139,6 +139,11 @@ end
 
 target 'InsiderNotificationContentPods' do
   pod 'InsiderMobileAdvancedNotification'
+end
+
+target 'InsiderLiveActivitiesWidgetPodsExtension' do
+  pod 'InsiderMobile'
+  pod 'InsiderLiveActivities'
 end
 ```
 
@@ -159,6 +164,7 @@ The `Cartfile` includes:
 binary "https://mobilesdk.useinsider.com/carthage/InsiderWebView/1.0.0/InsiderWebView.json"
 binary "https://mobilesdk.useinsider.com/carthage/InsiderGeofence/1.2.4/InsiderGeofence.json"
 binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/15.1.0/InsiderMobile.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderLiveActivities/1.0.0/InsiderLiveActivities.json"
 binary "InsiderMobileAdvancedNotification.json"
 ```
 

@@ -11,10 +11,6 @@
 		21C84AAF2FBDFC9000BDD435 /* InsiderLiveActivities in Frameworks */ = {isa = PBXBuildFile; productRef = 21C84AAE2FBDFC9000BDD435 /* InsiderLiveActivities */; };
 		21C84AB12FBDFC9000BDD435 /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 21C84AB02FBDFC9000BDD435 /* InsiderMobile */; };
 		21C84AB32FBDFC9000BDD435 /* InsiderMobileAdvancedNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 21C84AB22FBDFC9000BDD435 /* InsiderMobileAdvancedNotification */; };
-		21D6A6E72FE9280C00CA3D6E /* InsiderGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 21D6A6E62FE9280C00CA3D6E /* InsiderGeofence */; };
-		21D6A6E92FE9280C00CA3D6E /* InsiderLiveActivities in Frameworks */ = {isa = PBXBuildFile; productRef = 21D6A6E82FE9280C00CA3D6E /* InsiderLiveActivities */; };
-		21D6A6EB2FE9280C00CA3D6E /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 21D6A6EA2FE9280C00CA3D6E /* InsiderMobile */; };
-		21D6A6ED2FE9280C00CA3D6E /* InsiderMobileAdvancedNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 21D6A6EC2FE9280C00CA3D6E /* InsiderMobileAdvancedNotification */; };
 		21D6A6F12FE9286100CA3D6E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DA77A62FBD2D910066C187 /* SwiftUI.framework */; };
 		21DA77A52FBD2D910066C187 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DA77A42FBD2D910066C187 /* WidgetKit.framework */; };
 		21DA77B22FBD2D910066C187 /* InsiderLiveActivitiesWidgetSPMExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 21DA77A32FBD2D900066C187 /* InsiderLiveActivitiesWidgetSPMExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -909,16 +905,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21D6A6E92FE9280C00CA3D6E /* InsiderLiveActivities in Frameworks */,
-				21D6A6E72FE9280C00CA3D6E /* InsiderGeofence in Frameworks */,
 				21C84AAF2FBDFC9000BDD435 /* InsiderLiveActivities in Frameworks */,
 				21DA891F2FBDFBA50066C187 /* InsiderLiveActivities in Frameworks */,
-				21D6A6ED2FE9280C00CA3D6E /* InsiderMobileAdvancedNotification in Frameworks */,
 				21C84AB32FBDFC9000BDD435 /* InsiderMobileAdvancedNotification in Frameworks */,
 				982908082ECCB35D0042EBAB /* InsiderMobileAdvancedNotification in Frameworks */,
 				21DA891D2FBDFBA50066C187 /* InsiderGeofence in Frameworks */,
 				21C84AAD2FBDFC9000BDD435 /* InsiderGeofence in Frameworks */,
-				21D6A6EB2FE9280C00CA3D6E /* InsiderMobile in Frameworks */,
 				21DA89212FBDFBA50066C187 /* InsiderMobile in Frameworks */,
 				21C84AB12FBDFC9000BDD435 /* InsiderMobile in Frameworks */,
 				21DA89232FBDFBA50066C187 /* InsiderMobileAdvancedNotification in Frameworks */,
@@ -1312,10 +1304,6 @@
 				21C84AAE2FBDFC9000BDD435 /* InsiderLiveActivities */,
 				21C84AB02FBDFC9000BDD435 /* InsiderMobile */,
 				21C84AB22FBDFC9000BDD435 /* InsiderMobileAdvancedNotification */,
-				21D6A6E62FE9280C00CA3D6E /* InsiderGeofence */,
-				21D6A6E82FE9280C00CA3D6E /* InsiderLiveActivities */,
-				21D6A6EA2FE9280C00CA3D6E /* InsiderMobile */,
-				21D6A6EC2FE9280C00CA3D6E /* InsiderMobileAdvancedNotification */,
 			);
 			productName = ExampleSPM;
 			productReference = 985C7DBC2EBE252400FF5A6B /* ExampleSPM.app */;
@@ -1507,7 +1495,6 @@
 			mainGroup = 985C7D672EBE24A100FF5A6B;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				21D6A6E52FE9280C00CA3D6E /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 985C7D712EBE24A100FF5A6B /* Products */;
@@ -3436,14 +3423,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		21D6A6E52FE9280C00CA3D6E /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.0;
-			};
-		};
 		989E5B3F2FB3C7A0003FC974 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
@@ -3469,26 +3448,6 @@
 		};
 		21C84AB22FBDFC9000BDD435 /* InsiderMobileAdvancedNotification */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = InsiderMobileAdvancedNotification;
-		};
-		21D6A6E62FE9280C00CA3D6E /* InsiderGeofence */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21D6A6E52FE9280C00CA3D6E /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
-			productName = InsiderGeofence;
-		};
-		21D6A6E82FE9280C00CA3D6E /* InsiderLiveActivities */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21D6A6E52FE9280C00CA3D6E /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
-			productName = InsiderLiveActivities;
-		};
-		21D6A6EA2FE9280C00CA3D6E /* InsiderMobile */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21D6A6E52FE9280C00CA3D6E /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
-			productName = InsiderMobile;
-		};
-		21D6A6EC2FE9280C00CA3D6E /* InsiderMobileAdvancedNotification */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21D6A6E52FE9280C00CA3D6E /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
 			productName = InsiderMobileAdvancedNotification;
 		};
 		21DA891C2FBDFBA50066C187 /* InsiderGeofence */ = {
