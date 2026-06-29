@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		218124732FF2A6C700BC83B8 /* InsiderGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 218124722FF2A6C700BC83B8 /* InsiderGeofence */; };
+		218124752FF2A6C700BC83B8 /* InsiderLiveActivities in Frameworks */ = {isa = PBXBuildFile; productRef = 218124742FF2A6C700BC83B8 /* InsiderLiveActivities */; };
+		218124772FF2A6C700BC83B8 /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 218124762FF2A6C700BC83B8 /* InsiderMobile */; };
+		218124792FF2A6C700BC83B8 /* InsiderMobileAdvancedNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 218124782FF2A6C700BC83B8 /* InsiderMobileAdvancedNotification */; };
 		21C84AAD2FBDFC9000BDD435 /* InsiderGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 21C84AAC2FBDFC9000BDD435 /* InsiderGeofence */; };
 		21C84AAF2FBDFC9000BDD435 /* InsiderLiveActivities in Frameworks */ = {isa = PBXBuildFile; productRef = 21C84AAE2FBDFC9000BDD435 /* InsiderLiveActivities */; };
 		21C84AB12FBDFC9000BDD435 /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 21C84AB02FBDFC9000BDD435 /* InsiderMobile */; };
@@ -905,12 +909,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218124752FF2A6C700BC83B8 /* InsiderLiveActivities in Frameworks */,
+				218124732FF2A6C700BC83B8 /* InsiderGeofence in Frameworks */,
 				21C84AAF2FBDFC9000BDD435 /* InsiderLiveActivities in Frameworks */,
 				21DA891F2FBDFBA50066C187 /* InsiderLiveActivities in Frameworks */,
+				218124792FF2A6C700BC83B8 /* InsiderMobileAdvancedNotification in Frameworks */,
 				21C84AB32FBDFC9000BDD435 /* InsiderMobileAdvancedNotification in Frameworks */,
 				982908082ECCB35D0042EBAB /* InsiderMobileAdvancedNotification in Frameworks */,
 				21DA891D2FBDFBA50066C187 /* InsiderGeofence in Frameworks */,
 				21C84AAD2FBDFC9000BDD435 /* InsiderGeofence in Frameworks */,
+				218124772FF2A6C700BC83B8 /* InsiderMobile in Frameworks */,
 				21DA89212FBDFBA50066C187 /* InsiderMobile in Frameworks */,
 				21C84AB12FBDFC9000BDD435 /* InsiderMobile in Frameworks */,
 				21DA89232FBDFBA50066C187 /* InsiderMobileAdvancedNotification in Frameworks */,
@@ -1304,6 +1312,10 @@
 				21C84AAE2FBDFC9000BDD435 /* InsiderLiveActivities */,
 				21C84AB02FBDFC9000BDD435 /* InsiderMobile */,
 				21C84AB22FBDFC9000BDD435 /* InsiderMobileAdvancedNotification */,
+				218124722FF2A6C700BC83B8 /* InsiderGeofence */,
+				218124742FF2A6C700BC83B8 /* InsiderLiveActivities */,
+				218124762FF2A6C700BC83B8 /* InsiderMobile */,
+				218124782FF2A6C700BC83B8 /* InsiderMobileAdvancedNotification */,
 			);
 			productName = ExampleSPM;
 			productReference = 985C7DBC2EBE252400FF5A6B /* ExampleSPM.app */;
@@ -1495,6 +1507,7 @@
 			mainGroup = 985C7D672EBE24A100FF5A6B;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				218124712FF2A6C700BC83B8 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 985C7D712EBE24A100FF5A6B /* Products */;
@@ -3423,6 +3436,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		218124712FF2A6C700BC83B8 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
 		989E5B3F2FB3C7A0003FC974 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
@@ -3434,6 +3455,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		218124722FF2A6C700BC83B8 /* InsiderGeofence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 218124712FF2A6C700BC83B8 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
+			productName = InsiderGeofence;
+		};
+		218124742FF2A6C700BC83B8 /* InsiderLiveActivities */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 218124712FF2A6C700BC83B8 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
+			productName = InsiderLiveActivities;
+		};
+		218124762FF2A6C700BC83B8 /* InsiderMobile */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 218124712FF2A6C700BC83B8 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
+			productName = InsiderMobile;
+		};
+		218124782FF2A6C700BC83B8 /* InsiderMobileAdvancedNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 218124712FF2A6C700BC83B8 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */;
+			productName = InsiderMobileAdvancedNotification;
+		};
 		21C84AAC2FBDFC9000BDD435 /* InsiderGeofence */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InsiderGeofence;
