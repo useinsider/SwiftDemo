@@ -13,6 +13,7 @@ public final class MainViewController: UIViewController {
     private enum Section: Int, CaseIterable {
         case custom
         case core
+        case liveActivities
         case reinit
         case consent
         case user
@@ -42,7 +43,7 @@ public final class MainViewController: UIViewController {
             switch section {
             case .reinit, .userAttributes, .contentOptimizer:
                 return collectionView.dequeueConfiguredReusableCell(using: inputButtonCell, for: indexPath, item: action)
-            case .custom, .core, .consent, .user, .inapp, .event, .product, .wishlist:
+            case .custom, .core, .liveActivities, .consent, .user, .inapp, .event, .product, .wishlist:
                 return collectionView.dequeueConfiguredReusableCell(using: buttonCell, for: indexPath, item: action)
             }
         }
@@ -57,6 +58,8 @@ public final class MainViewController: UIViewController {
                     headerView.configure(with: "Reinit")
                 case .core:
                     headerView.configure(with: "Core")
+                case .liveActivities:
+                    headerView.configure(with: "Live Activities")
                 case .consent:
                     headerView.configure(with: "Consent")
                 case .user:
@@ -87,6 +90,10 @@ public final class MainViewController: UIViewController {
         AnyAction(RegisterWithQuietPermissionAction()),
         AnyAction(StartTrackingGeofenceAction()),
         AnyAction(AppCardsAction())
+    ]
+
+    private let liveActivitiesActions: [AnyAction] = [
+        AnyAction(OpenLiveActivitiesPageAction())
     ]
 
     private let consentActions: [AnyAction] = [
@@ -226,7 +233,7 @@ public final class MainViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout { sectionIndex, _ in
             guard let section = Section(rawValue: sectionIndex) else { return nil }
             switch section {
-            case .custom:
+            case .custom, .liveActivities:
                 return CollectionViewLayoutProvider.Section.grid(columns: 1, height: .absolute(44))
             case .reinit:
                 return CollectionViewLayoutProvider.Section.grid(columns: 1, height: .absolute(80))
@@ -245,6 +252,7 @@ public final class MainViewController: UIViewController {
         snapshot.appendSections(Section.allCases)
         snapshot.appendItems([AnyAction(CustomAction())], toSection: .custom)
         snapshot.appendItems(coreActions, toSection: .core)
+        snapshot.appendItems(liveActivitiesActions, toSection: .liveActivities)
         snapshot.appendItems([AnyAction(ReinitAction())], toSection: .reinit)
         snapshot.appendItems(consentActions, toSection: .consent)
         snapshot.appendItems(userActions, toSection: .user)
