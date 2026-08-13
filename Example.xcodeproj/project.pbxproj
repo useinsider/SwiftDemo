@@ -2951,6 +2951,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Native;
@@ -2990,6 +2992,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Native;
@@ -3441,7 +3445,7 @@
 			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.1;
+				minimumVersion = 1.9.2;
 			};
 		};
 		989E5B3F2FB3C7A0003FC974 /* XCRemoteSwiftPackageReference "Insider-iOS-SDK" */ = {
@@ -3449,7 +3453,7 @@
 			repositoryURL = "https://github.com/useinsider/Insider-iOS-SDK";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.1;
+				minimumVersion = 1.9.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
