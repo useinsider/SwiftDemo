@@ -8,7 +8,10 @@
 #if canImport(ActivityKit)
 import ActivityKit
 #endif
+// The WebView demo does not link InsiderLiveActivities.
+#if canImport(InsiderLiveActivities)
 import InsiderLiveActivities
+#endif
 import InsiderMobile
 import UIKit
 import UserNotifications
@@ -26,6 +29,7 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
         Insider.initWithLaunchOptions(launchOptions, partnerName: partnerName, appGroup: appGroup)
         Insider.setActiveForegroundPushView()
 
+#if canImport(InsiderLiveActivities)
         if #available(iOS 16.1, *) {
             Task {
                 async let deliveryResume: Void = resume(Activity<DeliveryActivityAttributes>.self, label: "Delivery")
@@ -34,10 +38,12 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
                 _ = await (deliveryResume, workoutResume, matchResume)
             }
         }
+#endif
 
         return true
     }
 
+#if canImport(InsiderLiveActivities)
     @available(iOS 16.1, *)
     private func resume<T: InsiderLiveActivitiesAttributes>(
         _ type: Activity<T>.Type,
@@ -57,6 +63,7 @@ public final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotifi
             AppLogger.shared.log("resumeActivities(\(label)) failed: \(error.localizedDescription)", level: .error)
         }
     }
+#endif
 
     @objc public func insiderCallback(_ context: [String: Any]) {
         if

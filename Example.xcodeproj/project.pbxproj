@@ -36,6 +36,7 @@
 		21DA891F2FBDFBA50066C187 /* InsiderLiveActivities in Frameworks */ = {isa = PBXBuildFile; productRef = 21DA891E2FBDFBA50066C187 /* InsiderLiveActivities */; };
 		21DA89212FBDFBA50066C187 /* InsiderMobile in Frameworks */ = {isa = PBXBuildFile; productRef = 21DA89202FBDFBA50066C187 /* InsiderMobile */; };
 		21DA89232FBDFBA50066C187 /* InsiderMobileAdvancedNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 21DA89222FBDFBA50066C187 /* InsiderMobileAdvancedNotification */; };
+		2C10E02509C044F388847184 /* InsiderMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21DA864C2FBDF9BE0066C187 /* InsiderMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		922747160C3FC403F702E63E /* Pods_ExamplePods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 066E9FB916C7CF290C274BF7 /* Pods_ExamplePods.framework */; };
 		9802E1AC2FB373CC00D8D81F /* InsiderNotificationContentPods.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 981B55702F681567000572AD /* InsiderNotificationContentPods.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9802E1AD2FB373CC00D8D81F /* InsiderNotificationServicePods.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 985C7EDB2EBE321600FF5A6B /* InsiderNotificationServicePods.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -72,6 +73,7 @@
 		989E61C62FB3CA50003FC974 /* InsiderMobileAdvancedNotification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E8A2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework */; };
 		989E61C72FB3CA50003FC974 /* InsiderMobileAdvancedNotification.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 985C7E8A2EBE2C3B00FF5A6B /* InsiderMobileAdvancedNotification.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD398E258666FABE2C3B5A32 /* Pods_InsiderLiveActivitiesWidgetPodsExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78FF43ED3BA5C2925B4820E4 /* Pods_InsiderLiveActivitiesWidgetPodsExtension.framework */; };
+		CD1006FF962A4F27B826B514 /* InsiderMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DA864C2FBDF9BE0066C187 /* InsiderMobile.xcframework */; };
 		CD64D849EE0AF3AA0AFEE056 /* Pods_InsiderNotificationContentPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDCF564AB7C8BDD70D5BEAF8 /* Pods_InsiderNotificationContentPods.framework */; };
 		D8B8208B577434FB69CAED16 /* Pods_ExampleWebViewPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D514E40A0DC325264312DA /* Pods_ExampleWebViewPods.framework */; };
 /* End PBXBuildFile section */
@@ -228,6 +230,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2C10E02509C044F388847184 /* InsiderMobile.xcframework in Embed Frameworks */,
 				980385E42FB3810100632BF4 /* InsiderWebView.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -352,27 +355,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		21DA78602FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "ExampleCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				DeliveryLiveActivity.swift,
-				Info.plist,
-				InsiderLiveActivitiesWidgetBundle.swift,
-				MatchLiveActivity.swift,
-				WorkoutLiveActivity.swift,
-			);
-			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
-		};
-		21DA78612FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "ExampleWebViewCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				DeliveryLiveActivity.swift,
-				InsiderLiveActivitiesWidgetBundle.swift,
-				MatchLiveActivity.swift,
-				WorkoutLiveActivity.swift,
-			);
-			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
-		};
 		21DA78622FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "InsiderLiveActivitiesWidgetSPMExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -478,27 +460,6 @@
 				Info.plist,
 			);
 			target = 9802E1A12FB373CC00D8D81F /* ExampleWebViewPods */;
-		};
-		9802E1B72FB373E000D8D81F /* Exceptions for "ExampleWebViewPods" folder in "ExampleCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
-		};
-		980385EB2FB3810100632BF4 /* Exceptions for "ExampleWebViewPods" folder in "ExampleWebViewCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
-		};
-		980385F12FB3825C00632BF4 /* Exceptions for "ExampleWebViewCarthage" folder in "ExampleCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
 		};
 		980385F22FB3825C00632BF4 /* Exceptions for "ExampleWebViewCarthage" folder in "ExampleWebViewCarthage" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -627,33 +588,12 @@
 			);
 			target = 989E5B342FB3C7A0003FC974 /* ExampleWebViewSPM */;
 		};
-		989E5F542FB3C98D003FC974 /* Exceptions for "ExampleWebViewSPM" folder in "ExampleCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
-		};
-		989E5F552FB3C98D003FC974 /* Exceptions for "ExampleWebViewSPM" folder in "ExampleWebViewCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
-		};
 		989E61C42FB3C9C4003FC974 /* Exceptions for "ExampleCarthage" folder in "ExampleCarthage" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
 			target = 985C7E2C2EBE26DD00FF5A6B /* ExampleCarthage */;
-		};
-		989E61C52FB3C9C4003FC974 /* Exceptions for "ExampleCarthage" folder in "ExampleWebViewCarthage" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 980385D32FB3810100632BF4 /* ExampleWebViewCarthage */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -676,11 +616,9 @@
 		21DA785F2FBD3D100066C187 /* InsiderLiveActivitiesWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				21DA78602FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "ExampleCarthage" target */,
-				21DA78612FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "ExampleWebViewCarthage" target */,
-				21DA78622FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "InsiderLiveActivitiesWidgetSPMExtension" target */,
 				21DA78632FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "InsiderLiveActivitiesWidgetCarthageExtension" target */,
 				21DA78642FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "InsiderLiveActivitiesWidgetPodsExtension" target */,
+				21DA78622FBD3D2B0066C187 /* Exceptions for "InsiderLiveActivitiesWidget" folder in "InsiderLiveActivitiesWidgetSPMExtension" target */,
 			);
 			path = InsiderLiveActivitiesWidget;
 			sourceTree = "<group>";
@@ -700,9 +638,9 @@
 				9802E1972FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentCarthage" target */,
 				9802E1982FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentPods" target */,
 				9802E1992FB3734E00D8D81F /* Exceptions for "Shared" folder in "InsiderNotificationContentSPM" target */,
-				21DA7B252FBD3E1C0066C187 /* Exceptions for "Shared" folder in "InsiderLiveActivitiesWidgetSPMExtension" target */,
 				21DA7B262FBD3E1C0066C187 /* Exceptions for "Shared" folder in "InsiderLiveActivitiesWidgetCarthageExtension" target */,
 				21DA7B272FBD3E1C0066C187 /* Exceptions for "Shared" folder in "InsiderLiveActivitiesWidgetPodsExtension" target */,
+				21DA7B252FBD3E1C0066C187 /* Exceptions for "Shared" folder in "InsiderLiveActivitiesWidgetSPMExtension" target */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -714,17 +652,12 @@
 		};
 		9802E1A02FB373AE00D8D81F /* ExampleWebViewPods */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				9802E1B72FB373E000D8D81F /* Exceptions for "ExampleWebViewPods" folder in "ExampleCarthage" target */,
-				980385EB2FB3810100632BF4 /* Exceptions for "ExampleWebViewPods" folder in "ExampleWebViewCarthage" target */,
-			);
 			path = ExampleWebViewPods;
 			sourceTree = "<group>";
 		};
 		980385F02FB3814600632BF4 /* ExampleWebViewCarthage */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				980385F12FB3825C00632BF4 /* Exceptions for "ExampleWebViewCarthage" folder in "ExampleCarthage" target */,
 				980385F22FB3825C00632BF4 /* Exceptions for "ExampleWebViewCarthage" folder in "ExampleWebViewCarthage" target */,
 			);
 			path = ExampleWebViewCarthage;
@@ -776,7 +709,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				989E61C42FB3C9C4003FC974 /* Exceptions for "ExampleCarthage" folder in "ExampleCarthage" target */,
-				989E61C52FB3C9C4003FC974 /* Exceptions for "ExampleCarthage" folder in "ExampleWebViewCarthage" target */,
 			);
 			path = ExampleCarthage;
 			sourceTree = "<group>";
@@ -807,10 +739,6 @@
 		};
 		989E5B592FB3C7D3003FC974 /* ExampleWebViewSPM */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				989E5F542FB3C98D003FC974 /* Exceptions for "ExampleWebViewSPM" folder in "ExampleCarthage" target */,
-				989E5F552FB3C98D003FC974 /* Exceptions for "ExampleWebViewSPM" folder in "ExampleWebViewCarthage" target */,
-			);
 			path = ExampleWebViewSPM;
 			sourceTree = "<group>";
 		};
@@ -864,6 +792,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1006FF962A4F27B826B514 /* InsiderMobile.xcframework in Frameworks */,
 				980385DB2FB3810100632BF4 /* InsiderWebView.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1174,13 +1103,9 @@
 				980385D62FB3810100632BF4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				21DA785F2FBD3D100066C187 /* InsiderLiveActivitiesWidget */,
 				9802E18E2FB372E600D8D81F /* Shared */,
 				9802E19A2FB3735E00D8D81F /* WebView */,
-				9802E1A02FB373AE00D8D81F /* ExampleWebViewPods */,
 				980385F02FB3814600632BF4 /* ExampleWebViewCarthage */,
-				985C7E2E2EBE26DD00FF5A6B /* ExampleCarthage */,
-				989E5B592FB3C7D3003FC974 /* ExampleWebViewSPM */,
 			);
 			name = ExampleWebViewCarthage;
 			productName = ExampleCarthage;
@@ -1339,12 +1264,8 @@
 				21DA77C82FBD2DA80066C187 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				21DA785F2FBD3D100066C187 /* InsiderLiveActivitiesWidget */,
 				9802E18E2FB372E600D8D81F /* Shared */,
-				9802E1A02FB373AE00D8D81F /* ExampleWebViewPods */,
-				980385F02FB3814600632BF4 /* ExampleWebViewCarthage */,
 				985C7E2E2EBE26DD00FF5A6B /* ExampleCarthage */,
-				989E5B592FB3C7D3003FC974 /* ExampleWebViewSPM */,
 				98E1C84D2FB372C200E2137B /* Native */,
 			);
 			name = ExampleCarthage;
@@ -1526,9 +1447,9 @@
 				981B60042F6970F6000572AD /* InsiderNotificationContentCarthage */,
 				981B556F2F681567000572AD /* InsiderNotificationContentPods */,
 				981B60292F6979B1000572AD /* InsiderNotificationContentSPM */,
-				21DA77A22FBD2D900066C187 /* InsiderLiveActivitiesWidgetSPMExtension */,
 				21DA77BB2FBD2DA70066C187 /* InsiderLiveActivitiesWidgetCarthageExtension */,
 				21DA77D22FBD2DBC0066C187 /* InsiderLiveActivitiesWidgetPodsExtension */,
+				21DA77A22FBD2D900066C187 /* InsiderLiveActivitiesWidgetSPMExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -2302,6 +2223,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
@@ -2345,6 +2267,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
@@ -2386,6 +2309,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
@@ -2425,6 +2349,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
@@ -2656,6 +2581,9 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Native;
@@ -2699,6 +2627,9 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Native;
@@ -2873,6 +2804,9 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Native;
@@ -2912,6 +2846,9 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Native;
@@ -2953,6 +2890,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Native;
@@ -2994,6 +2932,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Native;
@@ -3227,6 +3166,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
@@ -3266,6 +3206,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "InsiderOne needs your permission to read the advertising identifier when IDFA collection is enabled.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = WebView;
