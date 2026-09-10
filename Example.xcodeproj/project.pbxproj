@@ -2305,6 +2305,7 @@
 				INFOPLIST_FILE = ExampleWebViewCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2344,6 +2345,7 @@
 				INFOPLIST_FILE = ExampleWebViewCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2796,6 +2798,7 @@
 				INFOPLIST_FILE = ExampleSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -2837,6 +2840,7 @@
 				INFOPLIST_FILE = ExampleSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -2878,6 +2882,7 @@
 				INFOPLIST_FILE = ExampleCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -2919,6 +2924,7 @@
 				INFOPLIST_FILE = ExampleCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -3154,6 +3160,7 @@
 				INFOPLIST_FILE = ExampleWebViewSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -3193,6 +3200,7 @@
 				INFOPLIST_FILE = ExampleWebViewSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
