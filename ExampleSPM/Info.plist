@@ -17,6 +17,11 @@
 			</array>
 		</dict>
 	</array>
+	<key>Insider</key>
+	<dict>
+		<key>App Frames Enabled</key>
+		<true/>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Figtree-Black.ttf</string>
