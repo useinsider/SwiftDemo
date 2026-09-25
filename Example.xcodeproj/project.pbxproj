@@ -2008,7 +2008,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidgetSPM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -2044,7 +2044,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidgetSPM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -2080,7 +2080,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidgetCarthage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -2116,7 +2116,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidgetCarthage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -2153,7 +2153,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidgetPods;
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -2190,7 +2190,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidgetPods;
+				PRODUCT_BUNDLE_IDENTIFIER = com.useinsider.demo.external.InsiderLiveActivitiesWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -2304,8 +2304,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleWebViewCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2344,8 +2344,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleWebViewCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2797,8 +2797,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -2839,8 +2839,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -2881,8 +2881,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -2923,8 +2923,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleCarthage/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
@@ -3159,8 +3159,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleWebViewSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -3199,8 +3199,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleWebViewSPM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InsiderOne;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "InsiderOne needs your location information to monitor geofence updates.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
