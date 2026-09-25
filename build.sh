@@ -104,11 +104,11 @@ else
     <string>${SIGNING_CERT}</string>
     <key>provisioningProfiles</key>
     <dict>
-        <key>com.useinsider.mobile-ios</key>
+        <key>com.useinsider.demo.external</key>
         <string>Mobile ${PROFILE_SUFFIX}</string>
-        <key>com.useinsider.mobile-ios.InsiderNotificationService</key>
+        <key>com.useinsider.demo.external.InsiderNotificationService</key>
         <string>InsiderNotificationService ${PROFILE_SUFFIX}</string>
-        <key>com.useinsider.mobile-ios.InsiderNotificationContent</key>
+        <key>com.useinsider.demo.external.InsiderNotificationContent</key>
         <string>InsiderNotificationContent ${PROFILE_SUFFIX}</string>
     </dict>
 PROF
