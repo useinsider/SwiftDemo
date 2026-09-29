@@ -1,0 +1,113 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - ready_for_review
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: swiftdemo-run-tests-${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    name: Unit Tests
+    runs-on: macos-26
+    timeout-minutes: 30
+    env:
+      SCHEME: ExampleSPM
+      DEVICE: iPhone 17
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Unit Tests
+        run: |
+          set -euo pipefail
+          xcodebuild test \
+            -workspace Example.xcworkspace \
+            -scheme "$SCHEME" \
+            -destination "platform=iOS Simulator,name=$DEVICE" \
+            -derivedDataPath "$RUNNER_TEMP/unit" \
+            CODE_SIGNING_ALLOWED=NO
+
+  integration-tests:
+    name: Integration Tests
+    runs-on: macos-26
+    timeout-minutes: 90
+    env:
+      DESTINATION: generic/platform=iOS Simulator
+      SPM_SCHEMES: |
+        ExampleSPM
+        ExampleWebViewSPM
+      CARTHAGE_SCHEMES: |
+        ExampleCarthage
+        ExampleWebViewCarthage
+      PODS_SCHEMES: |
+        ExamplePods
+        ExampleWebViewPods
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build
+        run: |
+          set -uo pipefail
+          IFS=$'\n'
+          failures=0
+          echo "### Integration Tests" >> "$GITHUB_STEP_SUMMARY"
+          report() {
+            echo "- $1: $2" >> "$GITHUB_STEP_SUMMARY"
+            if [ "$2" != passed ]; then failures=$((failures + 1)); fi
+          }
+          build() {
+            local manager=$1 schemes=$2 scheme
+            for scheme in $schemes; do
+              echo "::group::$scheme"
+              # One derived data dir per manager: SPM and Carthage both drop InsiderMobile.framework into Build/Products.
+              if xcodebuild build \
+                -workspace Example.xcworkspace \
+                -scheme "$scheme" \
+                -destination "$DESTINATION" \
+                -derivedDataPath "$RUNNER_TEMP/derived-data/$manager" \
+                -clonedSourcePackagesDirPath "$RUNNER_TEMP/packages" \
+                CODE_SIGNING_ALLOWED=NO; then
+                report "$scheme ($manager)" passed
+              else
+                report "$scheme ($manager)" FAILED
+              fi
+              echo "::endgroup::"
+            done
+          }
+
+          build SPM "$SPM_SCHEMES"
+
+          # Schemes are built even when dependency setup fails, so every scheme gets its own result.
+          echo "::group::carthage update"
+          if { command -v carthage >/dev/null || brew install carthage; } \
+            && carthage update --use-xcframeworks --platform iOS; then
+            report "carthage update" passed
+          else
+            report "carthage update" FAILED
+          fi
+          echo "::endgroup::"
+          build Carthage "$CARTHAGE_SCHEMES"
+
+          echo "::group::pod install"
+          if { command -v pod >/dev/null || brew install cocoapods; } && pod install; then
+            report "pod install" passed
+          else
+            report "pod install" FAILED
+          fi
+          echo "::endgroup::"
+          build CocoaPods "$PODS_SCHEMES"
+
+          exit $((failures > 0))

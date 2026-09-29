@@ -85,7 +85,7 @@ public final class MainViewController: UIViewController {
         return dataSource
     }()
 
-    private let coreActions: [AnyAction] = [
+    let coreActions: [AnyAction] = [
         AnyAction(GetInsiderIDAction()),
         AnyAction(RegisterWithQuietPermissionAction()),
         AnyAction(StartTrackingGeofenceAction()),
@@ -93,11 +93,11 @@ public final class MainViewController: UIViewController {
         AnyAction(AppFramesAction())
     ]
 
-    private let liveActivitiesActions: [AnyAction] = [
+    let liveActivitiesActions: [AnyAction] = [
         AnyAction(OpenLiveActivitiesPageAction())
     ]
 
-    private let consentActions: [AnyAction] = [
+    let consentActions: [AnyAction] = [
         AnyAction(SetGDPRAction(enabled: true)),
         AnyAction(SetGDPRAction(enabled: false)),
         AnyAction(SetMobileAppAccessAction(enabled: true)),
@@ -122,14 +122,14 @@ public final class MainViewController: UIViewController {
         AnyAction(SetWhatsAppOptinAction(optin: false))
     ]
 
-    private let userActions: [AnyAction] = [
+    let userActions: [AnyAction] = [
         AnyAction(UserLoginAction()),
         AnyAction(UserLogoutAction()),
         AnyAction(UserLogoutResettingIDAction()),
         AnyAction(UserCustomAttributesAction())
     ]
 
-    private let userAttributesActions: [AnyAction] = [
+    let userAttributesActions: [AnyAction] = [
         AnyAction(SetNameAction()),
         AnyAction(SetSurnameAction()),
         AnyAction(SetEmailAction()),
@@ -143,12 +143,12 @@ public final class MainViewController: UIViewController {
         AnyAction(SetTwitterIDAction())
     ]
 
-    private let inappActions: [AnyAction] = [
+    let inappActions: [AnyAction] = [
         AnyAction(EnableInappMessagesAction()),
         AnyAction(DisableInappMessagesAction())
     ]
 
-    private let wishlistActions: [AnyAction] = [
+    let wishlistActions: [AnyAction] = [
         AnyAction(VisitWishlistAction()),
         AnyAction(VisitWishlistWithCustomParametersAction()),
         AnyAction(AddItemToWishlistAction()),
@@ -159,7 +159,7 @@ public final class MainViewController: UIViewController {
         AnyAction(WishlistClearedWithCustomParametersAction())
     ]
 
-    private let productActions: [AnyAction] = [
+    let productActions: [AnyAction] = [
         AnyAction(VisitProductDetailPageAction()),
         AnyAction(ItemAddedToCartAction()),
         AnyAction(ItemAddedToCartWithCustomParametersAction()),
@@ -171,7 +171,7 @@ public final class MainViewController: UIViewController {
         AnyAction(CartClearedWithCustomParametersAction())
     ]
 
-    private let contentOptimizerActions: [AnyAction] = [
+    let contentOptimizerActions: [AnyAction] = [
         AnyAction(GetContentStringWithoutCacheAction()),
         AnyAction(GetContentStringAction()),
         AnyAction(GetContentBoolWithoutCacheAction()),
@@ -180,7 +180,7 @@ public final class MainViewController: UIViewController {
         AnyAction(GetContentIntAction())
     ]
 
-    private let eventActions: [AnyAction] = [
+    let eventActions: [AnyAction] = [
         AnyAction(VisitHomePageAction()),
         AnyAction(VisitHomePageWithCustomParametersAction()),
         AnyAction(VisitListingPageAction(taxonomy: ["Electronics", "Smartphones", "iPhone"])),
