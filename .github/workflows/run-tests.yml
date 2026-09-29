@@ -33,13 +33,10 @@ jobs:
       - name: Unit Tests
         run: |
           set -euo pipefail
-          udid=$(xcrun simctl list devices available | grep -m1 "    $DEVICE (" | grep -oE '[0-9A-F-]{36}')
-          # xcodebuild gives up on a cold simulator after 60 s, so boot it first.
-          xcrun simctl bootstatus "$udid" -b
           xcodebuild test \
             -workspace Example.xcworkspace \
             -scheme "$SCHEME" \
-            -destination "platform=iOS Simulator,id=$udid" \
+            -destination "platform=iOS Simulator,name=$DEVICE" \
             -derivedDataPath "$RUNNER_TEMP/unit" \
             CODE_SIGNING_ALLOWED=NO
 
@@ -123,12 +120,11 @@ jobs:
           set -euo pipefail
           app="$RUNNER_TEMP/derived-data/SPM/Build/Products/Debug-iphonesimulator/$SMOKE_SCHEME.app"
           bundle_id=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist")
-          udid=$(xcrun simctl list devices available | grep -m1 "    $SMOKE_DEVICE (" | grep -oE '[0-9A-F-]{36}')
-          xcrun simctl bootstatus "$udid" -b
-          xcrun simctl install "$udid" "$app"
-          xcrun simctl launch "$udid" "$bundle_id"
+          xcrun simctl bootstatus "$SMOKE_DEVICE" -b
+          xcrun simctl install "$SMOKE_DEVICE" "$app"
+          xcrun simctl launch "$SMOKE_DEVICE" "$bundle_id"
           sleep 15
-          services=$(xcrun simctl spawn "$udid" launchctl list)
+          services=$(xcrun simctl spawn "$SMOKE_DEVICE" launchctl list)
           if grep -q "UIKitApplication:$bundle_id" <<< "$services"; then
             echo "- $SMOKE_SCHEME launch on $SMOKE_DEVICE: passed (alive after 15 s)" >> "$GITHUB_STEP_SUMMARY"
           else
