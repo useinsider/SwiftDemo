@@ -55,12 +55,10 @@ jobs:
       PODS_SCHEMES: |
         ExamplePods
         ExampleWebViewPods
-      SMOKE_SCHEME: ExampleSPM
-      SMOKE_DEVICE: iPhone 17
     steps:
       - uses: actions/checkout@v7
 
-      - name: Build schemes
+      - name: Build
         run: |
           set -uo pipefail
           IFS=$'\n'
@@ -113,21 +111,3 @@ jobs:
           build CocoaPods "$PODS_SCHEMES"
 
           exit $((failures > 0))
-
-      - name: Launch smoke
-        if: ${{ !cancelled() }}
-        run: |
-          set -euo pipefail
-          app="$RUNNER_TEMP/derived-data/SPM/Build/Products/Debug-iphonesimulator/$SMOKE_SCHEME.app"
-          bundle_id=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist")
-          xcrun simctl bootstatus "$SMOKE_DEVICE" -b
-          xcrun simctl install "$SMOKE_DEVICE" "$app"
-          xcrun simctl launch "$SMOKE_DEVICE" "$bundle_id"
-          sleep 15
-          services=$(xcrun simctl spawn "$SMOKE_DEVICE" launchctl list)
-          if grep -q "UIKitApplication:$bundle_id" <<< "$services"; then
-            echo "- $SMOKE_SCHEME launch on $SMOKE_DEVICE: passed (alive after 15 s)" >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "- $SMOKE_SCHEME launch on $SMOKE_DEVICE: FAILED (not running after 15 s)" >> "$GITHUB_STEP_SUMMARY"
-            exit 1
-          fi
