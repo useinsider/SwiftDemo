@@ -36,8 +36,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "InsiderMobileAdvancedNotification",
-            url: "https://mobilesdk.useinsider.com/iOSNotification/2.4.0/InsiderMobileAdvancedNotification.zip",
-            checksum: "18fa8199f4cb3f529ca6b650248b6bacdb1ea03706366e56c9cad11ba786cd55"
+            url: "https://mobilesdk.useinsider.com/iOSNotification/2.4.1/InsiderMobileAdvancedNotification.zip",
+            checksum: "8db740e809e08ecd89ce4871fdbdd1b805cb53dcb561e74b6e178e33d1bc5409"
         ),
         .target(
             name: "InsiderNotificationContent",

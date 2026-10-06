@@ -161,8 +161,8 @@ Open `Example.xcworkspace` and select the **ExampleCarthage** scheme.
 The `Cartfile` includes:
 
 ```
-binary "https://mobilesdk.useinsider.com/carthage/InsiderWebView/1.0.0/InsiderWebView.json"
-binary "https://mobilesdk.useinsider.com/carthage/InsiderGeofence/1.2.4/InsiderGeofence.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderWebView/1.1.0/InsiderWebView.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderGeofence/1.3.0/InsiderGeofence.json"
 binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/16.2.0/InsiderMobile.json"
 binary "https://mobilesdk.useinsider.com/carthage/InsiderLiveActivities/1.0.0/InsiderLiveActivities.json"
 binary "InsiderMobileAdvancedNotification.json"
