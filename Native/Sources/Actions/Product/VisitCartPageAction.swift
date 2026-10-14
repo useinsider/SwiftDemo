@@ -32,6 +32,6 @@ public struct VisitCartPageAction: Action {
             price: 149.99,
             currency: "USD"
         )
-        Insider.visitCartPage(withProducts: [product1!, product2!])
+        Insider.visitCartPage(withProducts: [product1, product2])
     }
 }

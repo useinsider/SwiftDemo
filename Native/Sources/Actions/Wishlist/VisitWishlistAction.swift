@@ -23,6 +23,6 @@ public struct VisitWishlistAction: Action {
             price: 99.99,
             currency: "USD"
         )
-        Insider.visitWishlist(withProducts: [product!])
+        Insider.visitWishlist(withProducts: [product])
     }
 }
