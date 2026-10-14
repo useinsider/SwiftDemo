@@ -193,7 +193,7 @@ public final class CustomEventViewController: UIViewController {
             return
         }
         // Create the event
-        let event = Insider.tagEvent(eventName)!
+        let event = Insider.tagEvent(eventName)
 
         // Add parameters
         for view in parameterViews {
