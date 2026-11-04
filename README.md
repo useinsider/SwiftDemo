@@ -18,9 +18,9 @@ This project demonstrates how to integrate the [Insider iOS SDK](https://academy
 
 | Requirement | Minimum |
 |---|---|
-| iOS | 12.0 (SPM) / 13.0 (CocoaPods) |
+| iOS | 13.0 |
 | Swift | 5.3+ |
-| Xcode | 14.0+ |
+| Xcode | 16.0+ |
 
 ## Project Structure
 
@@ -163,7 +163,7 @@ The `Cartfile` includes:
 ```
 binary "https://mobilesdk.useinsider.com/carthage/InsiderWebView/1.1.1/InsiderWebView.json"
 binary "https://mobilesdk.useinsider.com/carthage/InsiderGeofence/1.3.0/InsiderGeofence.json"
-binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/16.4.0/InsiderMobile.json"
+binary "https://mobilesdk.useinsider.com/carthage/InsiderMobile/16.5.0/InsiderMobile.json"
 binary "https://mobilesdk.useinsider.com/carthage/InsiderLiveActivities/1.1.0/InsiderLiveActivities.json"
 binary "InsiderMobileAdvancedNotification.json"
 ```
