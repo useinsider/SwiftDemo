@@ -425,8 +425,6 @@
             <button class="btn" onclick="didTouchSetGDPRConsent(false)">GDPR Consent (false)</button>
             <button class="btn" onclick="didTouchSetMobileAppAccess(true)">Mobile App Access (true)</button>
             <button class="btn" onclick="didTouchSetMobileAppAccess(false)">Mobile App Access (false)</button>
-            <button class="btn" onclick="didTouchEnableIDFACollection(true)">Enable IDFA Collection (true)</button>
-            <button class="btn" onclick="didTouchEnableIDFACollection(false)">Enable IDFA Collection (false)</button>
             <button class="btn" onclick="didTouchEnableIpCollection(true)">Enable IP Collection (true)</button>
             <button class="btn" onclick="didTouchEnableIpCollection(false)">Enable IP Collection (false)</button>
             <button class="btn" onclick="didTouchEnableCarrierCollection(true)">Enable Carrier Collection (true)</button>
@@ -807,10 +805,6 @@
     async function didTouchSetMobileAppAccess(access) {
         try { await window.insider.setMobileAppAccess(access); logInfo('Mobile app access set to', access); }
         catch (error) { logError('Error setting mobile app access', error); }
-    }
-    function didTouchEnableIDFACollection(enable) {
-        // iOS-only — no IDFA on web.
-        logUnsupported('Enable IDFA Collection (' + enable + ')');
     }
     async function didTouchEnableIpCollection(enable) {
         try { await window.insider.enableIpCollection(enable); logInfo('IP collection set to', enable); }
