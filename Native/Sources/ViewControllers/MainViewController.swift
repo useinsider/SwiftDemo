@@ -102,8 +102,6 @@ public final class MainViewController: UIViewController {
         AnyAction(SetGDPRAction(enabled: false)),
         AnyAction(SetMobileAppAccessAction(enabled: true)),
         AnyAction(SetMobileAppAccessAction(enabled: false)),
-        AnyAction(EnableIDFACollectionAction(enabled: true)),
-        AnyAction(EnableIDFACollectionAction(enabled: false)),
         AnyAction(EnableIPCollectionAction(enabled: true)),
         AnyAction(EnableIPCollectionAction(enabled: false)),
         AnyAction(EnableCarrierCollectionAction(enabled: true)),
