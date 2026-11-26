@@ -85,9 +85,9 @@ public final class AppCardsViewController: UITableViewController {
 
     @objc private func refresh() {
         Task { @MainActor in
+            defer { self.refreshControl?.endRefreshing() }
             if tableView.isEditing { toggleEditMode() }
             let campaigns = try await Insider.appCards().getCampaigns()
-            self.refreshControl?.endRefreshing()
             self.messages = campaigns.appCards
             self.tableView.reloadData()
         }

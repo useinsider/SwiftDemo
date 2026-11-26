@@ -42,7 +42,10 @@ public final class NotificationService: UNNotificationServiceExtension {
     ) {
         guard
             let bestAttemptContent = request.content.mutableCopy() as? UNMutableNotificationContent
-        else { return }
+        else {
+            contentHandler(request.content)
+            return
+        }
         defer {
             self.contentHandler = contentHandler
             self.bestAttemptContent = bestAttemptContent
@@ -63,6 +66,7 @@ public final class NotificationService: UNNotificationServiceExtension {
             )
         } else {
             // Handle other rich push providers in here.
+            contentHandler(bestAttemptContent)
         }
     }
 

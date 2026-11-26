@@ -109,6 +109,8 @@ public final class LiveActivitiesViewController: UIViewController {
         return f
     }()
 
+    private var activityUpdateTasks: [Task<Void, Never>] = []
+
     // MARK: - Lifecycle
 
     public override func viewDidLoad() {
@@ -133,13 +135,12 @@ public final class LiveActivitiesViewController: UIViewController {
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
-
-        observeActivityUpdates()
     }
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         activeTab()?.refresh()
+        observeActivityUpdates()
     }
 
     public override func viewDidLayoutSubviews() {
@@ -157,6 +158,7 @@ public final class LiveActivitiesViewController: UIViewController {
 
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        stopObservingActivityUpdates()
     }
 
     deinit {
@@ -625,22 +627,31 @@ public final class LiveActivitiesViewController: UIViewController {
 
     // MARK: - Activity update observation
 
+    // These tasks only refresh the tabs; the SDK tracks the activities themselves from AppDelegate's resumeActivities.
     private func observeActivityUpdates() {
-        Task { [weak self] in
-            for await _ in Activity<DeliveryActivityAttributes>.activityUpdates {
-                await MainActor.run { self?.deliveryTab.refresh() }
-            }
-        }
-        Task { [weak self] in
-            for await _ in Activity<WorkoutActivityAttributes>.activityUpdates {
-                await MainActor.run { self?.workoutTab.refresh() }
-            }
-        }
-        Task { [weak self] in
-            for await _ in Activity<MatchActivityAttributes>.activityUpdates {
-                await MainActor.run { self?.matchTab.refresh() }
-            }
-        }
+        stopObservingActivityUpdates()
+        activityUpdateTasks = [
+            Task { [weak self] in
+                for await _ in Activity<DeliveryActivityAttributes>.activityUpdates {
+                    await MainActor.run { self?.deliveryTab.refresh() }
+                }
+            },
+            Task { [weak self] in
+                for await _ in Activity<WorkoutActivityAttributes>.activityUpdates {
+                    await MainActor.run { self?.workoutTab.refresh() }
+                }
+            },
+            Task { [weak self] in
+                for await _ in Activity<MatchActivityAttributes>.activityUpdates {
+                    await MainActor.run { self?.matchTab.refresh() }
+                }
+            },
+        ]
+    }
+
+    private func stopObservingActivityUpdates() {
+        activityUpdateTasks.forEach { $0.cancel() }
+        activityUpdateTasks.removeAll()
     }
 
     // MARK: - Log rendering
