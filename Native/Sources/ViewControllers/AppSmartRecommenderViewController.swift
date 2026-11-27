@@ -14,6 +14,8 @@ public final class AppSmartRecommenderViewController: UIViewController {
 
     private var productsReferenceId = ""
 
+    private var latestRequestToken = 0
+
     private weak var activeTextField: UITextField?
 
     private var lastScrollViewHeight: CGFloat = 0
@@ -495,9 +497,12 @@ public final class AppSmartRecommenderViewController: UIViewController {
         let locale = localeTextField.trimmedText
         let identifiers = makeIdentifiers()
         let recommender = Insider.appSmartRecommender()
+        latestRequestToken += 1
+        let requestToken = latestRequestToken
         inFlightRequestCount += 1
 
         Task { @MainActor in
+            defer { self.inFlightRequestCount -= 1 }
             do {
                 let response: InsiderAppSmartRecommenderProductsResponseModel
                 switch (locale.isEmpty, identifiers) {
@@ -515,11 +520,12 @@ public final class AppSmartRecommenderViewController: UIViewController {
                                                                  identifiers: identifiers,
                                                                  query: query)
                 }
+                guard requestToken == self.latestRequestToken else { return }
                 self.show(response)
             } catch {
+                guard requestToken == self.latestRequestToken else { return }
                 self.resultLabel.text = self.describe(error)
             }
-            self.inFlightRequestCount -= 1
             self.productsCollectionView.reloadData()
             self.productsCollectionView.setContentOffset(.zero, animated: false)
         }
