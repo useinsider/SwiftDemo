@@ -90,7 +90,8 @@ public final class MainViewController: UIViewController {
         AnyAction(RegisterWithQuietPermissionAction()),
         AnyAction(StartTrackingGeofenceAction()),
         AnyAction(AppCardsAction()),
-        AnyAction(AppFramesAction())
+        AnyAction(AppFramesAction()),
+        AnyAction(AppSmartRecommenderAction())
     ]
 
     let liveActivitiesActions: [AnyAction] = [
